@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'wirble'
-require 'sketches'
 
 Wirble.init
 Wirble.colorize
@@ -8,5 +7,3 @@ Wirble.colorize
    require 'logger'
    RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
  end
-
- Sketches.config :editor => 'vim'
