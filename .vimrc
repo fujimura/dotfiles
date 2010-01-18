@@ -1,13 +1,13 @@
 filetype plugin on
 set hlsearch
-set showcmd		" Show (partial) command in status line.
+set showcmd	
 set cmdheight=1
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental searchi
+set showmatch		
+set ignorecase	
+set smartcase		
+set incsearch		
 set laststatus=2
-set mouse=a		" Enable mouse usage (all modes) in terminals
+set mouse=a		
 set ttymouse=xterm2
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
@@ -27,7 +27,6 @@ set clipboard+=unnamed
 set smartindent
 set nobackup
 set noswapfile
-set lines=80
 
 imap <C-Space> <C-x><C-o>
 set nocompatible
@@ -37,7 +36,7 @@ syntax on
 filetype on
 filetype indent on
 filetype plugin on
-colorscheme desert
+colorscheme koehler
 
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
@@ -55,3 +54,7 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
+
+hi Pmenu ctermbg=lightcyan ctermfg=black
+hi PmenuSel ctermbg=lightcyan ctermfg=white
+hi PmenuSbar ctermbg=lightcyan ctermfg=black
