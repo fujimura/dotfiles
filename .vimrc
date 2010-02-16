@@ -37,8 +37,6 @@ filetype on
 filetype indent on
 filetype plugin on
 colorscheme elflord
-set cursorline
-highlight CursorColumn ctermbg=white
 
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
