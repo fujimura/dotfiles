@@ -16,8 +16,8 @@ compinit
 autoload colors
 colors
 SPROMPT="%B%{${bg[green]}%}%r ? %{${reset_color}%}%b n,y,a,e :"
-PROMPT="%B%{${fg[green]}%}%n@%m %~% %(!.#.$) %{${reset_color}%}%b"
-RPROMPT="%{${fg[magenta]}%}%*%{${reset_color}%}%"
+PROMPT="%B%{${fg[green]}%}$ %{${reset_color}%}%b"
+RPROMPT="%B%{${fg[green]}%}%n@%m %~% %(!.#.$) %{${reset_color}%}%b"
 
 
 autoload history-search-end
