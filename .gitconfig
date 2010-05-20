@@ -1,0 +1,21 @@
+[core]
+  pager = less
+  editor = vi
+[color]
+  status = auto
+  diff = auto
+[alias]
+  st = status
+  s = status
+  di = diff
+  d  = diff
+  ci = commit -v
+  commit = commit -v
+  co = checkout
+  ad = add
+  lp = log --stat -p
+[user]
+	name = fujimura
+	email = ffujimurah@gmail.com
+[github]
+	user = fujimura
