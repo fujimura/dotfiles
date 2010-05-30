@@ -24,15 +24,17 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^r" history-incremental-search-backward
+
+alias v='vi'
 alias lv='lv -c'
 alias ls='ls --color=auto'
 alias g='git'
+alias gi='git'
 alias s='git status'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias sx='screen -x'
-#export PATH=/var/lib/gems/1.8/bin:$PATH
+export PATH=/var/lib/gems/1.8/bin:$PATH
 
 if [[ -s /home/fu/.rvm/scripts/rvm ]] ; then source /home/fu/.rvm/scripts/rvm ; fi
-

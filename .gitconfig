@@ -13,6 +13,7 @@
   commit = commit -v
   co = checkout
   ad = add
+  l = log
   lp = log --stat -p
 [user]
 	name = fujimura
