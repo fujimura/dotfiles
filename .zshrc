@@ -37,4 +37,4 @@ alias egrep='egrep --color=auto'
 alias sx='screen -x'
 export PATH=/var/lib/gems/1.8/bin:$PATH
 
-if [[ -s /home/fu/.rvm/scripts/rvm ]] ; then source /home/fu/.rvm/scripts/rvm ; fi
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
