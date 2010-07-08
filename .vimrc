@@ -1,13 +1,13 @@
 filetype plugin on
 set hlsearch
-set showcmd	
+set showcmd
 set cmdheight=1
-set showmatch		
-set ignorecase	
-set smartcase		
-set incsearch		
+set showmatch
+set ignorecase
+set smartcase
+set incsearch
 set laststatus=2
-set mouse=a		
+set mouse=a
 set ttymouse=xterm2
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
@@ -40,15 +40,14 @@ colorscheme elflord
 
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
-inoremap % %%<LEFT>
 inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
+inoremap ( ()
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
-vnoremap { "zdi^V{<C-R>z}<ESC>
-vnoremap [ "zdi^V[<C-R>z]<ESC>
-vnoremap ( "zdi^V(<C-R>z)<ESC>
-vnoremap " "zdi^V"<C-R>z^V"<ESC>
+vnoremap { "zdi{<C-R>z}<ESC>
+vnoremap [ "zdi[<C-R>z]<ESC>
+vnoremap ( "zdi(<C-R>z)<ESC>
+vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 
 if exists('&ambiwidth')
@@ -57,7 +56,7 @@ endif
 
 hi Pmenu ctermbg=lightcyan ctermfg=black
 hi PmenuSel ctermbg=lightcyan ctermfg=white
-hi PmenuSbar ctermbg=lightcyan ctermfg=black 
+hi PmenuSbar ctermbg=lightcyan ctermfg=black
 
 
 highlight WideSpace ctermbg=darkred guibg=red
