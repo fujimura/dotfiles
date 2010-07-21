@@ -31,10 +31,10 @@ alias ls='ls --color=auto'
 alias g='git'
 alias gi='git'
 alias s='git status'
+alias d='git diff'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias sx='screen -x'
 alias tl='tail -f log/development.log'
 
 export PATH=/var/lib/gems/1.8/bin:$PATH

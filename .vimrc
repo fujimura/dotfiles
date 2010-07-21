@@ -40,8 +40,9 @@ colorscheme elflord
 
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
+inoremap % %%<LEFT>
 inoremap [ []<LEFT>
-inoremap ( ()
+inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 vnoremap { "zdi{<C-R>z}<ESC>
