@@ -1,7 +1,5 @@
 require 'rubygems'
 require 'wirble'
-require 'looksee/shortcuts'
-require 'ap'
 
 Wirble.init
 Wirble.colorize
