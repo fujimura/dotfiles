@@ -50,6 +50,7 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
+inoremap <tab> <c-n>
 
 if exists('&ambiwidth')
   set ambiwidth=double
