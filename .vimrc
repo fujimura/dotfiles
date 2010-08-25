@@ -12,6 +12,7 @@ set ttymouse=xterm2
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
+autocmd! bufwritepost .vimrc source %
 set ambiwidth=double
 set expandtab
 set shiftwidth=2
@@ -51,6 +52,21 @@ vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 inoremap <tab> <c-n>
+nnoremap enc O# -*- encoding: utf-8 -*-<esc>
+nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+noremap <C-k> <C-w>k
+noremap <C-j> <C-w>j
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+noremap <space> /
+nmap <leader>w :wq<cr>
+nmap <leader>q :q<cr>
+nmap <leader>e :call WriteAndE()<cr>
+function! WriteAndE()
+  :w
+  :E
+endfunction
+command Vimrc e ~/.vimrc
 
 if exists('&ambiwidth')
   set ambiwidth=double
