@@ -1,9 +1,15 @@
 #! /bin/sh
 file=~/log
 done=$1
-if test ${done}
+time=`date +%Y/%m/%d\ %H:%M\ `
+
+if [[ ${done} == 'done' ]]
 then
-  echo `date +%Y/%m/%d\ %H:%M\ ` $done >> $file
-else
+  sed -i '$s/$/ *done*/g' $file
   tail -n1 $file
+elif test ${done}
+then
+  echo $time $done >> $file
+else
+  tail -n5 $file
 fi

@@ -41,6 +41,8 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tl='tail -f log/development.log'
 
+alias t='~/time.sh'
+
 alias mysql='mysql5 -p'
 alias mysqldump='mysqldump5'
 
