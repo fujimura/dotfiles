@@ -1,3 +1,4 @@
+set nocompatible
 filetype plugin on
 set hlsearch
 set showcmd
@@ -28,9 +29,9 @@ set clipboard+=unnamed
 set smartindent
 set nobackup
 set noswapfile
+set title
 
 imap <C-Space> <C-x><C-o>
-set nocompatible
 set number
 set whichwrap=4
 syntax on
@@ -41,7 +42,6 @@ colorscheme elflord
 
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
-inoremap % %%<LEFT>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
@@ -53,20 +53,9 @@ vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 inoremap <tab> <c-n>
 nnoremap enc O# -*- encoding: utf-8 -*-<esc>
-nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
-noremap <C-k> <C-w>k
-noremap <C-j> <C-w>j
-noremap <C-h> <C-w>h
-noremap <C-l> <C-w>l
+nnoremap <Esc><Esc> :<C-u>noh<Return>
 noremap <space> /
-nmap <leader>w :wq<cr>
-nmap <leader>q :q<cr>
-nmap <leader>e :call WriteAndE()<cr>
-function! WriteAndE()
-  :w
-  :E
-endfunction
-command Vimrc e ~/.vimrc
+
 
 if exists('&ambiwidth')
   set ambiwidth=double

@@ -26,19 +26,28 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^r" history-incremental-search-backward
 
 alias v='vi'
+alias vimrc='vi ~/.vimrc'
+alias zshrc='vi ~/.zshrc'
 alias lv='lv -c'
 #alias ls='ls --color=auto'
 alias g='git'
+alias be='bundle exec'
 alias gi='git'
 alias s='git status'
 alias d='git diff'
+alias gd='git diff'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tl='tail -f log/development.log'
 
-alias gosh='rlwrap gosh'
+alias mysql='mysql5 -p'
+alias mysqldump='mysqldump5'
 
+alias gosh='rlwrap gosh'
+export RUBYOPT=-Ku
+export PATH=/opt/local/bin:$PATH
+export PATH=/opt/local/sbin:$PATH
 export PATH=/var/lib/gems/1.8/bin:$PATH
 
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
