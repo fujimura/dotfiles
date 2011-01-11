@@ -40,6 +40,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tl='tail -f log/development.log'
+alias api='open ~/railsapi/index.html'
 
 alias t='~/time.sh'
 
@@ -51,5 +52,6 @@ export RUBYOPT=-Ku
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
 export PATH=/var/lib/gems/1.8/bin:$PATH
+export EDITOR=vi
 
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
