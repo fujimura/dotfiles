@@ -14,7 +14,7 @@
   co = checkout
   ad = add
   l = log
-  lp = log --stat -p
+  lp = log --stat -p --graph
 [user]
 	name = fujimura
 	email = ffujimurah@gmail.com
