@@ -38,6 +38,7 @@ syntax on
 filetype on
 filetype indent on
 filetype plugin on
+set t_Co=256
 colorscheme elflord
 
 inoremap { {}<LEFT>
@@ -61,10 +62,15 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-hi Pmenu ctermbg=lightcyan ctermfg=black
-hi PmenuSel ctermbg=lightcyan ctermfg=white
-hi PmenuSbar ctermbg=lightcyan ctermfg=black
+highlight LineNr ctermfg=240
+highlight StatusLine ctermfg=243
+highlight StatusLine ctermbg=15
+highlight StatusLineNC ctermfg=240
+highlight StatusLineNC ctermbg=15
 
+hi Pmenu ctermbg=lightcyan ctermfg=black
+hi PmenuSel ctermbg=cyan ctermfg=black
+hi PmenuSbar ctermbg=lightcyan ctermfg=black
 
 highlight WideSpace ctermbg=darkred guibg=red
 highlight EOLSpace ctermbg=darkred guibg=red
@@ -82,4 +88,5 @@ function! s:highlight_general_checkstyles()
  let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
 endf
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
+au BufRead,BufNewFile *.scss set filetype=scss
 call s:highlight_general_checkstyles()
