@@ -15,3 +15,22 @@ elsif defined?(Rails)
     ActiveRecord::Base.logger = Rails.logger
   end
 end
+
+class Array
+  def self.sample(count = nil)
+    count ||= 10
+    %w(one two three four five six seven eight nine ten)[0.. count-1]
+  end
+end
+
+class Hash
+  def self.sample(count = nil)
+    count ||= 10
+    a = Array.sample(count)
+    Hash.new.tap do |h|
+      (0..count-1).map do |i|
+        h[a[i]] = i + 1
+      end
+    end
+  end
+end
