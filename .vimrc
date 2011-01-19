@@ -62,15 +62,16 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-highlight LineNr ctermfg=240
+highlight LineNr ctermfg=244
 highlight StatusLine ctermfg=243
 highlight StatusLine ctermbg=15
 highlight StatusLineNC ctermfg=240
 highlight StatusLineNC ctermbg=15
 
-hi Pmenu ctermbg=lightcyan ctermfg=black
-hi PmenuSel ctermbg=cyan ctermfg=black
-hi PmenuSbar ctermbg=lightcyan ctermfg=black
+hi Pmenu ctermbg=49 ctermfg=15
+hi PmenuSel ctermbg=49 ctermfg=0
+hi PmenuSbar ctermbg=49 ctermfg=0
+
 
 highlight WideSpace ctermbg=darkred guibg=red
 highlight EOLSpace ctermbg=darkred guibg=red
