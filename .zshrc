@@ -17,7 +17,7 @@ autoload colors
 colors
 SPROMPT="%B%{${bg[green]}%}%r ? %{${reset_color}%}%b n,y,a,e :"
 PROMPT="%B%{${fg[green]}%}$ %{${reset_color}%}%b"
-RPROMPT="%B%{${fg[green]}%}%n@%m %~% %(!.#.) %{${reset_color}%}%b"
+RPROMPT="%B%{${fg[green]}%}%n@%m %~% %(!.#.)%{${reset_color}%}"
 
 
 autoload history-search-end
@@ -41,6 +41,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tl='tail -f log/development.log'
 alias api='open ~/railsapi/index.html'
+alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
 
 alias t='~/time.sh'
 
