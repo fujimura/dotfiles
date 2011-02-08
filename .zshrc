@@ -15,9 +15,11 @@ compinit
 
 autoload colors
 colors
-SPROMPT="%B%{${bg[green]}%}%r ? %{${reset_color}%}%b n,y,a,e :"
-PROMPT="%B%{${fg[green]}%}$ %{${reset_color}%}%b"
-RPROMPT="%B%{${fg[green]}%}%n@%m %~% %(!.#.)%{${reset_color}%}"
+
+ZSH_FG=222
+SPROMPT="%B%F{255}%K{200}%r ? %f%k%}%b n,y,a,e :"
+PROMPT="%F{$ZSH_FG}$ %f"
+RPROMPT="%F{$ZSH_FG}%n@%m %~% %(!.#.) %f"
 
 
 autoload history-search-end
