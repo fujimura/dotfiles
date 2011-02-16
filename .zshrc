@@ -16,10 +16,10 @@ compinit
 autoload colors
 colors
 
-ZSH_FG=222
+ZSH_FG=84
 SPROMPT="%B%F{255}%K{200}%r ? %f%k%}%b n,y,a,e :"
-PROMPT="%F{$ZSH_FG}$ %f"
-RPROMPT="%F{$ZSH_FG}%n@%m %~% %(!.#.) %f"
+PROMPT="%B%F{$ZSH_FG}$ %f%b"
+RPROMPT="%B%F{$ZSH_FG}%n@%m %~% %(!.#.) %f%b"
 
 
 autoload history-search-end
@@ -44,6 +44,7 @@ alias egrep='egrep --color=auto'
 alias tl='tail -f log/development.log'
 alias api='open ~/railsapi/index.html'
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
+alias gems='cd /opt/local/lib/ruby/gems/1.8/gems/'
 
 alias t='~/time.sh'
 
