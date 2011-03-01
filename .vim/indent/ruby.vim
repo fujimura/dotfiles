@@ -50,23 +50,23 @@ let s:skip_expr =
       \ "synIDattr(synID(line('.'),col('.'),0),'name') =~ '".s:syng_strcom."'"
 
 " Regex used for words that, at the start of a line, add a level of indent.
-let s:ruby_indent_keywords = '^\s*\zs\<\%(module\|class\|def\|if\|for' .
+let s:ruby_indent_keywords = '^\s*\zs\<\%(module\|class\|def\|if' .
       \ '\|while\|until\|else\|elsif\|case\|when\|unless\|begin\|ensure' .
       \ '\|rescue\)\>' .
       \ '\|\%([*+/,=:-]\|<<\|>>\)\s*\zs' .
-      \    '\<\%(if\|for\|while\|until\|case\|unless\|begin\)\>'
+      \    '\<\%(if\|while\|until\|case\|unless\|begin\)\>'
 
 " Regex used for words that, at the start of a line, remove a level of indent.
 let s:ruby_deindent_keywords =
       \ '^\s*\zs\<\%(ensure\|else\|rescue\|elsif\|when\|end\)\>'
 
 " Regex that defines the start-match for the 'end' keyword.
-"let s:end_start_regex = '\%(^\|[^.]\)\<\%(module\|class\|def\|if\|for\|while\|until\|case\|unless\|begin\|do\)\>'
+"let s:end_start_regex = '\%(^\|[^.]\)\<\%(module\|class\|def\|if\|while\|until\|case\|unless\|begin\|do\)\>'
 " TODO: the do here should be restricted somewhat (only at end of line)?
-let s:end_start_regex = '^\s*\zs\<\%(module\|class\|def\|if\|for' .
+let s:end_start_regex = '^\s*\zs\<\%(module\|class\|def\|if' .
       \ '\|while\|until\|case\|unless\|begin\)\>' .
       \ '\|\%([*+/,=:-]\|<<\|>>\)\s*\zs' .
-      \    '\<\%(if\|for\|while\|until\|case\|unless\|begin\)\>' .
+      \    '\<\%(if\|while\|until\|case\|unless\|begin\)\>' .
       \ '\|\<do\>'
 
 " Regex that defines the middle-match for the 'end' keyword.
@@ -78,7 +78,7 @@ let s:end_end_regex = '\%(^\|[^.:@$]\)\@<=\<end\>'
 " Expression used for searchpair() call for finding match for 'end' keyword.
 let s:end_skip_expr = s:skip_expr .
       \ ' || (expand("<cword>") == "do"' .
-      \ ' && getline(".") =~ "^\\s*\\<while\\|until\\|for\\>")'
+      \ ' && getline(".") =~ "^\\s*\\<while\\|until\\>")'
 
 " Regex that defines continuation lines, not including (, {, or [.
 let s:continuation_regex = '\%([\\*+/.,=:-]\|\W[|&?]\|||\|&&\)\s*\%(#.*\)\=$'
