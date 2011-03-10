@@ -5,8 +5,8 @@
   status = auto
   diff = auto
 [alias]
-  st = status
-  s = status
+  st = status -bs
+  s = status -bs
   di = diff
   d  = diff
   ci = commit -v
