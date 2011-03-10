@@ -16,7 +16,7 @@ compinit
 autoload colors
 colors
 
-ZSH_FG=84
+ZSH_FG=45
 SPROMPT="%B%F{255}%K{200}%r ? %f%k%}%b n,y,a,e :"
 PROMPT="%B%F{$ZSH_FG}$ %f%b"
 RPROMPT="%B%F{$ZSH_FG}%n@%m %~% %(!.#.) %f%b"
