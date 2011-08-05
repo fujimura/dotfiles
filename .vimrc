@@ -52,26 +52,25 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
+vnoremap [C-c] [Esc][Esc]
+nnoremap <Esc><Esc> :<C-u>noh<Return>
 inoremap <tab> <c-n>
 nnoremap enc O# -*- encoding: utf-8 -*-<esc>
-nnoremap <Esc><Esc> :<C-u>noh<Return>
 noremap <space> /
-
 
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
 highlight LineNr ctermfg=244
-highlight StatusLine ctermfg=243
-highlight StatusLine ctermbg=15
-highlight StatusLineNC ctermfg=240
-highlight StatusLineNC ctermbg=15
+highlight StatusLine ctermfg=245
+highlight StatusLine ctermbg=237
+highlight StatusLineNC ctermfg=237
+highlight StatusLineNC ctermbg=245
 
-hi Pmenu ctermbg=49 ctermfg=15
-hi PmenuSel ctermbg=49 ctermfg=0
-hi PmenuSbar ctermbg=49 ctermfg=0
-
+highlight Pmenu ctermbg=39 ctermfg=15
+highlight PmenuSel ctermbg=39 ctermfg=0
+highlight PmenuSbar ctermbg=39 ctermfg=0
 
 highlight WideSpace ctermbg=darkred guibg=red
 highlight EOLSpace ctermbg=darkred guibg=red
@@ -80,6 +79,8 @@ highlight SpaceAndComma ctermbg=darkred guibg=red
 highlight CommaAndNonSpace ctermbg=darkred guibg=red
 highlight HashRocketAndNonSpace ctermbg=darkred guibg=red
 highlight NonSpaceAndHashRocket ctermbg=darkred guibg=red
+"TODO
+highlight Todo ctermbg=255 ctermfg=0
 
 function! s:highlight_general_checkstyles()
  let w:m1=matchadd('WideSpace', '　', -1)
