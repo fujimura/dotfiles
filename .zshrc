@@ -16,10 +16,10 @@ compinit
 autoload colors
 colors
 
-ZSH_FG=45
+ZSH_FG=205
 SPROMPT="%B%F{255}%K{200}%r ? %f%k%}%b n,y,a,e :"
-PROMPT="%B%F{$ZSH_FG}$ %f%b"
-RPROMPT="%B%F{$ZSH_FG}%n@%m %~% %(!.#.) %f%b"
+PROMPT="%F{255}%K{$ZSH_FG} %k%f "
+RPROMPT="%F{$ZSH_FG} %~% %(!.#.)%f"
 
 
 autoload history-search-end
@@ -34,6 +34,7 @@ alias lv='lv -c'
 #alias ls='ls --color=auto'
 alias g='git'
 alias be='bundle exec'
+alias b='bundle'
 alias gi='git'
 alias s='git s'
 alias d='git d'
