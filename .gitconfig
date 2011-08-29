@@ -16,7 +16,7 @@
   l = log
   lp = log --stat -p --graph
 [user]
-	name = fujimura
-	email = ffujimurah@gmail.com
+	name = Fujimura Daisuke
+	email = me@fujimuradaisuke.com
 [github]
-	user = fujimura
+  user = fujimura
