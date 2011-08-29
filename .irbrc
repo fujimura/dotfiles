@@ -1,10 +1,8 @@
 # -*- encoding: utf-8 -*-
-require 'rubygems'
-require 'wirble'
-require 'irb/completion'
+require 'rubygems' unless defined? Gem
+require 'wirb'
+Wirb.start
 
-Wirble.init
-Wirble.colorize
 ARGV.concat [ "--readline", "--prompt-mode", "simple" ]
 if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
   require 'logger'
