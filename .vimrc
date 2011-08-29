@@ -25,11 +25,13 @@ set guioptions-=m
 set guioptions+=R
 set autoindent
 set showmatch
-set clipboard+=unnamed
+set clipboard=unnamed
 set smartindent
 set nobackup
 set noswapfile
+set nofoldenable
 set title
+
 
 imap <C-Space> <C-x><C-o>
 set number
@@ -42,6 +44,7 @@ set t_Co=256
 colorscheme elflord
 
 inoremap { {}<LEFT>
+inoremap [C-c] [Esc][Esc]
 inoremap < <><LEFT>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
@@ -87,8 +90,20 @@ function! s:highlight_general_checkstyles()
  let w:m2=matchadd('EOLSpace', '\s\+$', -1)
  let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
  let w:m4=matchadd('SpaceAndComma', ' ,', -1)
- let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
+ "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
 endf
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
+au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
 call s:highlight_general_checkstyles()
+
+
+let g:quickrun_config = {}
+
+if strlen($rvm_bin_path)
+	let g:quickrun_config['ruby'] = {
+\		'command': 'ruby',
+\		'exec': '$rvm_bin_path/ruby %s',
+\		'tempfile': '{tempname()}.rb'
+\	}
+endif
