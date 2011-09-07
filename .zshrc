@@ -49,8 +49,8 @@ alias gems='cd /opt/local/lib/ruby/gems/1.8/gems/'
 
 alias t='~/time.sh'
 
-alias mysql='mysql5 -p'
-alias mysqldump='mysqldump5'
+#alias mysql='mysql5 -p'
+#alias mysqldump='mysqldump5'
 
 alias gosh='rlwrap gosh'
 export RUBYOPT=-Ku
