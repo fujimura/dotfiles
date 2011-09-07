@@ -1,6 +1,0 @@
-altscreen on
-vbell off
-defencoding utf8
-bind s #reset s key
-defscrollback 100000
-defkanji utf8
