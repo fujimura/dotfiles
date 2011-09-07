@@ -56,7 +56,6 @@ alias gosh='rlwrap gosh'
 export RUBYOPT=-Ku
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
-export PATH=/var/lib/gems/1.8/bin:$PATH
 export PATH=~/.cabal/bin:$PATH
 export EDITOR=vi
 
