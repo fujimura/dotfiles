@@ -18,7 +18,7 @@ colors
 
 ZSH_FG=205
 SPROMPT="%B%F{255}%K{200}%r ? %f%k%}%b n,y,a,e :"
-PROMPT="%F{255}%K{$ZSH_FG} %k%f "
+PROMPT="%F{0}%K{$ZSH_FG} %k%f "
 RPROMPT="%F{$ZSH_FG} %~% %(!.#.)%f"
 
 
@@ -53,6 +53,7 @@ alias t='~/time.sh'
 
 alias gosh='rlwrap gosh'
 export RUBYOPT=-Ku
+export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
 export PATH=~/.cabal/bin:$PATH
