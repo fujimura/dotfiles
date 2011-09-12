@@ -54,7 +54,7 @@ alias egrep='egrep --color=auto'
 alias tl='tail -f log/development.log'
 alias api='open ~/railsapi/index.html'
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
-alias gems='cd /opt/local/lib/ruby/gems/1.8/gems/'
+alias firefox='open -a /Applications/Firefox.app'
 
 alias t='~/time.sh'
 
