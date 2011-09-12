@@ -17,10 +17,20 @@ autoload colors
 colors
 
 ZSH_FG=205
+ZSH_FG2=195
 SPROMPT="%B%F{255}%K{200}%r ? %f%k%}%b n,y,a,e :"
 PROMPT="%F{0}%K{$ZSH_FG} %k%f "
-RPROMPT="%F{$ZSH_FG} %~% %(!.#.)%f"
 
+# From http://d.hatena.ne.jp/mollifier/20090814/p1
+zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:*' actionformats '%b|%a'
+
+precmd () {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%F{$ZSH_FG}%~% %(!.#.)%f %1(v|%F{$ZSH_FG2}%1v%f|)"
 
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -58,3 +68,4 @@ export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
 export PATH=~/.cabal/bin:$PATH
 export EDITOR=vi
+autoload -Uz vcs_info
