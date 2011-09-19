@@ -55,4 +55,4 @@ export PATH=~/.cabal/bin:$PATH
 export EDITOR=vi
 autoload -Uz vcs_info
 
-source ~/.zshrc.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
