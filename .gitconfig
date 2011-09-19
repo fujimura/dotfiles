@@ -1,6 +1,6 @@
 [core]
   pager = less
-  editor = vi
+  editor = vim
 	excludesfile = ~/.gitignore
 [color]
   status = auto
