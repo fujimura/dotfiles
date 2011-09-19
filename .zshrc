@@ -52,6 +52,8 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
 export PATH=~/.cabal/bin:$PATH
+export PATH=~/Library/Haskell/bin:$PATH
+
 export EDITOR=vi
 autoload -Uz vcs_info
 
