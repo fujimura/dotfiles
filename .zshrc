@@ -56,8 +56,6 @@ alias api='open ~/railsapi/index.html'
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
 alias firefox='open -a /Applications/Firefox.app'
 
-alias t='~/time.sh'
-
 #alias mysql='mysql5 -p'
 #alias mysqldump='mysqldump5'
 
