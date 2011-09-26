@@ -1,0 +1,18 @@
+# From http://d.hatena.ne.jp/mollifier/20090814/p1
+zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:*' actionformats '%b|%a'
+
+ZSHFG=`expr $RANDOM / 128`
+precmd () {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  if [ $ZSHFG -ge 250 ]
+  then
+    ZSHFG=0
+  fi
+  ZSHFG=`expr $ZSHFG + 10`
+  RPROMPT="%F{$ZSHFG}%~% %(!.#.)%f%1(v|%F{$ZSHFG} %1v%f|)"
+  PROMPT="%F{$ZSHFG}$%f "
+}
+SPROMPT="%B%F{256}%K{200}%r ? %f%k%}%b n,y,a,e :"
