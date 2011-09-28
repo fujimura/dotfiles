@@ -1,4 +1,5 @@
 # From http://d.hatena.ne.jp/mollifier/20090814/p1
+autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '%b'
 zstyle ':vcs_info:*' actionformats '%b|%a'
 

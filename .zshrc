@@ -55,6 +55,5 @@ export PATH=~/.cabal/bin:$PATH
 export PATH=~/Library/Haskell/bin:$PATH
 
 export EDITOR=vi
-autoload -Uz vcs_info
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
