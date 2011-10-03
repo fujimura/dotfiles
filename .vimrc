@@ -81,9 +81,9 @@ highlight StatusLine ctermbg=237
 highlight StatusLineNC ctermfg=237
 highlight StatusLineNC ctermbg=245
 
-highlight Pmenu ctermbg=39 ctermfg=15
-highlight PmenuSel ctermbg=39 ctermfg=0
-highlight PmenuSbar ctermbg=39 ctermfg=0
+highlight Pmenu ctermbg=27 ctermfg=244
+highlight PmenuSel ctermbg=27 ctermfg=0
+highlight PmenuSbar ctermbg=27 ctermfg=0
 
 highlight WideSpace ctermbg=darkred guibg=red
 highlight EOLSpace ctermbg=darkred guibg=red
@@ -93,7 +93,7 @@ highlight CommaAndNonSpace ctermbg=darkred guibg=red
 highlight HashRocketAndNonSpace ctermbg=darkred guibg=red
 highlight NonSpaceAndHashRocket ctermbg=darkred guibg=red
 "TODO
-highlight Todo ctermbg=255 ctermfg=0
+highlight Todo ctermbg=0 ctermfg=232
 function! s:highlight_general_checkstyles()
  let w:m1=matchadd('WideSpace', '　', -1)
  let w:m2=matchadd('EOLSpace', '\s\+$', -1)
