@@ -38,7 +38,7 @@ set guioptions-=m
 set guioptions+=R
 set autoindent
 set showmatch
-set clipboard=unnamed
+"set clipboard=unnamed
 set smartindent
 set nobackup
 set noswapfile
