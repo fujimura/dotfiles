@@ -1,10 +1,9 @@
 set nocompatible
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
 Bundle 'plasticboy/vim-markdown'
