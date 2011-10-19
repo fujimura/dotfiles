@@ -8,6 +8,7 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tsaleh/vim-align'
+Bundle 'tpope/vim-haml'
 
 filetype on
 filetype indent on
