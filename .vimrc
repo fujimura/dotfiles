@@ -7,6 +7,7 @@ call vundle#rc()
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'tsaleh/vim-align'
 
 filetype on
 filetype indent on
