@@ -9,8 +9,10 @@ Bundle 'tyru/open-browser.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tsaleh/vim-align'
 Bundle 'tpope/vim-haml'
+Bundle 'bbommarito/vim-slim'
 Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'kchmck/vim-coffee-script'
 
 filetype on
 filetype indent on
