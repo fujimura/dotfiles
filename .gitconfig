@@ -16,6 +16,7 @@
   ad = add
   l = log
   lp = log --stat -p --graph
+  r = rebase
 [user]
 	name = Fujimura Daisuke
 	email = me@fujimuradaisuke.com
