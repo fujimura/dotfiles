@@ -81,25 +81,26 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-highlight LineNr ctermfg=244
-highlight StatusLine ctermfg=245
-highlight StatusLine ctermbg=237
-highlight StatusLineNC ctermfg=237
-highlight StatusLineNC ctermbg=245
+highlight LineNr                ctermfg=244
+highlight StatusLine            ctermfg=245
+highlight StatusLine            ctermbg=237
+highlight StatusLineNC          ctermfg=237
+highlight StatusLineNC          ctermbg=245
 
-highlight Pmenu ctermbg=27 ctermfg=244
-highlight PmenuSel ctermbg=27 ctermfg=0
-highlight PmenuSbar ctermbg=27 ctermfg=0
+highlight Pmenu                 ctermbg=27      ctermfg=244
+highlight PmenuSel              ctermbg=27      ctermfg=0
+highlight PmenuSbar             ctermbg=27      ctermfg=0
 
-highlight WideSpace ctermbg=darkred guibg=red
-highlight EOLSpace ctermbg=darkred guibg=red
-highlight WideEisuu ctermbg=darkred guibg=red
-highlight SpaceAndComma ctermbg=darkred guibg=red
-highlight CommaAndNonSpace ctermbg=darkred guibg=red
+highlight Todo                  ctermbg=0       ctermfg=232
+
+highlight WideSpace             ctermbg=darkred guibg=red
+highlight EOLSpace              ctermbg=darkred guibg=red
+highlight WideEisuu             ctermbg=darkred guibg=red
+highlight SpaceAndComma         ctermbg=darkred guibg=red
+highlight CommaAndNonSpace      ctermbg=darkred guibg=red
 highlight HashRocketAndNonSpace ctermbg=darkred guibg=red
 highlight NonSpaceAndHashRocket ctermbg=darkred guibg=red
-"TODO
-highlight Todo ctermbg=0 ctermfg=232
+
 function! s:highlight_general_checkstyles()
  let w:m1=matchadd('WideSpace', '　', -1)
  let w:m2=matchadd('EOLSpace', '\s\+$', -1)
