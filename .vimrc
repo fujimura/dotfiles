@@ -13,6 +13,7 @@ Bundle 'bbommarito/vim-slim'
 Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'postmodern/vim-yard'
 
 filetype on
 filetype indent on
