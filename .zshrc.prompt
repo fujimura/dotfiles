@@ -23,7 +23,7 @@ precmd () {
 
   # Define prompt with new color at each prompt
   # See: http://zsh.sourceforge.net/Doc/Release/Functions.html#index-precmd
-  RPROMPT="%F{$ZSHFG}%~% %(!.#.)%f%1(v|%F{$ZSHFG} %1v%f|)"
+  RPROMPT="%F{$ZSHFG}%~% %(!.#.)%f%1(v|%F{240} %1v%f|)"
   PROMPT="%F{$ZSHFG}$%f "
 }
 
