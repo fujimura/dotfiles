@@ -77,6 +77,8 @@ inoremap <tab> <c-n>
 nnoremap enc O# -*- encoding: utf-8 -*-<esc>
 noremap <space> /
 
+set statusline=%F%m%r%h%w\ %=%l,%v\|%p%%
+
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
