@@ -4,6 +4,7 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
 Bundle 'plasticboy/vim-markdown'
