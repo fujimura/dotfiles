@@ -5,6 +5,7 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'taq/vim-rspec'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
 Bundle 'plasticboy/vim-markdown'
