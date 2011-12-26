@@ -5,17 +5,17 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'taq/vim-rspec'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tsaleh/vim-align'
 Bundle 'tpope/vim-haml'
 Bundle 'bbommarito/vim-slim'
-Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'postmodern/vim-yard'
+"Bundle 'postmodern/vim-yard'
+"Bundle 'tpope/vim-rails'
+"Bundle 'taq/vim-rspec'
 
 filetype on
 filetype indent on
