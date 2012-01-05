@@ -87,16 +87,14 @@ if exists('&ambiwidth')
 endif
 
 highlight LineNr                ctermfg=244
-highlight StatusLine            ctermfg=245
-highlight StatusLine            ctermbg=237
-highlight StatusLineNC          ctermfg=237
-highlight StatusLineNC          ctermbg=245
+highlight StatusLine            ctermfg=237 ctermbg=243
+highlight StatusLineNC          ctermfg=237 ctermbg=237
 
-highlight Pmenu                 ctermbg=27      ctermfg=244
-highlight PmenuSel              ctermbg=27      ctermfg=0
-highlight PmenuSbar             ctermbg=27      ctermfg=0
+highlight Pmenu                 ctermbg=27  ctermfg=244
+highlight PmenuSel              ctermbg=27  ctermfg=0
+highlight PmenuSbar             ctermbg=27  ctermfg=0
 
-highlight Todo                  ctermbg=0       ctermfg=232
+highlight Todo                  ctermbg=0   ctermfg=232
 
 highlight WideSpace             ctermbg=darkred guibg=red
 highlight EOLSpace              ctermbg=darkred guibg=red
