@@ -17,6 +17,9 @@
   l = log
   lp = log --stat -p --graph
   r = rebase
+  br = branch
+  current-branch = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
+  push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'"
 [user]
   name = Fujimura Daisuke
   email = dfujimura@aiming-inc.com
