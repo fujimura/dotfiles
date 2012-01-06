@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
-setopt appendhistory autocd extendedglob notify auto_pushd correct
+setopt appendhistory extendedglob notify auto_pushd correct
 unsetopt beep nomatch
 bindkey -v
 # End of lines configured by zsh-newuser-install
@@ -28,6 +28,7 @@ alias lv='lv -c'
 #alias ls='ls --color=auto'
 alias g='git'
 alias s='git s'
+alias m='git checkout master'
 alias d='git d'
 alias t='tmux'
 alias gi='git'

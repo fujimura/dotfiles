@@ -54,6 +54,7 @@ set nobackup
 set noswapfile
 set nofoldenable
 set title
+set background=dark
 
 
 imap <C-Space> <C-x><C-o>
@@ -80,6 +81,8 @@ nnoremap <Esc><Esc> :<C-u>noh<Return>
 inoremap <tab> <c-n>
 nnoremap enc O# -*- encoding: utf-8 -*-<esc>
 noremap <space> /
+
+command! E Explore
 
 set statusline=%F%m%r%h%w\ %=%l,%v\|%p%%
 
