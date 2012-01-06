@@ -1,7 +1,7 @@
 [core]
   pager = less
   editor = vim
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [color]
   status = auto
   diff = auto
@@ -18,7 +18,7 @@
   lp = log --stat -p --graph
   r = rebase
 [user]
-	name = Fujimura Daisuke
-	email = me@fujimuradaisuke.com
+  name = Fujimura Daisuke
+  email = dfujimura@aiming-inc.com
 [github]
   user = fujimura
