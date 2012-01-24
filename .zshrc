@@ -58,5 +58,5 @@ export PATH=~/Library/Haskell/bin:$PATH
 export EDITOR=emacs
 
 # Prompt
-source ~/.zshrc.prompt
+source ~/.prompt.zshrc
 source ~/.zshrc.local
