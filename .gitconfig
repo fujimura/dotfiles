@@ -18,6 +18,7 @@
   lp = log --stat -p --graph
   r = rebase
   br = branch
+  g = grep -n -p --color --heading --break
   current-branch = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
   push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'"
 [user]
