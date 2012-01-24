@@ -4,7 +4,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 setopt appendhistory extendedglob notify auto_pushd correct
 unsetopt beep nomatch
-bindkey -v
+#bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/fu/.zshrc'
@@ -21,7 +21,7 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^r" history-incremental-search-backward
 
-alias v='vi'
+alias v='vi -nw'
 alias vimrc='vi ~/.vimrc'
 alias zshrc='vi ~/.zshrc'
 alias lv='lv -c'
@@ -41,6 +41,7 @@ alias tl='tail -f log/development.log'
 alias api='open ~/railsapi/index.html'
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
 alias firefox='open -a /Applications/Firefox.app'
+alias vi='emacs -nw'
 
 alias irb='pry'
 #alias mysql='mysql5 -p'
@@ -54,7 +55,7 @@ export PATH=/opt/local/sbin:$PATH
 export PATH=~/.cabal/bin:$PATH
 export PATH=~/Library/Haskell/bin:$PATH
 
-export EDITOR=vi
+export EDITOR=emacs
 
 # Prompt
 source ~/.zshrc.prompt
