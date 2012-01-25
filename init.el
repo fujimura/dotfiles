@@ -1,4 +1,10 @@
 ; using configuration from https://github.com/technomancy/emacs-starter-kit/
+
+(setenv "LANG" nil)
+(setenv "LC_ALL" nil)
+(setenv "LC_CTYPE" nil)
+(setenv "LC_MESSAGES" nil)
+(setenv "LC_TIME" nil)
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -15,7 +21,9 @@
                       starter-kit-js
                       starter-kit-eshell
                       yaml-mode
-                      haml-mode)
+                      haml-mode
+                      coffee-mode
+                      git-commit)
   "A list of packages to ensure are installed at launch.")
 (set-face-attribute 'default nil :height 140)
 
@@ -23,15 +31,19 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(setq-default tab-always-indent t)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-message t)
 (setq linum-format "%4d " )
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 (menu-bar-mode t)
 (global-linum-mode t)
+(setq-default show-trailing-whitespace t)
 
 (require 'yaml-mode)
 (require 'coffee-mode)
@@ -69,5 +81,19 @@
 (global-set-key (kbd "[") 'skeleton-pair-insert-maybe)
 (global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
 (global-set-key (kbd "'") 'skeleton-pair-insert-maybe)
-
+(global-visual-line-mode 1) ; 1 for on, 0 for off.
+(setq line-spacing 3)
 (setq skeleton-pair 1)
+
+(setq ghc-module-command "~/Library/Haskell/bin/ghc-mod")
+(autoload 'ghc-init "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+(if (window-system)
+    (progn (create-fontset-from-ascii-font "Monaco-14:weight=normal:slant=normal" nil "menlokakugo")
+           (set-fontset-font "fontset-menlokakugo"
+                             'unicode
+                             (font-spec :family "Hiragino Kaku Gothic ProN" :size 14)
+                             nil
+                             'append)
+           (add-to-list 'default-frame-alist '(font . "fontset-menlokakugo"))))
