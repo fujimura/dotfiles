@@ -15,6 +15,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
+Bundle 'altercation/vim-colors-solarized'
 "Bundle 'postmodern/vim-yard'
 "Bundle 'tpope/vim-rails'
 "Bundle 'taq/vim-rspec'
@@ -62,7 +63,10 @@ set number
 set whichwrap=4
 syntax on
 set t_Co=256
-colorscheme elflord
+let g:solarized_termcolors=256
+
+set background=dark
+colorscheme solarized
 
 inoremap { {}<LEFT>
 inoremap [C-c] [Esc][Esc]
