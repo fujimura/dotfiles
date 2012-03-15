@@ -23,8 +23,12 @@
                       yaml-mode
                       haml-mode
                       slim-mode
+                      scss-mode
+                      haskell-mode
                       coffee-mode
-                      git-commit)
+                      markdown-mode
+                      git-commit
+                      ghc)
 "A list of packages to ensure are installed at launch.")
 (set-face-attribute 'default nil :height 140)
 
