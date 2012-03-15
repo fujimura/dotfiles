@@ -1,62 +1,57 @@
-# Lines configured by zsh-newuser-install
+# History
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
+
+# Zsh
 setopt appendhistory extendedglob notify auto_pushd correct
 unsetopt beep nomatch
-#bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
 zstyle :compinstall filename '/home/fu/.zshrc'
-
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-
 autoload colors
 colors
-
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^r" history-incremental-search-backward
 
-alias v='vi -nw'
-alias vimrc='vi ~/.vimrc'
-alias zshrc='vi ~/.zshrc'
+# Editor
+export EDITOR=emacs
+alias v='vi'
+alias e='emacs -nw'
+alias vimrc='$EDITOR ~/.vimrc'
+alias zshrc='$EDITOR ~/.zshrc'
+alias initel='$EDITOR ~/.emacs.d/init.el'
+
+# Unix commands
 alias lv='lv -c'
-#alias ls='ls --color=auto'
+alias t='tmux'
+alias grep='grep --color=auto'
+
+# Git
 alias g='git'
 alias s='git s'
 alias m='git checkout master'
 alias d='git d'
-alias t='tmux'
 alias gi='git'
 alias gg='g g'
+function git(){hub "$@"}
+
+# Ruby
+export RUBYOPT=-Ku
 alias be='bundle exec'
 alias b='bundle'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias tl='tail -f log/development.log'
-alias api='open ~/railsapi/index.html'
-alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
-alias firefox='open -a /Applications/Firefox.app'
-alias vi='emacs -nw'
-
 alias irb='pry'
-#alias mysql='mysql5 -p'
-#alias mysqldump='mysqldump5'
 
-alias gosh='rlwrap gosh'
-export RUBYOPT=-Ku
+# Misc
+alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
+
+# Path
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
-export PATH=~/.cabal/bin:$PATH
 export PATH=~/Library/Haskell/bin:$PATH
-
-export EDITOR=emacs
 
 # Prompt
 source ~/.prompt.zshrc
