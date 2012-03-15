@@ -27,6 +27,7 @@
                       haskell-mode
                       coffee-mode
                       markdown-mode
+                      clojure-mode
                       git-commit
                       ghc)
 "A list of packages to ensure are installed at launch.")
@@ -85,10 +86,12 @@
 (global-visual-line-mode 1) ; 1 for on, 0 for off.
 (setq line-spacing 3)
 (setq skeleton-pair 1)
-
 (setq ghc-module-command "~/Library/Haskell/bin/ghc-mod")
+(delete-selection-mode t)
 (autoload 'ghc-init "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+(add-hook 'haskell-mode-hook (lambda ()
+                               (ghc-init)
+                               (flymake-mode)))
 
 (if (window-system)
     (progn (create-fontset-from-ascii-font "Monaco-14:weight=normal:slant=normal" nil "menlokakugo")
@@ -98,5 +101,5 @@
                              nil
                              'append)
            (add-to-list 'default-frame-alist '(font . "fontset-menlokakugo"))))
-(setq hl-line-mode -1)
-
+(require 'hl-line)
+(set-face-background 'hl-line "black")
