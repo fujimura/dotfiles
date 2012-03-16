@@ -17,9 +17,9 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^r" history-incremental-search-backward
 
 # Editor
-export EDITOR=emacs
+export EDITOR=emacsclient
 alias v='vi'
-alias e='emacs -nw'
+alias e='emacsclient'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias initel='$EDITOR ~/.emacs.d/init.el'
