@@ -14,12 +14,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(starter-kit
-                      starter-kit-lisp
-                      starter-kit-ruby
-                      starter-kit-js
-                      starter-kit-eshell
-                      yaml-mode
+(defvar my-packages '(yaml-mode
                       haml-mode
                       slim-mode
                       scss-mode
@@ -28,33 +23,51 @@
                       markdown-mode
                       clojure-mode
                       git-commit
-                      ghc))
+                      ghc
+                      ido-ubiquitous
+                      ido-yes-or-no))
+
+;; Ido
+(ido-mode t)
+(ido-ubiquitous t)
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-auto-merge-work-directories-length nil
+      ido-create-new-buffer 'always
+      ido-use-filename-at-point 'guess
+      ido-use-virtual-buffers t
+      ido-handle-duplicate-virtual-buffers 2
+      ido-max-prospects 10)
 
 ;; Install packages unless installed
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
+(global-linum-mode t)
+(global-visual-line-mode 1) ; 1 for on, 0 for off.
 (set-face-attribute 'default nil :height 140)
+(delete-selection-mode t)
+(transient-mark-mode t)
+
+(require 'hl-line)
+(set-face-background 'hl-line "black")
+
 (setq-default tab-always-indent t)
-(setq make-backup-files nil)
-(setq auto-save-default nil)
+(setq-default show-trailing-whitespace t)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-message t)
 (setq linum-format "%4d " )
-(global-linum-mode t)
-(setq-default show-trailing-whitespace t)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq line-spacing 3)
+(setq skeleton-pair 1)
+(setq menu-bar-mode nil)
+
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
-(global-visual-line-mode 1) ; 1 for on, 0 for off.
-(setq line-spacing 3)
-(setq skeleton-pair 1)
-(delete-selection-mode t)
-(transient-mark-mode t)
-(require 'hl-line)
-(set-face-background 'hl-line "black")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -83,7 +96,9 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (setq ghc-module-command "~/Library/Haskell/bin/ghc-mod")
+(setq exec-path (cons "~/Library/Haskell/bin" exec-path))
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda ()
                                (ghc-init)
                                (flymake-mode)))
+
