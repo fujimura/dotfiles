@@ -25,6 +25,7 @@
                       git-commit
                       ghc
                       ido-ubiquitous
+                      undo-tree
                       ido-yes-or-no))
 
 ;; Ido
@@ -92,6 +93,8 @@
 (global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
 (global-set-key (kbd "'") 'skeleton-pair-insert-maybe)
 
+(set-face-background 'flymake-warnline nil)
+
 ;; Haskell
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
@@ -100,5 +103,6 @@
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda ()
                                (ghc-init)
+                               (auto-complete-mode)
                                (flymake-mode)))
 
