@@ -93,7 +93,7 @@
 (global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
 (global-set-key (kbd "'") 'skeleton-pair-insert-maybe)
 
-(set-face-background 'flymake-warnline nil)
+
 
 ;; Haskell
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
@@ -104,5 +104,6 @@
 (add-hook 'haskell-mode-hook (lambda ()
                                (ghc-init)
                                (auto-complete-mode)
-                               (flymake-mode)))
+                               (flymake-mode)
+                               (set-face-background 'flymake-warnline nil)))
 
