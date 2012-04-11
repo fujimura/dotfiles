@@ -1,28 +1,30 @@
 [core]
-  pager = less
-  editor = emacs -nw
-  excludesfile = ~/.gitignore
+  pager           = less
+  editor          = emacsclient -t
+  excludesfile    = ~/.gitignore
 [color]
-  status = auto
-  diff = auto
+  status          = auto
+  diff            = auto
 [alias]
-  st = status -bs
-  s = status -bs
-  di = diff
-  d  = diff
-  ci = commit -v
-  commit = commit -v
-  co = checkout
-  ad = add
-  l = log
-  lp = log --stat -p --graph
-  r = rebase
-  br = branch
-  g = grep -n -p --color --heading --break
-  current-branch = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
+  st              = status -bs
+  s               = status -bs
+  di              = diff
+  d               = diff
+  ci              = commit -v
+  commit          = commit -v
+  co              = checkout
+  ad              = add
+  l               = log
+  lp              = log --stat -p --graph
+  r               = rebase
+  br              = branch
+  b               = branch
+  f               = fetch
+  g               = grep -n -p --color --heading --break
+  current-branch  = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
   push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'"
 [user]
   name = Fujimura Daisuke
   email = dfujimura@aiming-inc.com
 [github]
-  user = fujimura
+  user            = fujimura
