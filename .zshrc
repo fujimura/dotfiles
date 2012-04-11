@@ -19,7 +19,7 @@ bindkey "^r" history-incremental-search-backward
 # Editor
 export EDITOR=emacsclient
 alias v='vi'
-alias e='emacsclient'
+alias e='emacsclient -t'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias initel='$EDITOR ~/.emacs.d/init.el'
