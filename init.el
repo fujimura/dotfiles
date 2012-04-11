@@ -45,6 +45,7 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(global-auto-revert-mode 1)
 (global-linum-mode t)
 (global-visual-line-mode 1) ; 1 for on, 0 for off.
 (set-face-attribute 'default nil :height 140)
@@ -93,7 +94,17 @@
 (global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
 (global-set-key (kbd "'") 'skeleton-pair-insert-maybe)
 
-
+;; Ruby
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.thor$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Thorfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
 
 ;; Haskell
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
