@@ -1,8 +1,8 @@
 [core]
-  pager           = less
-  editor          = emacsclient -t
-  excludesfile    = ~/.gitignore
-[color]
+  pager        = less
+  editor       = vim
+  excludesfile = ~/.gitignore
+  [color]
   status          = auto
   diff            = auto
 [alias]

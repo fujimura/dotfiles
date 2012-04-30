@@ -15,11 +15,12 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^r" history-incremental-search-backward
+bindkey -v
 
 # Editor
-export EDITOR=emacsclient
+export EDITOR=vim
 alias v='vi'
-alias e='emacsclient -t'
+alias e='v'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias initel='$EDITOR ~/.emacs.d/init.el'
@@ -27,6 +28,7 @@ alias initel='$EDITOR ~/.emacs.d/init.el'
 # Unix commands
 alias lv='lv -c'
 alias t='tmux'
+alias c='cat'
 alias grep='grep --color=auto'
 
 # Git
