@@ -15,10 +15,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
-Bundle 'altercation/vim-colors-solarized'
-"Bundle 'postmodern/vim-yard'
-"Bundle 'tpope/vim-rails'
-"Bundle 'taq/vim-rspec'
+Bundle 'Shougo/vimproc'
+Bundle "eagletmt/ghcmod-vim"
 
 filetype on
 filetype indent on
@@ -55,21 +53,18 @@ set nobackup
 set noswapfile
 set nofoldenable
 set title
-set background=dark
-
-
-imap <C-Space> <C-x><C-o>
 set number
 set whichwrap=4
+
 syntax on
-set t_Co=256
-let g:solarized_termcolors=256
-
 set background=dark
-colorscheme solarized
+set term=xterm-256color
+let g:solarized_termcolors = 256
+"TODO back to solarized
+colorscheme elflord
 
+imap <C-Space> <C-x><C-o>
 inoremap { {}<LEFT>
-inoremap [C-c] [Esc][Esc]
 inoremap < <><LEFT>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
@@ -85,6 +80,20 @@ nnoremap <Esc><Esc> :<C-u>noh<Return>
 inoremap <tab> <c-n>
 nnoremap enc O# -*- encoding: utf-8 -*-<esc>
 noremap <space> /
+noremap t :<C-u>GhcModType<Return>
+
+" Emacs in insert mode
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-e> <End>
+inoremap <C-a> <Home>
+inoremap <C-h> <Backspace>
+inoremap <C-d> <Del>
+inoremap <C-u> <C-o>d0
+inoremap <C-k> <C-o>D
+"
 
 command! E Explore
 
@@ -102,7 +111,7 @@ highlight Pmenu                 ctermbg=27  ctermfg=244
 highlight PmenuSel              ctermbg=27  ctermfg=0
 highlight PmenuSbar             ctermbg=27  ctermfg=0
 
-highlight Todo                  ctermbg=0   ctermfg=232
+highlight Todo                  ctermbg=0   ctermfg=22
 
 highlight WideSpace             ctermbg=darkred guibg=red
 highlight EOLSpace              ctermbg=darkred guibg=red
