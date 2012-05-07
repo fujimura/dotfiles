@@ -14,7 +14,7 @@ Bundle 'bbommarito/vim-slim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/vimproc'
 Bundle "eagletmt/ghcmod-vim"
 
@@ -128,10 +128,11 @@ function! s:highlight_general_checkstyles()
  let w:m4=matchadd('SpaceAndComma', ' ,', -1)
  "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
 endf
-
+let g:ghcmod_ghc_options = ['-w']
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
+au BufRead,BufWritePost *.hs GhcModCheckAsync
 call s:highlight_general_checkstyles()
 
 
