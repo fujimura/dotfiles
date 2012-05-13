@@ -18,12 +18,13 @@ bindkey "^r" history-incremental-search-backward
 bindkey -v
 
 # Editor
-export EDITOR=vim
-alias v='vi'
+export EDITOR=mvim
+alias v='mvim'
 alias e='v'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias initel='$EDITOR ~/.emacs.d/init.el'
+#alias mvim="open -a ~/Applications/MacVim.app"
 
 # Unix commands
 alias lv='lv -c'
