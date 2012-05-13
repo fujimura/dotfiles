@@ -16,7 +16,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'ervandew/supertab'
 "Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/vimproc'
-Bundle "eagletmt/ghcmod-vim"
+Bundle 'juvenn/mustache.vim'
 
 filetype on
 filetype indent on
@@ -80,7 +80,6 @@ nnoremap <Esc><Esc> :<C-u>noh<Return>
 inoremap <tab> <c-n>
 nnoremap enc O# -*- encoding: utf-8 -*-<esc>
 noremap <space> /
-noremap t :<C-u>GhcModType<Return>
 
 " Emacs in insert mode
 inoremap <C-p> <Up>
@@ -128,13 +127,16 @@ function! s:highlight_general_checkstyles()
  let w:m4=matchadd('SpaceAndComma', ' ,', -1)
  "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
 endf
-let g:ghcmod_ghc_options = ['-w']
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
-au BufRead,BufWritePost *.hs GhcModCheckAsync
 call s:highlight_general_checkstyles()
 
+" Haskell
+Bundle "eagletmt/ghcmod-vim"
+noremap t :<C-u>GhcModType<Return>
+let g:ghcmod_ghc_options = ['-w']
+au BufRead,BufWritePost *.hs GhcModCheckAsync
 
 let g:quickrun_config = {}
 let g:quickrun_config['mkd'] = {

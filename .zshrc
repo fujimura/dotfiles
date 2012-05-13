@@ -18,8 +18,8 @@ bindkey "^r" history-incremental-search-backward
 bindkey -v
 
 # Editor
-export EDITOR=mvim
-alias v='mvim'
+export EDITOR=vim
+alias v='vim'
 alias e='v'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc'
