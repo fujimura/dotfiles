@@ -21,6 +21,10 @@
   b               = branch
   f               = fetch
   g               = grep -n -p --color --heading --break
+  pom             = push origin master
+  fu              = fetch upstream
+  mum             = merge upstream/master
+  rum             = rebase upstream/master
   current-branch  = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
   push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'"
 [user]
