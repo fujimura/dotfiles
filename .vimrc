@@ -15,6 +15,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'ervandew/supertab'
 "Bundle 'scrooloose/syntastic'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'Shougo/vimproc'
 Bundle 'juvenn/mustache.vim'
 

@@ -1,4 +1,3 @@
-Bundle 'altercation/vim-colors-solarized'
 set columns=130
 set lines=50
 set guifont=Monaco:h15
