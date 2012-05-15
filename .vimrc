@@ -18,6 +18,8 @@ Bundle 'ervandew/supertab'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Shougo/vimproc'
 Bundle 'juvenn/mustache.vim'
+Bundle 'vim-pandoc/vim-pandoc'
+Bundle 'vim-pandoc/vim-markdownfootnotes'
 
 filetype on
 filetype indent on
@@ -128,6 +130,7 @@ function! s:highlight_general_checkstyles()
  let w:m4=matchadd('SpaceAndComma', ' ,', -1)
  "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
 endf
+
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
@@ -140,7 +143,7 @@ let g:ghcmod_ghc_options = ['-w']
 au BufRead,BufWritePost *.hs GhcModCheckAsync
 
 let g:quickrun_config = {}
-let g:quickrun_config['mkd'] = {
+let g:quickrun_config['pandoc'] = {
       \ 'type': 'markdown/pandoc',
       \ 'outputter': 'browser',
       \ 'cmdopt': '-s'
