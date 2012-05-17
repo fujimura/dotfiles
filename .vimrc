@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
-Bundle 'plasticboy/vim-markdown'
+"Bundle 'plasticboy/vim-markdown'
 Bundle 'tsaleh/vim-align'
 Bundle 'tpope/vim-haml'
 Bundle 'bbommarito/vim-slim'
