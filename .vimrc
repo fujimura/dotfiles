@@ -78,6 +78,7 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
+vnoremap ` "zdi`<C-R>z`<ESC>
 vnoremap [C-c] [Esc][Esc]
 nnoremap <Esc><Esc> :<C-u>noh<Return>
 inoremap <tab> <c-n>
