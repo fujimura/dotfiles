@@ -116,13 +116,14 @@ highlight PmenuSbar             ctermbg=27  ctermfg=0
 
 highlight Todo                  ctermbg=0   ctermfg=22
 
-highlight WideSpace             ctermbg=darkred guibg=red
-highlight EOLSpace              ctermbg=darkred guibg=red
-highlight WideEisuu             ctermbg=darkred guibg=red
-highlight SpaceAndComma         ctermbg=darkred guibg=red
-highlight CommaAndNonSpace      ctermbg=darkred guibg=red
-highlight HashRocketAndNonSpace ctermbg=darkred guibg=red
-highlight NonSpaceAndHashRocket ctermbg=darkred guibg=red
+highlight WideSpace             ctermbg=darkred
+highlight EOLSpace              ctermbg=darkred
+highlight WideEisuu             ctermbg=darkred
+highlight Tab                   ctermbg=darkred
+highlight SpaceAndComma         ctermbg=darkred
+highlight CommaAndNonSpace      ctermbg=darkred
+highlight HashRocketAndNonSpace ctermbg=darkred
+highlight NonSpaceAndHashRocket ctermbg=darkred
 
 function! s:highlight_general_checkstyles()
  let w:m1=matchadd('WideSpace', '　', -1)
@@ -130,6 +131,7 @@ function! s:highlight_general_checkstyles()
  let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
  let w:m4=matchadd('SpaceAndComma', ' ,', -1)
  "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
+ let w:m6=matchadd('Tab', '\t', -1)
 endf
 
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
@@ -142,6 +144,22 @@ Bundle "eagletmt/ghcmod-vim"
 noremap t :<C-u>GhcModType<Return>
 let g:ghcmod_ghc_options = ['-w']
 au BufRead,BufWritePost *.hs GhcModCheckAsync
+
+if has('gui_running')
+  set columns=130
+  set lines=50
+  set guifont=Monaco:h15
+  colorscheme solarized
+  set vb
+  set mouse-=a
+  highlight WideSpace             guibg=red
+  highlight EOLSpace              guibg=red
+  highlight WideEisuu             guibg=red
+  highlight SpaceAndComma         guibg=red
+  highlight CommaAndNonSpace      guibg=red
+  highlight HashRocketAndNonSpace guibg=red
+  highlight NonSpaceAndHashRocket guibg=red
+endif
 
 let g:quickrun_config = {}
 let g:quickrun_config['pandoc'] = {
