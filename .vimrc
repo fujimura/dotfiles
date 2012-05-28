@@ -20,6 +20,9 @@ Bundle 'Shougo/vimproc'
 Bundle 'juvenn/mustache.vim'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
+Bundle 'Shougo/neocomplcache'
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:neocomplcache_enable_at_startup = 1
 
 filetype on
 filetype indent on
@@ -141,6 +144,7 @@ call s:highlight_general_checkstyles()
 
 " Haskell
 Bundle "eagletmt/ghcmod-vim"
+Bundle "ujihisa/neco-ghc"
 noremap t :<C-u>GhcModType<Return>
 let g:ghcmod_ghc_options = ['-w']
 au BufRead,BufWritePost *.hs GhcModCheckAsync
