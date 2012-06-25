@@ -12,10 +12,12 @@
   d               = diff
   ci              = commit -v
   commit          = commit -v
+  fixup           = commit --amend -C HEAD
   co              = checkout
   ad              = add
   l               = log
   lp              = log --stat -p --graph
+  lr              = log --stat -p --reverse
   r               = rebase
   br              = branch
   b               = branch
