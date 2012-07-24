@@ -64,7 +64,6 @@ set whichwrap=4
 
 syntax on
 set background=dark
-set term=xterm-256color
 let g:solarized_termcolors = 256
 "TODO back to solarized
 colorscheme elflord
