@@ -7,6 +7,7 @@ SAVEHIST=100000
 setopt appendhistory extendedglob notify auto_pushd correct
 unsetopt beep nomatch
 zstyle :compinstall filename '/home/fu/.zshrc'
+zstyle ':completion:*:(all-|)files' ignored-patterns '*.o' '*.hi'
 autoload -Uz compinit
 compinit
 autoload colors

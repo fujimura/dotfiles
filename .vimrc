@@ -101,6 +101,7 @@ inoremap <C-k> <C-o>D
 "
 
 command! E Explore
+let g:netrw_list_hide='.*\.o$\|.*\.hi$'
 
 set statusline=%F%m%r%h%w\ %=%l,%v\|%p%%
 
