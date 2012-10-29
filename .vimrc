@@ -1,7 +1,7 @@
 set nocompatible
 
 filetype off
-set rtp+=~/.vim/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'vim-ruby/vim-ruby'
