@@ -26,10 +26,12 @@
   fu              = fetch upstream
   mum             = merge upstream/master
   rum             = rebase upstream/master
+  mom             = merge origin/master
+  rom             = rebase origin/master
   current-branch  = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
-  push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'"
+  push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'" # For gerrit
 [user]
   name = Fujimura Daisuke
-  email = dfujimura@aiming-inc.com
+  email = me@fujimuradaisuke.com
 [github]
   user            = fujimura
