@@ -24,7 +24,6 @@
   f               = fetch
   g               = grep -n -p --color --heading --break
   fu              = fetch upstream
-  wip             = "!sh -c 'git commit -m \"WIP (`date \"+%Y-%m-%d %H:%m\"`)\"'"
   mum             = merge upstream/master
   rum             = rebase upstream/master
   current-branch  = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
