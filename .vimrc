@@ -21,10 +21,7 @@ Bundle 'Shougo/vimproc'
 Bundle 'juvenn/mustache.vim'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
-Bundle 'Shougo/neocomplcache'
-Bundle 'haskell.vim'
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
-let g:neocomplcache_enable_at_startup = 1
 
 filetype on
 filetype indent on
@@ -145,11 +142,16 @@ au BufRead,BufNewFile *.scss set filetype=scss
 call s:highlight_general_checkstyles()
 
 " Haskell
-Bundle "eagletmt/ghcmod-vim"
-Bundle "ujihisa/neco-ghc"
-noremap t :<C-u>GhcModType<Return>
-let g:ghcmod_ghc_options = ['-w']
-au BufRead,BufWritePost *.hs GhcModCheckAsync
+if (&ft=='haskell')
+  Bundle 'Shougo/neocomplcache'
+  Bundle 'haskell.vim'
+  Bundle "eagletmt/ghcmod-vim"
+  Bundle "ujihisa/neco-ghc"
+  command! T GhcModType
+  let g:neocomplcache_enable_at_startup = 1
+  let g:ghcmod_ghc_options = ['-w']
+  au BufRead,BufWritePost *.hs GhcModCheckAsync
+endif
 
 if has('gui_running')
   set columns=130
