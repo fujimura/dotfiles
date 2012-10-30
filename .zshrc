@@ -56,7 +56,8 @@ alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; d
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
-export PATH=~/Library/Haskell/bin:$PATH
+#export PATH=~/Library/Haskell/bin:$PATH
+export PATH=~/.cabal/bin:$PATH
 
 # Prompt
 source ~/.prompt.zshrc
