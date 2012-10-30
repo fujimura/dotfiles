@@ -137,21 +137,24 @@ function! s:highlight_general_checkstyles()
 endf
 
 au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
+au BufRead,BufNewFile *.hs set ft=haskell
 au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
 call s:highlight_general_checkstyles()
 
 " Haskell
-if (&ft=='haskell')
-  Bundle 'Shougo/neocomplcache'
-  Bundle 'haskell.vim'
-  Bundle "eagletmt/ghcmod-vim"
-  Bundle "ujihisa/neco-ghc"
-  command! T GhcModType
-  let g:neocomplcache_enable_at_startup = 1
+Bundle 'Shougo/neocomplcache'
+Bundle 'haskell.vim'
+Bundle "eagletmt/ghcmod-vim"
+Bundle "ujihisa/neco-ghc"
+
+function! s:haskell()
+  command! Type GhcModType
   let g:ghcmod_ghc_options = ['-w']
+  NeoComplCacheEnable
   au BufRead,BufWritePost *.hs GhcModCheckAsync
-endif
+endf
+au BufRead,BufNewFile *.hs call s:haskell()
 
 if has('gui_running')
   set columns=130
