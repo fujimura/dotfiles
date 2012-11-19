@@ -155,7 +155,7 @@ Bundle "ujihisa/neco-ghc"
 function! s:haskell()
   command! Type GhcModType
   let g:ghcmod_ghc_options = ['-w']
-  NeoComplCacheEnable
+  command! Stylish %!stylish-haskell
   au BufRead,BufWritePost *.hs GhcModCheckAsync
 endf
 au BufRead,BufNewFile *.hs call s:haskell()
