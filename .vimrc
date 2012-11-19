@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'gmarik/vundle'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'thinca/vim-quickrun'
@@ -21,6 +22,8 @@ Bundle 'Shougo/vimproc'
 Bundle 'juvenn/mustache.vim'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
+Bundle 'othree/html5.vim'
+
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 filetype on
