@@ -33,6 +33,7 @@ alias lv='lv -c'
 alias t='tmux'
 alias c='cat'
 alias grep='grep --color=auto'
+alias browse='hub browse'
 
 # Git
 alias g='git'
@@ -41,7 +42,7 @@ alias m='git checkout master'
 alias d='git d'
 alias gi='git'
 alias gg='g g'
-function git(){hub "$@"}
+#function git(){hub "$@"}
 
 # Ruby
 export RUBYOPT=-Ku
