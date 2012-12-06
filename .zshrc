@@ -51,6 +51,7 @@ alias irb='pry'
 
 # Misc
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
+function di(){open dict://"$@"}
 
 # Path
 export PATH=/usr/local/bin:$PATH
