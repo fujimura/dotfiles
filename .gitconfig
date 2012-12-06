@@ -30,6 +30,7 @@
   rom             = rebase origin/master
   current-branch  = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
   push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'" # For gerrit
+  rename = "!sh -c 'git grep -l $0 $2 | xargs gsed -i \"s/$0/$1/g\"'"
 [user]
   name = Fujimura Daisuke
   email = me@fujimuradaisuke.com
