@@ -1,6 +1,7 @@
 set nocompatible
 
 filetype off
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -16,13 +17,14 @@ Bundle 'bbommarito/vim-slim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'ervandew/supertab'
-"Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Shougo/vimproc'
 Bundle 'juvenn/mustache.vim'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
 Bundle 'othree/html5.vim'
+Bundle 'kien/ctrlp.vim'
 
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
@@ -70,7 +72,12 @@ let g:solarized_termcolors = 256
 "TODO back to solarized
 colorscheme elflord
 
+map <Tab> :bnext<cr>
+map <C-Tab> :bprevious<cr>
+
 imap <C-Space> <C-x><C-o>
+imap jj <Esc>
+
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
 inoremap [ []<LEFT>
@@ -85,8 +92,8 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 vnoremap ` "zdi`<C-R>z`<ESC>
 vnoremap [C-c] [Esc][Esc]
 nnoremap <Esc><Esc> :<C-u>noh<Return>
-inoremap <tab> <c-n>
-nnoremap enc O# -*- encoding: utf-8 -*-<esc>
+"inoremap <tab> <c-n>
+nnoremap enc O# coding: utf-8<esc>
 noremap <space> /
 
 " Emacs in insert mode
@@ -103,7 +110,7 @@ inoremap <C-k> <C-o>D
 "
 
 command! E Explore
-let g:netrw_list_hide='.*\.o$\|.*\.hi$'
+let g:netrw_list_hide='.*\.o$\|.*\.hi$\|^\.DS_Store$'
 let g:netrw_liststyle=3
 
 set statusline=%F%m%r%h%w\ %=%l,%v\|%p%%
@@ -147,30 +154,43 @@ au BufRead,BufNewFile *.scss set filetype=scss
 call s:highlight_general_checkstyles()
 
 " Haskell
-Bundle 'Shougo/neocomplcache'
-Bundle 'haskell.vim'
+"Bundle 'Shougo/neocomplcache'
+"Bundle 'haskell.vim'
+"Bundle 'dag/vim2hs'
 Bundle "eagletmt/ghcmod-vim"
-Bundle "ujihisa/neco-ghc"
+"Bundle "ujihisa/neco-ghc"
+au BufNewFile,BufRead *.hs,*.lhs set filetype=haskell
 
 function! s:haskell()
-  command! Type GhcModType
-  let g:ghcmod_ghc_options = ['-w']
   command! Stylish %!stylish-haskell
-  au BufRead,BufWritePost *.hs GhcModCheckAsync
+  if executable('ghc-mod')
+    command! Type GhcModType
+    let g:ghcmod_ghc_options = ['-w']
+    au BufRead,BufWritePost *.hs GhcModCheckAsync
+  else
+    au BufRead,BufWritePost *.hs call s:buildCabalProject()
+  endif
 endf
+
+function! s:buildCabalProject()
+  execute "!ghc -Wall %"
+endf
+
 au BufRead,BufNewFile *.hs call s:haskell()
 
 if has('gui_running')
   set columns=130
   set lines=50
   set guifont=Monaco:h15
+  set autoread
+  set background=light
   colorscheme solarized
   set vb
   set mouse-=a
   highlight WideSpace             guibg=red
   highlight EOLSpace              guibg=red
   highlight WideEisuu             guibg=red
-  highlight SpaceAndComma         guibg=red
+  "highlight SpaceAndComma         guibg=red
   highlight CommaAndNonSpace      guibg=red
   highlight HashRocketAndNonSpace guibg=red
   highlight NonSpaceAndHashRocket guibg=red
