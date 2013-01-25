@@ -19,8 +19,7 @@
   lp              = log --decorate --stat -p --graph
   lr              = log --stat -p --reverse
   r               = rebase
-  br              = branch --all --verbose --verbose --color
-  b               = br
+  br              = branch --verbose --verbose --color
   f               = fetch
   g               = grep -n -p --color --heading --break
   fu              = fetch upstream
