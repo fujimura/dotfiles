@@ -13,18 +13,18 @@ precmd () {
   [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 
   # Reset at max
-  if [ $ZSHFG -ge 250 ]
+  if [ $ZSHFG -ge 63 ]
   then
-    ZSHFG=0
+    ZSHFG=54
   fi
 
   # Increment it
-  ZSHFG=`expr $ZSHFG + 10`
+  ZSHFG=`expr $ZSHFG + 1`
 
   # Define prompt with new color at each prompt
   # See: http://zsh.sourceforge.net/Doc/Release/Functions.html#index-precmd
   RPROMPT="%F{$ZSHFG}%~% %(!.#.)%f%1(v|%F{240} %1v%f|)"
-  PROMPT="%F{$ZSHFG}✈%f "
+  PROMPT="%F{$ZSHFG}💎 %f "
 }
 
 SPROMPT="%B%F{256}%K{200}%r ? %f%k%}%b n,y,a,e :"
