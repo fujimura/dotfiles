@@ -2,7 +2,7 @@
   pager        = less
   editor       = vim
   excludesfile = ~/.gitignore
-  [color]
+[color]
   status          = auto
   diff            = auto
 [alias]
@@ -27,11 +27,15 @@
   rum             = rebase upstream/master
   mom             = merge origin/master
   rom             = rebase origin/master
+  kokomade        = tag -f 'kokomade' origin/master
+  newspaper       = log -p --reverse 'kokomade'..origin/master
   current-branch  = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
   push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'" # For gerrit
   gsub            = "!sh -c 'git grep -l $0 $2 | xargs gsed -i \"s/$0/$1/g\"'"
 [user]
-  name = Fujimura Daisuke
-  email = me@fujimuradaisuke.com
+  name            = Fujimura Daisuke
+  email           = me@fujimuradaisuke.com
 [github]
   user            = fujimura
+[push]
+  default         = simple
