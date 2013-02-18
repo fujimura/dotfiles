@@ -56,11 +56,18 @@ function di(){open dict://"$@"}
 
 # Path
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
-#export PATH=~/Library/Haskell/bin:$PATH
-export PATH=~/.cabal/bin:$PATH
+export PATH=~/Library/Haskell/bin:$PATH
+export PATH="$HOME/.cabal/bin:$PATH"
+
+export PATH=~/.bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
 
 # Prompt
 source ~/.prompt.zshrc
 source ~/.zshrc.local
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
