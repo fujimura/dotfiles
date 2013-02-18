@@ -7,24 +7,26 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-haml'
+Bundle 'bbommarito/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'juvenn/mustache.vim'
+Bundle 'othree/html5.vim'
+
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
 Bundle 'tpope/vim-fugitive'
 "Bundle 'plasticboy/vim-markdown'
 Bundle 'tsaleh/vim-align'
-Bundle 'tpope/vim-haml'
-Bundle 'bbommarito/vim-slim'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Shougo/vimproc'
-Bundle 'juvenn/mustache.vim'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
-Bundle 'othree/html5.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'goldfeld/vim-seek'
 
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
@@ -40,6 +42,7 @@ set ignorecase
 set smartcase
 set incsearch
 set laststatus=2
+set nofoldenable
 set mouse=a
 set ttymouse=xterm2
 if filereadable("/etc/vim/vimrc.local")
@@ -61,7 +64,6 @@ set showmatch
 set smartindent
 set nobackup
 set noswapfile
-set nofoldenable
 set title
 set number
 set whichwrap=4
@@ -70,7 +72,7 @@ syntax on
 set background=dark
 let g:solarized_termcolors = 256
 "TODO back to solarized
-colorscheme elflord
+colorscheme desert
 
 map <Tab> :bnext<cr>
 map <C-Tab> :bprevious<cr>
@@ -154,11 +156,13 @@ au BufRead,BufNewFile *.scss set filetype=scss
 call s:highlight_general_checkstyles()
 
 " Haskell
-"Bundle 'Shougo/neocomplcache'
-"Bundle 'haskell.vim'
-"Bundle 'dag/vim2hs'
+Bundle 'Shougo/neocomplcache'
+Bundle "ujihisa/neco-ghc"
+Bundle 'dag/vim2hs'
+" No unicode lambdas etc.
+let g:haskell_conceal = 0
 Bundle "eagletmt/ghcmod-vim"
-"Bundle "ujihisa/neco-ghc"
+
 au BufNewFile,BufRead *.hs,*.lhs set filetype=haskell
 
 function! s:haskell()
@@ -190,7 +194,7 @@ if has('gui_running')
   highlight WideSpace             guibg=red
   highlight EOLSpace              guibg=red
   highlight WideEisuu             guibg=red
-  "highlight SpaceAndComma         guibg=red
+  highlight SpaceAndComma         guibg=red
   highlight CommaAndNonSpace      guibg=red
   highlight HashRocketAndNonSpace guibg=red
   highlight NonSpaceAndHashRocket guibg=red
@@ -202,11 +206,3 @@ let g:quickrun_config['pandoc'] = {
       \ 'outputter': 'browser',
       \ 'cmdopt': '-s'
       \ }
-
-if strlen($rvm_bin_path)
-	let g:quickrun_config['ruby'] = {
-\		'command': 'ruby',
-\		'exec': '$rvm_bin_path/ruby %s',
-\		'tempfile': '{tempname()}.rb'
-\	}
-endif
