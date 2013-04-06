@@ -27,6 +27,7 @@ Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
 Bundle 'kien/ctrlp.vim'
 Bundle 'goldfeld/vim-seek'
+Bundle 'airblade/vim-gitgutter'
 
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
@@ -50,15 +51,18 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 autocmd! bufwritepost .vimrc source %
 set ambiwidth=double
-set expandtab
-set shiftwidth=2
-set softtabstop=2
+
+" Tab and indent
+"set softtabstop=2
 set tabstop=2
+set shiftwidth=2
+set autoindent
+set expandtab
+
 set guioptions-=T
 set guioptions+=a
 set guioptions-=m
 set guioptions+=R
-set autoindent
 set showmatch
 "set clipboard=unnamed
 set smartindent
@@ -78,7 +82,6 @@ map <Tab> :bnext<cr>
 map <C-Tab> :bprevious<cr>
 
 imap <C-Space> <C-x><C-o>
-imap jj <Esc>
 
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
@@ -142,6 +145,7 @@ highlight NonSpaceAndHashRocket ctermbg=darkred
 
 function! s:highlight_general_checkstyles()
  let w:m1=matchadd('WideSpace', '　', -1)
+ let w:m1=matchadd('Tab', '	', -1)
  let w:m2=matchadd('EOLSpace', '\s\+$', -1)
  let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
  let w:m4=matchadd('SpaceAndComma', ' ,', -1)
@@ -187,11 +191,12 @@ if has('gui_running')
   set lines=50
   set guifont=Monaco:h15
   set autoread
-  set background=light
+  set background=dark
   colorscheme solarized
   set vb
   set mouse-=a
   highlight WideSpace             guibg=red
+  highlight Tab                   guibg=red
   highlight EOLSpace              guibg=red
   highlight WideEisuu             guibg=red
   highlight SpaceAndComma         guibg=red

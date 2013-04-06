@@ -1,3 +1,5 @@
 .netrwhist
 .DS_Store
 .vim/bundle/
+*.o
+*.hi

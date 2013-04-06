@@ -26,6 +26,7 @@ alias e='v'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias initel='$EDITOR ~/.emacs.d/init.el'
+alias activate_hsenv='source .hsenv/bin/activate'
 #alias mvim="open -a ~/Applications/MacVim.app"
 
 # Unix commands
@@ -42,11 +43,11 @@ alias m='git checkout master'
 alias d='git d'
 alias gi='git'
 alias gg='g g'
-#function git(){hub "$@"}
+function g(){hub "$@"}
 
 # Ruby
-export RUBYOPT=-Ku
 alias be='bundle exec'
+alias bes='bundle exec spring'
 alias b='bundle'
 alias irb='pry'
 
