@@ -2,6 +2,7 @@
   pager        = less
   editor       = vim
   excludesfile = ~/.gitignore
+  quotepath = false
 [color]
   status          = auto
   diff            = auto
