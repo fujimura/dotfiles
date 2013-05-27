@@ -117,6 +117,8 @@ inoremap <C-k> <C-o>D
 command! E Explore
 let g:netrw_list_hide='.*\.o$\|.*\.hi$\|^\.DS_Store$'
 let g:netrw_liststyle=3
+set wildignore=*.o,*.hi
+
 
 set statusline=%F%m%r%h%w\ %=%l,%v\|%p%%
 
@@ -148,7 +150,7 @@ function! s:highlight_general_checkstyles()
  let w:m1=matchadd('Tab', '	', -1)
  let w:m2=matchadd('EOLSpace', '\s\+$', -1)
  let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
- let w:m4=matchadd('SpaceAndComma', ' ,', -1)
+ "let w:m4=matchadd('SpaceAndComma', ' ,', -1)
  "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
  let w:m6=matchadd('Tab', '\t', -1)
 endf
@@ -199,8 +201,8 @@ if has('gui_running')
   highlight Tab                   guibg=red
   highlight EOLSpace              guibg=red
   highlight WideEisuu             guibg=red
-  highlight SpaceAndComma         guibg=red
-  highlight CommaAndNonSpace      guibg=red
+  "highlight SpaceAndComma         guibg=red
+  "highlight CommaAndNonSpace      guibg=red
   highlight HashRocketAndNonSpace guibg=red
   highlight NonSpaceAndHashRocket guibg=red
 endif
