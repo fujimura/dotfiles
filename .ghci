@@ -1,1 +1,1 @@
-:set prompt "ghci> "
+:set prompt "\ESC[34m> \ESC[m"
