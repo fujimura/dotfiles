@@ -73,7 +73,7 @@ set number
 set whichwrap=4
 
 syntax on
-set background=dark
+set background=light
 let g:solarized_termcolors = 256
 "TODO back to solarized
 colorscheme desert
@@ -193,7 +193,7 @@ if has('gui_running')
   set lines=50
   set guifont=Monaco:h15
   set autoread
-  set background=dark
+  set background=light
   colorscheme solarized
   set vb
   set mouse-=a
