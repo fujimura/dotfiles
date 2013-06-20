@@ -10,6 +10,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
 Bundle 'bbommarito/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'mintplant/vim-literate-coffeescript'
 Bundle 'juvenn/mustache.vim'
 Bundle 'othree/html5.vim'
 
@@ -28,6 +29,8 @@ Bundle 'vim-pandoc/vim-markdownfootnotes'
 Bundle 'kien/ctrlp.vim'
 Bundle 'goldfeld/vim-seek'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'nono/vim-handlebars'
+au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
 
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
