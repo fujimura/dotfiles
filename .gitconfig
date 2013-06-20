@@ -23,6 +23,7 @@
   br              = branch --verbose --verbose --color
   f               = fetch
   g               = grep -n -p --color --heading --break
+  sha             = log --pretty="%H"
   fu              = fetch upstream
   mum             = merge upstream/master
   rum             = rebase upstream/master
