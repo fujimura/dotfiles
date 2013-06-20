@@ -181,7 +181,7 @@ function! s:haskell()
     let g:ghcmod_ghc_options = ['-w']
     au BufRead,BufWritePost *.hs GhcModCheckAsync
   else
-    au BufRead,BufWritePost *.hs call s:buildCabalProject()
+    "au BufRead,BufWritePost *.hs call s:buildCabalProject()
   endif
 endf
 
