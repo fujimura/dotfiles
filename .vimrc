@@ -30,6 +30,9 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'goldfeld/vim-seek'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nono/vim-handlebars'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'digitaltoad/vim-jade'
+
 au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
 
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
@@ -56,9 +59,10 @@ autocmd! bufwritepost .vimrc source %
 set ambiwidth=double
 
 " Tab and indent
-"set softtabstop=2
-set tabstop=2
+set softtabstop=2
+"set tabstop=2
 set shiftwidth=2
+set smartindent
 set autoindent
 set expandtab
 
@@ -76,10 +80,10 @@ set number
 set whichwrap=4
 
 syntax on
-set background=light
 let g:solarized_termcolors = 256
 "TODO back to solarized
-colorscheme desert
+colorscheme default
+set background=light
 
 map <Tab> :bnext<cr>
 map <C-Tab> :bprevious<cr>
@@ -158,7 +162,6 @@ function! s:highlight_general_checkstyles()
  let w:m6=matchadd('Tab', '\t', -1)
 endf
 
-au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 au BufRead,BufNewFile *.hs set ft=haskell
 au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
@@ -209,6 +212,9 @@ if has('gui_running')
   highlight HashRocketAndNonSpace guibg=red
   highlight NonSpaceAndHashRocket guibg=red
 endif
+
+syntax match Tab /\t/
+hi Tab gui=underline guifg=blue ctermbg=blue
 
 let g:quickrun_config = {}
 let g:quickrun_config['pandoc'] = {

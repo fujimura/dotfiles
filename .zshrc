@@ -65,6 +65,7 @@ export PATH="$HOME/.cabal/bin:$PATH"
 
 export PATH=~/.bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
+export NODE_PATH=/usr/local/share/npm/lib/node_modules/
 
 # Prompt
 source ~/.prompt.zshrc
@@ -72,3 +73,8 @@ source ~/.zshrc.local
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Zaw
+source /Users/fujimura/work/zaw/zaw.zsh
+bindkey '^R' zaw-history
+setopt hist_ignore_all_dups
