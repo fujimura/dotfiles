@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+" Syntax
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
 Bundle 'bbommarito/vim-slim'
@@ -13,25 +14,31 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'mintplant/vim-literate-coffeescript'
 Bundle 'juvenn/mustache.vim'
 Bundle 'othree/html5.vim'
-
-Bundle 'thinca/vim-quickrun'
-Bundle 'tyru/open-browser.vim'
-Bundle 'tpope/vim-fugitive'
-"Bundle 'plasticboy/vim-markdown'
-Bundle 'tsaleh/vim-align'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Shougo/vimproc'
 Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
-Bundle 'kien/ctrlp.vim'
-Bundle 'goldfeld/vim-seek'
-Bundle 'airblade/vim-gitgutter'
 Bundle 'nono/vim-handlebars'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'digitaltoad/vim-jade'
+
+" VIM
+Bundle 'thinca/vim-quickrun'
+Bundle 'tyru/open-browser.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'ervandew/supertab'
+Bundle 'Shougo/vimproc'
+Bundle 'scrooloose/syntastic'
+Bundle 'kien/ctrlp.vim'
+Bundle 'goldfeld/vim-seek'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'tsaleh/vim-align'
+
+" Git
+Bundle 'tpope/vim-fugitive'
+
+" Colors
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'pyte'
+Bundle 'noahfrederick/Hemisu'
 
 au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
 
@@ -69,6 +76,7 @@ set expandtab
 set guioptions-=T
 set guioptions+=a
 set guioptions-=m
+set guioptions-=m
 set guioptions+=R
 set showmatch
 "set clipboard=unnamed
@@ -82,7 +90,7 @@ set whichwrap=4
 syntax on
 let g:solarized_termcolors = 256
 "TODO back to solarized
-colorscheme default
+colorscheme pyte
 set background=light
 
 map <Tab> :bnext<cr>
@@ -90,6 +98,7 @@ map <C-Tab> :bprevious<cr>
 
 imap <C-Space> <C-x><C-o>
 
+" Wrap
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
 inoremap [ []<LEFT>
@@ -102,6 +111,7 @@ vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 vnoremap ` "zdi`<C-R>z`<ESC>
+
 vnoremap [C-c] [Esc][Esc]
 nnoremap <Esc><Esc> :<C-u>noh<Return>
 "inoremap <tab> <c-n>
@@ -126,31 +136,22 @@ let g:netrw_list_hide='.*\.o$\|.*\.hi$\|^\.DS_Store$'
 let g:netrw_liststyle=3
 set wildignore=*.o,*.hi
 
-
 set statusline=%F%m%r%h%w\ %=%l,%v\|%p%%
 
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-highlight LineNr                ctermfg=244
-highlight StatusLine            ctermfg=237 ctermbg=243
-highlight StatusLineNC          ctermfg=237 ctermbg=237
-
-highlight Pmenu                 ctermbg=27  ctermfg=244
-highlight PmenuSel              ctermbg=27  ctermfg=0
-highlight PmenuSbar             ctermbg=27  ctermfg=0
-
 highlight Todo                  ctermbg=0   ctermfg=22
 
-highlight WideSpace             ctermbg=darkred
-highlight EOLSpace              ctermbg=darkred
-highlight WideEisuu             ctermbg=darkred
-highlight Tab                   ctermbg=darkred
-highlight SpaceAndComma         ctermbg=darkred
-highlight CommaAndNonSpace      ctermbg=darkred
-highlight HashRocketAndNonSpace ctermbg=darkred
-highlight NonSpaceAndHashRocket ctermbg=darkred
+highlight WideSpace             ctermbg=red
+highlight EOLSpace              ctermbg=red
+highlight WideEisuu             ctermbg=red
+highlight Tab                   ctermbg=red
+highlight SpaceAndComma         ctermbg=red
+highlight CommaAndNonSpace      ctermbg=red
+highlight HashRocketAndNonSpace ctermbg=red
+highlight NonSpaceAndHashRocket ctermbg=red
 
 function! s:highlight_general_checkstyles()
  let w:m1=matchadd('WideSpace', '　', -1)
@@ -162,7 +163,6 @@ function! s:highlight_general_checkstyles()
  let w:m6=matchadd('Tab', '\t', -1)
 endf
 
-au BufRead,BufNewFile *.hs set ft=haskell
 au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
 call s:highlight_general_checkstyles()
@@ -171,9 +171,10 @@ call s:highlight_general_checkstyles()
 Bundle 'Shougo/neocomplcache'
 Bundle "ujihisa/neco-ghc"
 Bundle 'dag/vim2hs'
+Bundle "eagletmt/ghcmod-vim"
+
 " No unicode lambdas etc.
 let g:haskell_conceal = 0
-Bundle "eagletmt/ghcmod-vim"
 
 au BufNewFile,BufRead *.hs,*.lhs set filetype=haskell
 
@@ -183,13 +184,7 @@ function! s:haskell()
     command! Type GhcModType
     let g:ghcmod_ghc_options = ['-w']
     au BufRead,BufWritePost *.hs GhcModCheckAsync
-  else
-    "au BufRead,BufWritePost *.hs call s:buildCabalProject()
   endif
-endf
-
-function! s:buildCabalProject()
-  execute "!ghc -Wall %"
 endf
 
 au BufRead,BufNewFile *.hs call s:haskell()
@@ -197,31 +192,25 @@ au BufRead,BufNewFile *.hs call s:haskell()
 if has('gui_running')
   set columns=130
   set lines=50
-  set guifont=Monaco:h15
+  set guifont=Anonymous\ Pro:h16
+  set linespace=5
   set autoread
   set background=light
-  colorscheme solarized
   set vb
   set mouse-=a
-  highlight WideSpace             guibg=red
-  highlight Tab                   guibg=red
-  highlight EOLSpace              guibg=red
-  highlight WideEisuu             guibg=red
-  "highlight SpaceAndComma         guibg=red
-  "highlight CommaAndNonSpace      guibg=red
-  highlight HashRocketAndNonSpace guibg=red
-  highlight NonSpaceAndHashRocket guibg=red
 endif
 
 syntax match Tab /\t/
 hi Tab gui=underline guifg=blue ctermbg=blue
 
+" quickrun
 let g:quickrun_config = {}
 let g:quickrun_config['pandoc'] = {
     \ 'type': 'markdown/pandoc',
     \ 'outputter': 'browser',
-    \ 'cmdopt': '-s'
-\ }
+    \ 'cmdopt': '-s' }
+
+" ctrlp
 let g:ctrlp_working_path_mode = 2
 nnoremap <silent> <D-t> :CtrlP<CR>
 nnoremap <silent> <D-r> :CtrlPMRU<CR>

@@ -28,6 +28,7 @@ alias zshrc='$EDITOR ~/.zshrc'
 alias initel='$EDITOR ~/.emacs.d/init.el'
 alias activate_hsenv='source .hsenv/bin/activate'
 #alias mvim="open -a ~/Applications/MacVim.app"
+alias ia="open $1 -a /Applications/iA\ Writer.app"
 
 # Unix commands
 alias lv='lv -c'
