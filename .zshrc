@@ -16,7 +16,7 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^r" history-incremental-search-backward
-bindkey -v
+bindkey -v # Vi keybind on terminal
 
 # Editor
 export EDITOR=mvim
@@ -26,14 +26,12 @@ alias e='v'
 alias vimrc='$EDITOR ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias initel='$EDITOR ~/.emacs.d/init.el'
-alias activate_hsenv='source .hsenv/bin/activate'
 #alias mvim="open -a ~/Applications/MacVim.app"
 alias ia="open $1 -a /Applications/iA\ Writer.app"
 
 # Unix commands
 alias lv='lv -c'
 alias t='tmux'
-alias c='cat'
 alias grep='grep --color=auto'
 alias browse='hub browse'
 
@@ -42,8 +40,6 @@ alias g='git'
 alias s='git s'
 alias m='git checkout master'
 alias d='git d'
-alias gi='git'
-alias gg='g g'
 function g(){hub "$@"}
 
 # Ruby
@@ -54,18 +50,16 @@ alias irb='pry'
 
 # Misc
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
-function di(){open dict://"$@"}
 
 # Path
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
+export PATH="$HOME/.cabal/bin:$PATH"
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
-export PATH=~/Library/Haskell/bin:$PATH
-export PATH="$HOME/.cabal/bin:$PATH"
-
-export PATH=~/.bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=~/.bin:$PATH
+export PATH=~/Library/Haskell/bin:$PATH
 export NODE_PATH=/usr/local/share/npm/lib/node_modules/
 
 # Prompt
