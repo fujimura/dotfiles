@@ -6,7 +6,7 @@ SAVEHIST=100000
 # Zsh
 setopt appendhistory extendedglob notify auto_pushd correct
 unsetopt beep nomatch
-zstyle :compinstall filename '/home/fu/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 zstyle ':completion:*:(all-|)files' ignored-patterns '*.o' '*.hi'
 autoload -Uz compinit
 compinit
@@ -70,6 +70,6 @@ source ~/.zshrc.local
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Zaw
-source /Users/fujimura/work/zaw/zaw.zsh
+source ~/work/zaw/zaw.zsh
 bindkey '^R' zaw-history
 setopt hist_ignore_all_dups
