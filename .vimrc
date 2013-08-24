@@ -9,7 +9,7 @@ Bundle 'gmarik/vundle'
 " Syntax
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
-Bundle 'bbommarito/vim-slim'
+""Bundle 'bbommarito/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mintplant/vim-literate-coffeescript'
 Bundle 'juvenn/mustache.vim'
@@ -31,6 +31,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'goldfeld/vim-seek'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tsaleh/vim-align'
+Bundle 'scrooloose/nerdtree'
 
 " Git
 Bundle 'tpope/vim-fugitive'
@@ -168,8 +169,8 @@ au BufRead,BufNewFile *.scss set filetype=scss
 call s:highlight_general_checkstyles()
 
 " Haskell
-Bundle 'Shougo/neocomplcache'
-Bundle "ujihisa/neco-ghc"
+"Bundle 'Shougo/neocomplcache'
+"Bundle "ujihisa/neco-ghc"
 Bundle 'dag/vim2hs'
 Bundle "eagletmt/ghcmod-vim"
 
@@ -189,6 +190,8 @@ endf
 
 au BufRead,BufNewFile *.hs call s:haskell()
 
+au BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
+
 if has('gui_running')
   set columns=130
   set lines=50
@@ -199,6 +202,8 @@ if has('gui_running')
   set vb
   set mouse-=a
 endif
+
+highlight Cursor guifg=pink guibg=black
 
 syntax match Tab /\t/
 hi Tab gui=underline guifg=blue ctermbg=blue
