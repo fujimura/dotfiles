@@ -20,7 +20,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'digitaltoad/vim-jade'
 
-" VIM
+" Vim
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
 Bundle 'scrooloose/nerdcommenter'
@@ -31,7 +31,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'goldfeld/vim-seek'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tsaleh/vim-align'
-Bundle 'scrooloose/nerdtree'
 
 " Git
 Bundle 'tpope/vim-fugitive'
@@ -81,7 +80,6 @@ set guioptions-=m
 set guioptions+=R
 set showmatch
 "set clipboard=unnamed
-set smartindent
 set nobackup
 set noswapfile
 set title
@@ -94,10 +92,10 @@ let g:solarized_termcolors = 256
 colorscheme pyte
 set background=light
 
-map <Tab> :bnext<cr>
-map <C-Tab> :bprevious<cr>
+"map <Tab> :bnext<cr>
+"map <C-Tab> :bprevious<cr>
 
-imap <C-Space> <C-x><C-o>
+"imap <C-Space> <C-x><C-o>
 
 " Wrap
 inoremap { {}<LEFT>
@@ -230,3 +228,4 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
+

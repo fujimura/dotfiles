@@ -17,7 +17,7 @@
   co              = checkout
   ad              = add
   l               = log --decorate
-  lp              = log --decorate --stat -p --graph
+  lp              = log --decorate --stat -p
   lr              = log --stat -p --reverse
   r               = rebase
   br              = branch --verbose --verbose --color
@@ -32,6 +32,7 @@
   kokomade        = tag -f 'kokomade' origin/master
   newspaper       = log -p --reverse 'kokomade'..origin/master
   current-branch  = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
+  tb              =  "!sh -c \"git checkout -b `git log --pretty=\"%s\" -1 | ruby -e \"print STDIN.read.gsub(/[^a-zA-Z0-9]/, '-').downcase\"`\""
   push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'" # For gerrit
   gsub            = "!sh -c 'git grep -l $0 $2 | xargs gsed -i \"s/$0/$1/g\"'"
 [user]
