@@ -132,7 +132,6 @@ inoremap <C-k> <C-o>D
 
 command! E Explore
 let g:netrw_list_hide='.*\.o$\|.*\.hi$\|^\.DS_Store$'
-let g:netrw_liststyle=3
 set wildignore=*.o,*.hi
 
 set statusline=%F%m%r%h%w\ %=%l,%v\|%p%%
