@@ -1,0 +1,7 @@
+#! /usr/bin/env ruby
+require 'socket'
+
+ipv4 = Socket.ip_address_list.find(&:ipv4_private?)
+ipv4 or raise "No private ipv4 address found"
+
+puts ipv4.ip_address
