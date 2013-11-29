@@ -1,0 +1,8 @@
+#! /usr/bin/env ruby
+
+branch_name = `git log --pretty="%s" -1`.
+  strip.
+  gsub(/[^a-zA-Z0-9]/, '-').
+  gsub(/--*/, '-').gsub(/^-|-$/, '').downcase
+
+`git checkout -b #{branch_name}`
