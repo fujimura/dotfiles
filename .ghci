@@ -1,1 +1,6 @@
+import Data.List
+import Data.Maybe
+import Control.Monad
+import Control.Applicative
+
 :set prompt "\ESC[34mλ \ESC[m"
