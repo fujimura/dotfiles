@@ -142,28 +142,8 @@ endif
 
 highlight Todo                  ctermbg=0   ctermfg=22
 
-highlight WideSpace             ctermbg=red
-highlight EOLSpace              ctermbg=red
-highlight WideEisuu             ctermbg=red
-highlight Tab                   ctermbg=red
-highlight SpaceAndComma         ctermbg=red
-highlight CommaAndNonSpace      ctermbg=red
-highlight HashRocketAndNonSpace ctermbg=red
-highlight NonSpaceAndHashRocket ctermbg=red
-
-function! s:highlight_general_checkstyles()
- let w:m1=matchadd('WideSpace', '　', -1)
- let w:m1=matchadd('Tab', '	', -1)
- let w:m2=matchadd('EOLSpace', '\s\+$', -1)
- let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
- "let w:m4=matchadd('SpaceAndComma', ' ,', -1)
- "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
- let w:m6=matchadd('Tab', '\t', -1)
-endf
-
 au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
-call s:highlight_general_checkstyles()
 
 " Haskell
 "Bundle 'Shougo/neocomplcache'
@@ -201,6 +181,26 @@ if has('gui_running')
 endif
 
 highlight Cursor guifg=pink guibg=black
+
+highlight WideSpace             ctermbg=red guifg=white guibg=red
+highlight EOLSpace              ctermbg=red guifg=white guibg=red
+highlight WideEisuu             ctermbg=red guifg=white guibg=red
+highlight Tab                   ctermbg=red guifg=white guibg=red
+highlight SpaceAndComma         ctermbg=red guifg=white guibg=red
+highlight CommaAndNonSpace      ctermbg=red guifg=white guibg=red
+highlight HashRocketAndNonSpace ctermbg=red guifg=white guibg=red
+highlight NonSpaceAndHashRocket ctermbg=red guifg=white guibg=red
+
+function! s:highlight_general_checkstyles()
+ let w:m1=matchadd('WideSpace', '　', -1)
+ let w:m1=matchadd('Tab', '	', -1)
+ let w:m2=matchadd('EOLSpace', '\s\+$', -1)
+ let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
+ "let w:m4=matchadd('SpaceAndComma', ' ,', -1)
+ "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
+ let w:m6=matchadd('Tab', '\t', -1)
+endf
+call s:highlight_general_checkstyles()
 
 syntax match Tab /\t/
 hi Tab gui=underline guifg=blue ctermbg=blue
