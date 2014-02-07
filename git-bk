@@ -1,0 +1,10 @@
+#! /usr/bin/env ruby
+
+current_branch_name  = `git branch | grep '*' | awk '{ print $2 }'`
+
+new_branch_name = `git log --pretty="%s" -1`.
+  strip.
+  gsub(/[^a-zA-Z0-9]/, '-').
+  gsub(/--*/, '-').gsub(/^-|-$/, '').downcase
+
+`git checkout -b #{new_branch_name} && git checkout #{current_branch_name}`
