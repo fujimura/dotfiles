@@ -3,6 +3,17 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '%b'
 zstyle ':vcs_info:*' actionformats '%b|%a'
 
+function cabal_sandbox_info() {
+    cabal_files=(*.cabal(N))
+    if [ $#cabal_files -gt 0 ]; then
+        if [ -f cabal.sandbox.config ]; then
+             echo "%F{green}sandboxed%f"
+        else
+             echo "%K{red}not sandboxed%k"
+        fi
+    fi
+}
+
 # Set initial color
 ZSHFG=`expr $RANDOM / 128`
 precmd () {
@@ -24,6 +35,7 @@ precmd () {
   # Define prompt with new color at each prompt
   # See: http://zsh.sourceforge.net/Doc/Release/Functions.html#index-precmd
   RPROMPT="%F{$ZSHFG}%~% %(!.#.)%f%1(v|%F{240} %1v%f|)"
+  RPROMPT="$RPROMPT $(cabal_sandbox_info)"
   PROMPT="%F{$ZSHFG}💎 %f "
 }
 
