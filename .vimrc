@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+
 " Syntax
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
@@ -160,6 +161,7 @@ function! s:haskell()
   command! Stylish %!stylish-haskell
   if executable('ghc-mod')
     command! Type GhcModType
+    command! TypeClear GhcModTypeClear
     let g:ghcmod_ghc_options = ['-w']
     au BufRead,BufWritePost *.hs GhcModCheckAsync
   endif
@@ -228,3 +230,4 @@ let g:ctrlp_user_command = {
     \ 'fallback': 'find %s -type f'
 \ }
 
+highlight Search guibg='gray'

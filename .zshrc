@@ -73,3 +73,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 source ~/work/zaw/zaw.zsh
 bindkey '^R' zaw-history
 setopt hist_ignore_all_dups
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
