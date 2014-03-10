@@ -7,34 +7,23 @@
   status          = auto
   diff            = auto
 [alias]
-  st              = status -bs
   s               = status -bs
-  di              = diff
   d               = diff
   ci              = commit -v
   fixup           = commit --amend -C HEAD
-  reset1          = reset HEAD~1
   co              = checkout
   ad              = add
   l               = log --decorate
   lp              = log --decorate --stat -p
-  lr              = log --stat -p --reverse
-  r               = rebase
   br              = branch --verbose --verbose --color
   f               = fetch
   g               = grep -n -p --color --heading --break
   sha             = log --pretty="%H"
   fu              = fetch upstream
-  mum             = merge upstream/master
   rum             = rebase upstream/master
-  mom             = merge origin/master
   rom             = rebase origin/master
-  kokomade        = tag -f 'kokomade' origin/master
-  newspaper       = log -p --reverse 'kokomade'..origin/master
-  current-branch  = "!sh -c \"git branch | grep '*' | awk '{ print \\$2 }' \""
   tb              = git-tb
   bk              = git-bk
-  push-for-review = "!sh -c 'git push origin HEAD:refs/for/master/`git current-branch`'" # For gerrit
   gsub            = "!sh -c 'git grep -l $0 $2 | xargs gsed -i \"s/$0/$1/g\"'"
 [user]
   name            = Fujimura Daisuke
