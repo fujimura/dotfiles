@@ -24,7 +24,7 @@
   rom             = rebase origin/master
   tb              = git-tb
   bk              = git-bk
-  gsub            = "!sh -c 'git grep -l $0 $2 | xargs gsed -i \"s/$0/$1/g\"'"
+  gsub            = git-gsub
 [user]
   name            = Fujimura Daisuke
   email           = me@fujimuradaisuke.com
