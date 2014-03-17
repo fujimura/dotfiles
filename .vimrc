@@ -10,7 +10,7 @@ Bundle 'gmarik/vundle'
 " Syntax
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
-""Bundle 'bbommarito/vim-slim'
+Bundle 'bbommarito/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mintplant/vim-literate-coffeescript'
 Bundle 'juvenn/mustache.vim'
@@ -204,6 +204,7 @@ function! s:highlight_general_checkstyles()
 endf
 call s:highlight_general_checkstyles()
 
+highlight Search guibg='gray'
 syntax match Tab /\t/
 hi Tab gui=underline guifg=blue ctermbg=blue
 
@@ -230,4 +231,3 @@ let g:ctrlp_user_command = {
     \ 'fallback': 'find %s -type f'
 \ }
 
-highlight Search guibg='gray'
