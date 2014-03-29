@@ -93,6 +93,9 @@ let g:solarized_termcolors = 256
 colorscheme pyte
 set background=light
 
+set conceallevel=0
+au FileType * setl conceallevel=0
+
 "map <Tab> :bnext<cr>
 "map <C-Tab> :bprevious<cr>
 
@@ -230,4 +233,3 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
-
