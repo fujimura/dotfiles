@@ -1,0 +1,11 @@
+#! /usr/bin/env ruby
+
+require 'shellwords'
+
+from, to, path, = ARGV
+
+target_files = (`git grep -l #{from} #{path}`).each_line.map(&:chomp)
+
+target_files.select {|f| f =~ /#{from}/ }.each do |file|
+  system %|mv -v #{file} #{file.gsub from, to}|
+end
