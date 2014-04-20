@@ -86,6 +86,7 @@ set noswapfile
 set title
 set number
 set whichwrap=4
+set scrolloff=3
 
 syntax on
 let g:solarized_termcolors = 256
@@ -171,6 +172,13 @@ function! s:haskell()
 endf
 
 au BufRead,BufNewFile *.hs call s:haskell()
+
+function! s:markdown()
+  set nonu
+  set laststatus=0
+endf
+
+au BufRead,BufNewFile *.md call s:markdown()
 
 au BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
 
