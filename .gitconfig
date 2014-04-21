@@ -14,10 +14,10 @@
   co              = checkout
   ad              = add
   l               = log --decorate
-  lp              = log --decorate --stat -p
+  lp              = log --decorate --stat --patch
   br              = branch --verbose --verbose --color
   f               = fetch
-  g               = grep -n -p --color --heading --break
+  g               = grep --line-number --show-function --color --heading --break
   sha             = log --pretty="%H"
   fu              = fetch upstream
   rum             = rebase upstream/master
