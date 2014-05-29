@@ -42,6 +42,7 @@ Bundle 'pyte'
 Bundle 'noahfrederick/Hemisu'
 
 au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
+au BufRead,BufNewFile *.purs set syntax=haskell
 
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
