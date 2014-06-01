@@ -24,7 +24,6 @@
   rom             = rebase origin/master
   tb              = git-tb
   bk              = git-bk
-  gsub            = git-gsub
 [user]
   name            = Fujimura Daisuke
   email           = me@fujimuradaisuke.com
