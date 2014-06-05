@@ -23,7 +23,7 @@ Bundle 'fatih/vim-go'
 " Vim
 Bundle 'thinca/vim-quickrun'
 Bundle 'tyru/open-browser.vim'
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-commentary'
 Bundle 'ervandew/supertab'
 Bundle 'Shougo/vimproc'
 Bundle 'scrooloose/syntastic'
@@ -157,6 +157,7 @@ au BufRead,BufNewFile *.scss set filetype=scss
 "Bundle "ujihisa/neco-ghc"
 Bundle 'dag/vim2hs'
 Bundle "eagletmt/ghcmod-vim"
+Bundle "Twinside/vim-hoogle"
 
 " No unicode lambdas etc.
 let g:haskell_conceal = 0
@@ -168,8 +169,8 @@ function! s:haskell()
   if executable('ghc-mod')
     command! Type GhcModType
     command! TypeClear GhcModTypeClear
-    let g:ghcmod_ghc_options = []
-    "au BufRead,BufWritePost *.hs GhcModCheckAsync
+    let g:ghcmod_ghc_options = ['-w']
+    " au BufRead,BufWritePost *.hs GhcModCheckAsync
   endif
 endf
 
