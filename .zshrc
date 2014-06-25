@@ -77,3 +77,6 @@ function peco-select-history() {
         peco --query "$LBUFFER")
     zle accept-line
 }
+
+zle -N peco-select-history
+bindkey '^r' peco-select-history
