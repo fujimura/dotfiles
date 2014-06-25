@@ -69,10 +69,11 @@ source ~/.zshrc.local
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# Zaw
-source ~/work/zaw/zaw.zsh
-bindkey '^R' zaw-history
-setopt hist_ignore_all_dups
+# http://blog.kenjiskywalker.org/blog/2014/06/12/peco/
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+function peco-select-history() {
+    BUFFER=$(history -n 1 | \
+        eval "tail -r" | \
+        peco --query "$LBUFFER")
+    zle accept-line
+}
