@@ -42,7 +42,7 @@ alias m='git checkout master'
 alias d='git d'
 function g(){hub "$@"}
 
-function repo(){ghq look "$@"}
+function r(){ ghq look $(ghq list --unique | peco) }
 
 # Ruby
 alias be='bundle exec'
