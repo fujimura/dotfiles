@@ -42,6 +42,8 @@ alias m='git checkout master'
 alias d='git d'
 function g(){hub "$@"}
 
+function repo(){ghq look "$@"}
+
 # Ruby
 alias be='bundle exec'
 alias bes='bundle exec spring'
@@ -61,6 +63,8 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=~/.bin:$PATH
 export PATH=~/Library/Haskell/bin:$PATH
 export NODE_PATH=/usr/local/share/npm/lib/node_modules/
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 # Prompt
 source ~/.prompt.zshrc
