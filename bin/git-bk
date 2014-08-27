@@ -1,5 +1,6 @@
 #! /usr/bin/env ruby
 
-current_branch_name  = `git branch | grep '*' | awk '{ print $2 }'`
+current_branch_name  = `git branch | grep '*' | awk '{ print $2 }'`.chomp
+backup_branch_name = %|#{current_branch_name}-#{Time.now.strftime "%Y-%m-%d-%H-%M"}|
 
-`git tb && git checkout #{current_branch_name}`
+`git checkout -b #{backup_branch_name} && git checkout #{current_branch_name}`
