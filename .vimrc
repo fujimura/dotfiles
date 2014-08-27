@@ -167,8 +167,8 @@ function! s:haskell()
   if executable('ghc-mod')
     command! Type GhcModType
     command! TypeClear GhcModTypeClear
-    let g:ghcmod_ghc_options = ['-w']
-    au BufRead,BufWritePost *.hs GhcModCheckAsync
+    let g:ghcmod_ghc_options = []
+    "au BufRead,BufWritePost *.hs GhcModCheckAsync
   endif
 endf
 
