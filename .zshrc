@@ -42,7 +42,25 @@ alias m='git checkout master'
 alias d='git d'
 function g(){hub "$@"}
 
-function r(){ ghq look $(ghq list --unique | peco) }
+function r(){
+  local choice
+  if [ -z $1 ]; then
+    choice = $(ghq list --unique | peco)
+    if [ -z $choice]; then
+      echo "No repo was chosen"
+    else
+      ghq look chosen
+    fi
+  else
+    ghq look $1
+  fi
+}
+
+function _r {
+  _values $(ghq list --unique)
+}
+
+compdef _r r
 
 # Ruby
 alias be='bundle exec'
