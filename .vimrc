@@ -1,11 +1,9 @@
 set nocompatible
-
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 Bundle 'gmarik/vundle'
-
 
 " Syntax
 Bundle 'vim-ruby/vim-ruby'
@@ -40,6 +38,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'pyte'
 Bundle 'noahfrederick/Hemisu'
+call vundle#end()            " required
+filetype plugin indent on
 
 au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
 au BufRead,BufNewFile *.purs set syntax=haskell
