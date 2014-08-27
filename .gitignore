@@ -3,3 +3,6 @@
 .vim/bundle/
 *.o
 *.hi
+codex.tags
+.cabal-sandbox/
+cabal.sandbox.config
