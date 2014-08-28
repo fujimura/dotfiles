@@ -74,6 +74,9 @@ source ~/.zshrc.local
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+### Show as many options as possible in the screen
+export LISTMAX=0
+
 # http://blog.kenjiskywalker.org/blog/2014/06/12/peco/
 
 function peco-select-history() {
