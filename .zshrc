@@ -42,25 +42,7 @@ alias m='git checkout master'
 alias d='git d'
 function g(){hub "$@"}
 
-function repo(){
-  if [ -z $1 ]; then
-    choice=$(ghq list --unique | peco)
-    if [ -z $choice ]; then
-      echo "No repo was chosen"
-    else
-      ghq look $choice
-    fi
-  else
-    ghq look $1
-  fi
-}
-
-function _repo {
-  _values $(ghq list --unique)
-}
-
-compdef _repo repo
-
+source ~/.repo.zsh
 alias r='repo'
 
 # Ruby

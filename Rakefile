@@ -12,6 +12,7 @@ DOTFILES = %w|
   .vim
   .vimrc
   .zshenv
+  .repo.zsh
   .zshrc
 |
 
