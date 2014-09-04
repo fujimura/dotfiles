@@ -4,7 +4,7 @@ choice = ARGV.first || `ghq list --unique | peco`.chomp
 
 succeed = system "ghq look #{choice}"
 
-unless succeed && choice.include?("/")
+if !succeed && choice.include?("/")
   `ghq get #{choice}`
   `ghq look #{choice}`
 end
