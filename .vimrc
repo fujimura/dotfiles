@@ -18,6 +18,7 @@ Bundle 'vim-pandoc/vim-markdownfootnotes'
 Bundle 'nono/vim-handlebars'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'fatih/vim-go'
 
 " Vim
 Bundle 'thinca/vim-quickrun'
@@ -242,3 +243,8 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
+
+
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
