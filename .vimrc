@@ -31,6 +31,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'goldfeld/vim-seek'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tsaleh/vim-align'
+Bundle 'terryma/vim-expand-region'
 
 " Git
 Bundle 'tpope/vim-fugitive'
@@ -195,6 +196,9 @@ if has('gui_running')
   set vb
   set mouse-=a
 endif
+
+map K <Plug>(expand_region_expand)
+map J <Plug>(expand_region_shrink)
 
 highlight Cursor guifg=pink guibg=black
 
