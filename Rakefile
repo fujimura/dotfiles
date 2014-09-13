@@ -21,7 +21,7 @@ EXECUTABLES = `git ls-files bin`.each_line.map(&:chomp)
 desc "Symlink all dotfiles"
 task :symlink_dotfiles do
   DOTFILES.each do |dotfile|
-    system %|ln -sv #{File.expand_path dotfile} ~/#{dotfile}|
+    system %|ln -sfv #{File.expand_path dotfile} ~/#{dotfile}|
   end
 end
 
