@@ -197,8 +197,8 @@ if has('gui_running')
   set mouse-=a
 endif
 
-map K <Plug>(expand_region_expand)
-map J <Plug>(expand_region_shrink)
+map <C-k> <Plug>(expand_region_expand)
+map <C-j> <Plug>(expand_region_shrink)
 
 highlight Cursor guifg=pink guibg=black
 
