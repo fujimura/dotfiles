@@ -98,7 +98,6 @@ function repo(){
     choice=$(ghq list --unique | peco)
     if [ -z $choice ]; then
       echo "No repo was chosen"
-      exit 1
     else
       result=$choice
     fi
@@ -110,7 +109,6 @@ function repo(){
 
   if [ "$dest" == "" ] ; then
     echo "Not found"
-    exit 1
   else
     cd $dest
   fi
