@@ -88,3 +88,30 @@ function peco-select-history() {
 
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+function repo(){
+  local result=""
+  local choice=""
+  local dest=""
+
+  if [ -z $1 ]; then
+    choice=$(ghq list --unique | peco)
+    if [ -z $choice ]; then
+      echo "No repo was chosen"
+      exit 1
+    else
+      result=$choice
+    fi
+  else
+    result=$1
+  fi
+
+  dest=`ghq list --exact --full-path $result`
+
+  if [ "$dest" == "" ] ; then
+    echo "Not found"
+    exit 1
+  else
+    cd $dest
+  fi
+}
