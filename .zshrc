@@ -94,6 +94,11 @@ function repo(){
   local choice=""
   local dest=""
 
+  if [ "$1" =~ "^(git|http)" ] ; then
+    ghq get $1
+    break
+  fi
+
   if [ -z $1 ]; then
     choice=$(ghq list --unique | peco)
     if [ -z $choice ]; then
