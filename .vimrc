@@ -3,43 +3,43 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " Syntax
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml'
-Bundle 'slim-template/vim-slim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'mintplant/vim-literate-coffeescript'
-Bundle 'juvenn/mustache.vim'
-Bundle 'othree/html5.vim'
-Bundle 'vim-pandoc/vim-pandoc'
-Bundle 'vim-pandoc/vim-markdownfootnotes'
-Bundle 'nono/vim-handlebars'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'fatih/vim-go'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-haml'
+Plugin 'slim-template/vim-slim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mintplant/vim-literate-coffeescript'
+Plugin 'juvenn/mustache.vim'
+Plugin 'othree/html5.vim'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-markdownfootnotes'
+Plugin 'nono/vim-handlebars'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'fatih/vim-go'
 
 " Vim
-Bundle 'thinca/vim-quickrun'
-Bundle 'tyru/open-browser.vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'ervandew/supertab'
-Bundle 'Shougo/vimproc'
-Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
-Bundle 'goldfeld/vim-seek'
-Bundle 'mhinz/vim-signify'
-Bundle 'tsaleh/vim-align'
-Bundle 'terryma/vim-expand-region'
+Plugin 'thinca/vim-quickrun'
+Plugin 'tyru/open-browser.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'ervandew/supertab'
+Plugin 'Shougo/vimproc'
+Plugin 'scrooloose/syntastic'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'goldfeld/vim-seek'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tsaleh/vim-align'
+Plugin 'terryma/vim-expand-region'
 
 " Git
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " Colors
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'pyte'
-Bundle 'noahfrederick/Hemisu'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'pyte'
+Plugin 'noahfrederick/Hemisu'
 call vundle#end()            " required
 filetype plugin indent on
 
