@@ -96,7 +96,7 @@ function repo(){
 
   if [ "$1" =~ "^(git|http)" ] ; then
     ghq get $1
-    exit 0
+    return
   fi
 
   if [ -z $1 ]; then
