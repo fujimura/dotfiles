@@ -93,12 +93,6 @@ function repo(){
   local result=""
   local choice=""
   local dest=""
-
-  if [ "$1" =~ "^(git|http)" ] ; then
-    ghq get $1
-    return
-  fi
-
   if [ -z $1 ]; then
     choice=$(ghq list --unique | peco)
     if [ -z $choice ]; then
@@ -113,7 +107,12 @@ function repo(){
   dest=`ghq list --exact --full-path $result`
 
   if [ "$dest" == "" ] ; then
-    echo "Not found"
+    if [ "$1" =~ "^(git|http)" ] ; then
+      ghq get $1
+      return
+    else
+      echo "Not found"
+    fi
   else
     cd $dest
   fi
