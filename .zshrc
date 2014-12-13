@@ -51,6 +51,12 @@ alias bes='bundle exec spring'
 alias b='bundle'
 alias irb='pry'
 
+# Haskell
+alias ce='cabal exec'
+alias c='cabal build'
+alias cr='cabal repl'
+alias ct='cabal test'
+
 # Misc
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
 
@@ -66,6 +72,7 @@ export PATH=~/Library/Haskell/bin:$PATH
 export NODE_PATH=/usr/local/share/npm/lib/node_modules/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=.cabal-sandbox/bin:$PATH
 
 # Prompt
 source ~/.prompt.zshrc
@@ -88,6 +95,11 @@ function peco-select-history() {
 
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+function hoogle() {
+ open "https://www.haskell.org/hoogle/?hoogle=$1"
+}
+
 
 function repo(){
   local result=""
