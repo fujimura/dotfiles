@@ -32,6 +32,7 @@ Plugin 'goldfeld/vim-seek'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tsaleh/vim-align'
 Plugin 'terryma/vim-expand-region'
+Plugin 'tpope/vim-vinegar'
 
 " Git
 Plugin 'tpope/vim-fugitive'
