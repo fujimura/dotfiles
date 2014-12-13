@@ -3,6 +3,7 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '%b'
 zstyle ':vcs_info:*' actionformats '%b|%a'
 
+# From https://gist.github.com/puffnfresh/9084791
 function cabal_sandbox_info() {
     cabal_files=(*.cabal(N))
     if [ $#cabal_files -gt 0 ]; then
