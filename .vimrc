@@ -156,10 +156,7 @@ au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile *.scss set filetype=scss
 
 " Haskell
-"Bundle 'Shougo/neocomplcache'
-"Bundle "ujihisa/neco-ghc"
 Bundle 'dag/vim2hs'
-Bundle "eagletmt/ghcmod-vim"
 Bundle "Twinside/vim-hoogle"
 
 " No unicode lambdas etc.
@@ -170,10 +167,10 @@ au BufNewFile,BufRead *.hs,*.lhs set filetype=haskell
 function! s:haskell()
   command! Stylish %!stylish-haskell
   if executable('ghc-mod')
-    command! Type GhcModType
-    command! TypeClear GhcModTypeClear
-    let g:ghcmod_ghc_options = ['-w']
-    " au BufRead,BufWritePost *.hs GhcModCheckAsync
+    ""command! Type GhcModType
+    ""command! TypeClear GhcModTypeClear
+    ""let g:ghcmod_ghc_options = ['-w']
+    ""au BufRead,BufWritePost *.hs GhcModCheckAsync
   endif
 endf
 
