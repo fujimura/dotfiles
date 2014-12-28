@@ -19,15 +19,13 @@ bindkey "^r" history-incremental-search-backward
 bindkey -e # Vi keybind on terminal
 
 # Editor
-export EDITOR=mvim
-alias vi='mvim'
+export EDITOR="mvim --remote-silent"
+alias vi="$EDITOR"
 alias v='vi'
 alias e='v'
-alias vimrc='$EDITOR ~/.vimrc'
-alias zshrc='$EDITOR ~/.zshrc'
-alias initel='$EDITOR ~/.emacs.d/init.el'
-#alias mvim="open -a ~/Applications/MacVim.app"
-alias ia="open $1 -a /Applications/iA\ Writer.app"
+alias vimrc="$EDITOR ~/.vimrc"
+alias zshrc="$EDITOR ~/.zshrc"
+alias initel="$EDITOR ~/.emacs.d/init.el"
 
 # Unix commands
 alias lv='lv -c'

@@ -33,6 +33,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tsaleh/vim-align'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-vinegar'
+Plugin 'bling/vim-bufferline'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -101,8 +102,8 @@ set background=light
 set conceallevel=0
 au FileType * setl conceallevel=0
 
-"map <Tab> :bnext<cr>
-"map <C-Tab> :bprevious<cr>
+map <Tab> :bnext<cr>
+map <C-Tab> :bprevious<cr>
 
 "imap <C-Space> <C-x><C-o>
 
