@@ -40,7 +40,6 @@ alias m='git checkout master'
 alias d='git d'
 function g(){hub "$@"}
 
-source ~/.repo.zsh
 alias r='repo'
 
 # Ruby
@@ -127,3 +126,9 @@ function repo(){
     cd $dest
   fi
 }
+
+function _repo {
+  _values $(ghq list --unique)
+}
+
+compdef _repo repo
