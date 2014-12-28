@@ -1,4 +1,4 @@
-" Clear all autcommands
+" Clear all autocommands
 autocmd!
 
 " -----------------------------------------------------------------------------
