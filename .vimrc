@@ -1,74 +1,86 @@
-set nocompatible
+" Clear all autcommands
+autocmd!
+
+" -----------------------------------------------------------------------------
+" Plugins
+" -----------------------------------------------------------------------------
+
+" Vundle needs this
 filetype off
 
+" Setup Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" Syntax
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-haml'
-Plugin 'slim-template/vim-slim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mintplant/vim-literate-coffeescript'
-Plugin 'juvenn/mustache.vim'
-Plugin 'othree/html5.vim'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-markdownfootnotes'
-Plugin 'nono/vim-handlebars'
-Plugin 'jelera/vim-javascript-syntax'
+" Languages
+Plugin 'Twinside/vim-hoogle'
+Plugin 'dag/vim2hs'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'fatih/vim-go'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'juvenn/mustache.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mintplant/vim-literate-coffeescript'
+Plugin 'nono/vim-handlebars'
+Plugin 'othree/html5.vim'
+Plugin 'raichoo/purescript-vim'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-haml'
+Plugin 'vim-pandoc/vim-markdownfootnotes'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/bnf.vim'
 
 " Vim
-Plugin 'thinca/vim-quickrun'
-Plugin 'tyru/open-browser.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'ervandew/supertab'
 Plugin 'Shougo/vimproc'
-Plugin 'scrooloose/syntastic'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'goldfeld/vim-seek'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tsaleh/vim-align'
-Plugin 'terryma/vim-expand-region'
-Plugin 'tpope/vim-vinegar'
 Plugin 'bling/vim-bufferline'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'goldfeld/vim-seek'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-expand-region'
+Plugin 'thinca/vim-quickrun'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tsaleh/vim-align'
+Plugin 'tyru/open-browser.vim'
 
 " Git
 Plugin 'tpope/vim-fugitive'
 
-" Colors
-Plugin 'altercation/vim-colors-solarized'
+" Color
 Plugin 'pyte'
-Plugin 'noahfrederick/Hemisu'
-call vundle#end()            " required
+
+" Vundle needs this
+call vundle#end()
 filetype plugin indent on
+syntax on
 
-au BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
-au BufRead,BufNewFile *.purs set syntax=haskell
+" -----------------------------------------------------------------------------
+" General settings
+" -----------------------------------------------------------------------------
 
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
-filetype on
-filetype indent on
-filetype plugin on
-
+" Search
 set hlsearch
-set showcmd
-set cmdheight=1
-set showmatch
 set ignorecase
 set smartcase
 set incsearch
-set laststatus=2
+
+" Matching
+set showmatch
+set matchtime=1
+
+" Folding
 set nofoldenable
-set mouse=a
-set ttymouse=xterm2
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
-autocmd! bufwritepost .vimrc source %
+
+" Status line
+set showcmd
+set cmdheight=1
+set laststatus=2
+set statusline=%f%m%r%h%w\ %=%l,%v\|%p%%
+
 set ambiwidth=double
 
 " Tab and indent
@@ -79,33 +91,20 @@ set smartindent
 set autoindent
 set expandtab
 
-set guioptions-=T
-set guioptions+=a
-set guioptions-=m
-set guioptions-=m
-set guioptions+=R
-set showmatch
-"set clipboard=unnamed
 set nobackup
 set noswapfile
 set title
 set number
-set whichwrap=4
+set whichwrap+=h,l
 set scrolloff=3
+set display=lastline
 
-syntax on
-let g:solarized_termcolors = 256
-"TODO back to solarized
 colorscheme pyte
 set background=light
 
-set conceallevel=0
-au FileType * setl conceallevel=0
-
-map <Tab> :bnext<cr>
-map <C-Tab> :bprevious<cr>
-
-"imap <C-Space> <C-x><C-o>
+" -----------------------------------------------------------------------------
+" Remaps
+" -----------------------------------------------------------------------------
 
 " Wrap
 inoremap { {}<LEFT>
@@ -121,13 +120,17 @@ vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 vnoremap ` "zdi`<C-R>z`<ESC>
 
-vnoremap [C-c] [Esc][Esc]
-nnoremap <Esc><Esc> :<C-u>noh<Return>
-"inoremap <tab> <c-n>
-nnoremap enc O# coding: utf-8<esc>
-noremap <space> /
+" Move buffers
+nnoremap <C-Tab> :bprevious<cr>
+nnoremap <Tab> :bnext<cr>
 
-" Emacs in insert mode
+" Clean highlighting
+nnoremap <Esc><Esc> :<C-u>noh<Return>
+
+" Search with /
+nnoremap <space> /
+
+" Emacs keybindings in insert mode
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-b> <Left>
@@ -138,92 +141,94 @@ inoremap <C-h> <Backspace>
 inoremap <C-d> <Del>
 inoremap <C-u> <C-o>d0
 inoremap <C-k> <C-o>D
-"
 
-command! E Explore
+" -----------------------------------------------------------------------------
+" More settings
+" -----------------------------------------------------------------------------
+
+" Files to ignore
 let g:netrw_list_hide='.*\.o$\|.*\.hi$\|^\.DS_Store$'
 set wildignore=*.o,*.hi
 
-set statusline=%F%m%r%h%w\ %=%l,%v\|%p%%
-
-if exists('&ambiwidth')
-  set ambiwidth=double
-endif
-
-highlight Todo                  ctermbg=0   ctermfg=22
-
-au BufRead,BufNewFile *.json set filetype=json
-au BufRead,BufNewFile *.scss set filetype=scss
-
-" Haskell
-Bundle 'dag/vim2hs'
-Bundle "Twinside/vim-hoogle"
-
-" No unicode lambdas etc.
-let g:haskell_conceal = 0
-
-au BufNewFile,BufRead *.hs,*.lhs set filetype=haskell
-
-function! s:haskell()
-  command! Stylish %!stylish-haskell
-  if executable('ghc-mod')
-    ""command! Type GhcModType
-    ""command! TypeClear GhcModTypeClear
-    ""let g:ghcmod_ghc_options = ['-w']
-    ""au BufRead,BufWritePost *.hs GhcModCheckAsync
-  endif
-endf
-
-au BufRead,BufNewFile *.hs call s:haskell()
-
-function! s:markdown()
-  set nonu
-  set laststatus=0
-endf
-
-au BufRead,BufNewFile *.md call s:markdown()
-
-au BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
-
+" GUI settings
 if has('gui_running')
-  set columns=130
-  set lines=50
+  set guioptions-=T
+  set guioptions+=a
+  set guioptions-=m
+  set guioptions-=m
+  set guioptions+=R
   set guifont=Anonymous\ Pro:h16
   set linespace=5
   set autoread
   set background=light
-  set vb
-  set mouse-=a
+  set visualbell
 endif
 
-map <C-k> <Plug>(expand_region_expand)
-map <C-j> <Plug>(expand_region_shrink)
-
+" Colors
 highlight Cursor guifg=pink guibg=black
+highlight Search guifg=black guibg=gray
 
-highlight WideSpace             ctermbg=red guifg=white guibg=red
-highlight EOLSpace              ctermbg=red guifg=white guibg=red
-highlight WideEisuu             ctermbg=red guifg=white guibg=red
-highlight Tab                   ctermbg=red guifg=white guibg=red
-highlight SpaceAndComma         ctermbg=red guifg=white guibg=red
+" Alerts
 highlight CommaAndNonSpace      ctermbg=red guifg=white guibg=red
+highlight EOLSpace              ctermbg=red guifg=white guibg=red
 highlight HashRocketAndNonSpace ctermbg=red guifg=white guibg=red
 highlight NonSpaceAndHashRocket ctermbg=red guifg=white guibg=red
+highlight SpaceAndComma         ctermbg=red guifg=white guibg=red
+highlight Tab                   ctermbg=red guifg=white guibg=red
+highlight WideEisuu             ctermbg=red guifg=white guibg=red
+highlight WideSpace             ctermbg=red guifg=white guibg=red
 
 function! s:highlight_general_checkstyles()
- let w:m1=matchadd('WideSpace', '　', -1)
- let w:m1=matchadd('Tab', '	', -1)
- let w:m2=matchadd('EOLSpace', '\s\+$', -1)
- let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
- "let w:m4=matchadd('SpaceAndComma', ' ,', -1)
- "let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
- let w:m6=matchadd('Tab', '\t', -1)
+  let w:m1=matchadd('Tab', '	', -1)
+  let w:m1=matchadd('WideSpace', '　', -1)
+  let w:m2=matchadd('EOLSpace', '\s\+$', -1)
+  let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
+  " let w:m4=matchadd('SpaceAndComma', ' ,', -1)
+  " let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
+  let w:m6=matchadd('Tab', '\t', -1)
 endf
+
 call s:highlight_general_checkstyles()
 
-highlight Search guibg='gray'
-syntax match Tab /\t/
-hi Tab gui=underline guifg=blue ctermbg=blue
+" Reload .vimrc immediately
+autocmd bufwritepost .vimrc source %
+
+" -----------------------------------------------------------------------------
+" Language specific settings
+" -----------------------------------------------------------------------------
+
+" Haskell
+" No unicode lambdas etc.
+let g:haskell_conceal = 0
+function! s:haskell()
+  command! Stylish %!stylish-haskell
+endf
+autocmd BufRead,BufNewFile *.hs call s:haskell()
+
+" Markdown
+function! s:markdown()
+  set nonu
+  set laststatus=0
+endf
+autocmd BufRead,BufNewFile *.md call s:markdown()
+
+" HTML
+autocmd BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
+
+" Go
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
+" -----------------------------------------------------------------------------
+" Plugin settings
+" -----------------------------------------------------------------------------
+
+" supertab
+let g:SuperTabContextDefaultCompletionType = '<c-n>'
+
+" expand-regions
+map <C-k> <Plug>(expand_region_expand)
+map <C-j> <Plug>(expand_region_shrink)
 
 " quickrun
 let g:quickrun_config = {}
@@ -247,8 +252,3 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
-
-
-if $GOROOT != ''
-  set rtp+=$GOROOT/misc/vim
-endif
