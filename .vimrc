@@ -162,6 +162,7 @@ if has('gui_running')
   set autoread
   set background=light
   set visualbell
+  set mouse-=a
 endif
 
 " Colors
