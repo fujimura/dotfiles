@@ -19,7 +19,7 @@ bindkey "^r" history-incremental-search-backward
 bindkey -e # Vi keybind on terminal
 
 # Editor
-export EDITOR="mvim --remote-silent"
+export EDITOR="nvim"
 alias vi="$EDITOR"
 alias v='vi'
 alias e='v'
@@ -97,7 +97,6 @@ function hoogle() {
  open "https://www.haskell.org/hoogle/?hoogle=$1"
 }
 
-
 function repo(){
   local result=""
   local choice=""
@@ -132,3 +131,4 @@ function _repo {
 }
 
 compdef _repo repo
+autoload -Uz add-zsh-hook
