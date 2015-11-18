@@ -16,9 +16,11 @@ Plugin 'gmarik/Vundle.vim'
 " Languages
 Plugin 'Twinside/vim-hoogle'
 Plugin 'dag/vim2hs'
+Plugin 'itchyny/vim-haskell-indent'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'juvenn/mustache.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mintplant/vim-literate-coffeescript'
@@ -31,6 +33,9 @@ Plugin 'vim-pandoc/vim-markdownfootnotes'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/bnf.vim'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'eagletmt/ghcmod-vim'
 
 " Vim
 Plugin 'Shougo/vimproc'
@@ -46,6 +51,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tsaleh/vim-align'
 Plugin 'tyru/open-browser.vim'
+
+" NeoVim
+Plugin 'benekastah/neomake'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -100,7 +108,6 @@ set scrolloff=3
 set display=lastline
 
 colorscheme pyte
-set background=light
 
 " -----------------------------------------------------------------------------
 " Remaps
@@ -205,6 +212,7 @@ function! s:haskell()
   command! Stylish %!stylish-haskell
 endf
 autocmd BufRead,BufNewFile *.hs call s:haskell()
+let g:syntastic_haskell_checkers = ['hlint']
 
 " Markdown
 function! s:markdown()
@@ -216,10 +224,19 @@ autocmd BufRead,BufNewFile *.md call s:markdown()
 " HTML
 autocmd BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
 
+" JavaScript
+let g:syntastic_javascript_checkers=['eslint']
+
+au BufNewFile,BufRead *.es6 setf javascript
+autocmd BufRead,BufNewFile *.jsx set filetype=javascript.jsx
+autocmd BufRead,BufNewFile *.jsx.erb set filetype=javascript.jsx
+let g:jsx_ext_required = 0
+
 " Go
 if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
 endif
+
 " -----------------------------------------------------------------------------
 " Plugin settings
 " -----------------------------------------------------------------------------
@@ -253,3 +270,22 @@ let g:ctrlp_user_command = {
     \ },
     \ 'fallback': 'find %s -type f'
 \ }
+
+
+" -----------------------------------------------------------------------------
+" NeoVim settings
+" -----------------------------------------------------------------------------
+
+set timeout
+set timeoutlen=750
+set ttimeoutlen=250
+set mouse = ""
+
+" NeoVim handles ESC keys as alt+key, set this to solve the problem
+if has('nvim')
+  set ttimeout
+  set ttimeoutlen=0
+endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+let g:rehash256 = 1
