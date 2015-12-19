@@ -19,6 +19,7 @@ Plugin 'dag/vim2hs'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
 Plugin 'juvenn/mustache.vim'
@@ -44,7 +45,6 @@ Plugin 'bling/vim-bufferline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'goldfeld/vim-seek'
-Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
 Plugin 'thinca/vim-quickrun'
 Plugin 'tpope/vim-commentary'
@@ -201,6 +201,7 @@ call s:highlight_general_checkstyles()
 " Reload .vimrc immediately
 autocmd bufwritepost .vimrc source %
 
+autocmd! BufWritePost * Neomake
 " -----------------------------------------------------------------------------
 " Language specific settings
 " -----------------------------------------------------------------------------
@@ -224,8 +225,6 @@ autocmd BufRead,BufNewFile *.md call s:markdown()
 " HTML
 autocmd BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
 
-" JavaScript
-let g:syntastic_javascript_checkers=['eslint']
 
 au BufNewFile,BufRead *.es6 setf javascript
 autocmd BufRead,BufNewFile *.jsx set filetype=javascript.jsx
