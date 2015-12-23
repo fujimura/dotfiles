@@ -25,6 +25,7 @@
   rom             = rebase origin/master
   tb              = git-tb
   bk              = git-bk
+  lom             = "!sh -c 'git log --decorate --stat --patch --reverse $(git merge-base --fork-point origin/master)..HEAD'"
 [user]
   name            = Fujimura Daisuke
   email           = me@fujimuradaisuke.com
