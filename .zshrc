@@ -49,10 +49,10 @@ alias b='bundle'
 alias irb='pry'
 
 # Haskell
-alias ce='cabal exec'
-alias c='cabal build'
-alias cr='cabal repl'
-alias ct='cabal test'
+alias ghci='stack ghci'
+alias ghc='stack ghc'
+alias runhaskell='stack runhaskell'
+alias runghc='stack runghc'
 
 # Misc
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
