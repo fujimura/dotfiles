@@ -5,61 +5,52 @@ autocmd!
 " Plugins
 " -----------------------------------------------------------------------------
 
-" Vundle needs this
-filetype off
-
-" Setup Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Languages
-Plugin 'Twinside/vim-hoogle'
-Plugin 'dag/vim2hs'
-Plugin 'itchyny/vim-haskell-indent'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'fatih/vim-go'
-Plugin 'juvenn/mustache.vim'
-Plugin 'nono/vim-handlebars'
-Plugin 'othree/html5.vim'
-Plugin 'raichoo/purescript-vim'
-Plugin 'slim-template/vim-slim'
-Plugin 'tpope/vim-haml'
-Plugin 'vim-pandoc/vim-markdownfootnotes'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'vim-scripts/bnf.vim'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'elixir-lang/vim-elixir'
+Plug 'Twinside/vim-hoogle'
+Plug 'dag/vim2hs'
+Plug 'itchyny/vim-haskell-indent'
+Plug 'digitaltoad/vim-jade'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'fatih/vim-go'
+Plug 'juvenn/mustache.vim'
+Plug 'nono/vim-handlebars'
+Plug 'othree/html5.vim'
+Plug 'raichoo/purescript-vim'
+Plug 'slim-template/vim-slim'
+Plug 'tpope/vim-haml'
+Plug 'vim-pandoc/vim-markdownfootnotes'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/bnf.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'elixir-lang/vim-elixir'
 
 " Vim
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-bufferline'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ervandew/supertab'
-Plugin 'goldfeld/vim-seek'
-Plugin 'terryma/vim-expand-region'
-Plugin 'thinca/vim-quickrun'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-vinegar'
-Plugin 'tsaleh/vim-align'
-Plugin 'tyru/open-browser.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-bufferline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ervandew/supertab'
+Plug 'goldfeld/vim-seek'
+Plug 'terryma/vim-expand-region'
+Plug 'thinca/vim-quickrun'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-vinegar'
+Plug 'tsaleh/vim-align'
+Plug 'tyru/open-browser.vim'
 
 " NeoVim
-Plugin 'benekastah/neomake'
+Plug 'benekastah/neomake'
 
 " Git
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Color
-Plugin 'pyte'
+Plug 'pyte'
 
-" Vundle needs this
-call vundle#end()
-filetype plugin indent on
-syntax on
+call plug#end()
 
 " -----------------------------------------------------------------------------
 " General settings
