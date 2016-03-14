@@ -70,6 +70,7 @@ export NODE_PATH=/usr/local/share/npm/lib/node_modules/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=.cabal-sandbox/bin:$PATH
+export PATH=$PATH:$HOME/.local/bin
 
 # Prompt
 source ~/.prompt.zshrc
