@@ -94,10 +94,6 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-function hoogle() {
- open "https://www.haskell.org/hoogle/?hoogle=$1"
-}
-
 function repo(){
   local result=""
   local choice=""
@@ -144,3 +140,8 @@ if [ -d "$GHC_DOT_APP" ]; then
   export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
 
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt inc_append_history
+setopt share_history
+setopt transient_rprompt
