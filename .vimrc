@@ -41,6 +41,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'tsaleh/vim-align'
 Plug 'tyru/open-browser.vim'
 
+Plug 'janko-m/vim-test'
+
 " NeoVim
 Plug 'benekastah/neomake'
 
@@ -275,3 +277,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 let g:rehash256 = 1
 autocmd BufWritePost package.yaml silent !hpack --silent
+let test#strategy = "neovim"
+
+command T TestNearest
+let g:test#preserve_screen = 1
