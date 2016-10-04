@@ -1,0 +1,5 @@
+#! /usr/bin/env ruby
+
+from, to, path = ARGV
+
+system "rename -p 's/#{from}/#{to}/g' `git ls-files #{path}`"
