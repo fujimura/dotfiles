@@ -13,9 +13,9 @@ precmd () {
   [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 
   # Reset at max
-  if [ $ZSHFG -ge 63 ]
+  if [ $ZSHFG -ge 231 ]
   then
-    ZSHFG=54
+    ZSHFG=220
   fi
 
   # Increment it

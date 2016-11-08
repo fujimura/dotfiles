@@ -27,6 +27,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/bnf.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'SQLUtilities'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -51,6 +52,12 @@ Plug 'tpope/vim-fugitive'
 
 " Color
 Plug 'pyte'
+Plug 'herrbischoff/cobalt2.vim'
+Plug 'marciomazza/vim-brogrammer-theme'
+Plug 'nanotech/jellybeans.vim'
+Plug 'https://gitlab.com/.sexy/solarized-darcula-color-scheme.git'
+Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/seoul256.vim'
 
 call plug#end()
 
@@ -95,7 +102,7 @@ set whichwrap+=h,l
 set scrolloff=3
 set display=lastline
 
-colorscheme pyte
+colorscheme cobalt2
 
 " -----------------------------------------------------------------------------
 " Remaps
@@ -175,7 +182,7 @@ highlight WideEisuu             ctermbg=red guifg=white guibg=red
 highlight WideSpace             ctermbg=red guifg=white guibg=red
 
 function! s:highlight_general_checkstyles()
-  let w:m1=matchadd('Tab', '	', -1)
+""  let w:m1=matchadd('Tab', '	', -1)
   let w:m1=matchadd('WideSpace', '　', -1)
   let w:m2=matchadd('EOLSpace', '\s\+$', -1)
   let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
@@ -203,13 +210,6 @@ endf
 autocmd BufRead,BufNewFile *.hs call s:haskell()
 let g:syntastic_haskell_checkers = ['hlint']
 
-" Markdown
-function! s:markdown()
-  set nonu
-  set laststatus=0
-endf
-autocmd BufRead,BufNewFile *.md call s:markdown()
-
 " HTML
 autocmd BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
 
@@ -218,6 +218,8 @@ au BufNewFile,BufRead *.es6 setf javascript
 autocmd BufRead,BufNewFile *.jsx set filetype=javascript.jsx
 autocmd BufRead,BufNewFile *.jsx.erb set filetype=javascript.jsx
 let g:jsx_ext_required = 0
+
+autocmd BufRead,BufNewFile *.jb set filetype=ruby
 
 " Go
 if $GOROOT != ''
@@ -273,11 +275,18 @@ if has('nvim')
   set ttimeout
   set ttimeoutlen=0
 endif
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-let g:rehash256 = 1
 autocmd BufWritePost package.yaml silent !hpack --silent
 let test#strategy = "neovim"
 
-command T TestNearest
+""command T TestNearest
 let g:test#preserve_screen = 1
+
+""au VimEnter * colorscheme cobalt2
+highlight Normal ctermbg=NONE
+highlight SignColumn ctermbg=NONE
+highlight LineNr ctermfg=235
+highlight EndOfBuffer ctermbg=NONE
+
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste

@@ -1,6 +1,6 @@
 [core]
   pager        = less
-  editor       = vim
+  editor       = nvim
   excludesfile = ~/.gitignore
   quotepath = false
 [color]
@@ -33,3 +33,7 @@
   user            = fujimura
 [push]
   default         = simple
+[diff "exif"]
+  textconv = exiftool
+[merge]
+  tool = vimdiff

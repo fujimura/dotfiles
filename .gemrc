@@ -1,1 +1,2 @@
 gem: --no-rdoc --no-ri
+gemsrc_use_ghq: 1

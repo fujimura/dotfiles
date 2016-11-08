@@ -65,12 +65,16 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=~/.bin:$PATH
+export PATH=~/.local/bin:$PATH
 export PATH=~/Library/Haskell/bin:$PATH
 export NODE_PATH=/usr/local/share/npm/lib/node_modules/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=.cabal-sandbox/bin:$PATH
-export PATH=$PATH:$HOME/.local/bin
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$HOME/.rbenv/shims:$PATH
+export PATH=$(yarn global bin):$PATH
+
 
 # Prompt
 source ~/.prompt.zshrc
@@ -130,9 +134,6 @@ function _repo {
 compdef _repo repo
 autoload -Uz add-zsh-hook
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH=$HOME/.rbenv/shims:$PATH
-
 eval "$(rbenv init -)"
 # Add GHC 7.10.2 to the PATH, via https://ghcformacosx.github.io/
 export GHC_DOT_APP="/Users/fujimura/Downloads/ghc-7.10.2.app"
@@ -144,4 +145,22 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt inc_append_history
 setopt share_history
-setopt transient_rprompt
+
+export GEMSRC_USE_GHQ=1
+export PATH="$HOME/.embulk/bin:$PATH"
+
+# OCaml
+. /Users/fujimura/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# yarn
+export PATH="$HOME/.yarn/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc'
+fi
+
+# # The next line enables shell command completion for gcloud.
+# if [ -f /Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
+#   source '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc'
+# fi
