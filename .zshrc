@@ -155,6 +155,10 @@ export PATH="$HOME/.embulk/bin:$PATH"
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
 
+# Local node modules
+export PATH="$PWD/node_modules/.bin:$PATH"
+
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc ]; then
   source '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc'
