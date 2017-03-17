@@ -19,7 +19,7 @@ bindkey "^r" history-incremental-search-backward
 bindkey -e # Vi keybind on terminal
 
 # Editor
-export EDITOR="nvim"
+export EDITOR="mvim --remote-silent"
 alias vi="$EDITOR"
 alias v='vi'
 alias e='v'
@@ -168,3 +168,4 @@ fi
 # if [ -f /Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
 #   source '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc'
 # fi
+export PATH="$HOME/.embulk/bin:$PATH"

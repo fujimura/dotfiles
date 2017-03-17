@@ -28,6 +28,7 @@ Plug 'vim-scripts/bnf.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'SQLUtilities'
+Plug 'reasonml/vim-reason-loader'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -58,6 +59,10 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'https://gitlab.com/.sexy/solarized-darcula-color-scheme.git'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'atelierbram/vim-colors_atelier-schemes'
+Plug 'reedes/vim-colors-pencil'
 
 call plug#end()
 
@@ -102,7 +107,9 @@ set whichwrap+=h,l
 set scrolloff=3
 set display=lastline
 
+set background=light
 colorscheme cobalt2
+
 
 " -----------------------------------------------------------------------------
 " Remaps
@@ -159,16 +166,16 @@ if has('gui_running')
   set guioptions-=m
   set guioptions-=m
   set guioptions+=R
-  set guifont=Anonymous\ Pro:h16
+  set guifont=Source\ code\ Pro:h16
   set linespace=5
   set autoread
-  set background=light
+" set background=light
   set visualbell
   set mouse-=a
 endif
 
 " Colors
-highlight Cursor guifg=pink guibg=black
+highlight Cursor guifg=black guibg=yellow
 highlight Search guifg=black guibg=gray
 
 " Alerts
@@ -290,3 +297,17 @@ highlight EndOfBuffer ctermbg=NONE
 
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
+
+language C
+noremap : ;
+noremap ; :
+inoremap : ;
+inoremap ; :
+cnoremap : ;
+cnoremap ; :
+vnoremap : ;
+vnoremap ; :
+
+let g:javascript_plugin_flow = 1
+let g:neomake_javascript_enabled_makers = ['flow', 'eslint']
+let g:neomake_jsx_enabled_makers = ['flow', 'eslint']
