@@ -42,6 +42,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tsaleh/vim-align'
 Plug 'tyru/open-browser.vim'
+Plug 'sbdchd/neoformat'
 
 Plug 'janko-m/vim-test'
 
@@ -309,5 +310,8 @@ vnoremap : ;
 vnoremap ; :
 
 let g:javascript_plugin_flow = 1
-let g:neomake_javascript_enabled_makers = ['flow', 'eslint']
-let g:neomake_jsx_enabled_makers = ['flow', 'eslint']
+let g:neomake_javascript_enabled_makers = ['flow']
+let g:neomake_jsx_enabled_makers = ['flow']
+
+autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.jsx Neoformat
