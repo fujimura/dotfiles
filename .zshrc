@@ -86,24 +86,12 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Show as many options as possible in the screen
 export LISTMAX=0
 
-# http://blog.kenjiskywalker.org/blog/2014/06/12/peco/
-
-function peco-select-history() {
-    BUFFER=$(history -n 1 | \
-        eval "tail -r" | \
-        peco --query "$LBUFFER")
-    zle accept-line
-}
-
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
 function repo(){
   local result=""
   local choice=""
   local dest=""
   if [ -z $1 ]; then
-    choice=$(ghq list --unique | peco)
+    choice=$(ghq list --unique | fzf)
     if [ -z $choice ]; then
       echo "No repo was chosen"
     else
