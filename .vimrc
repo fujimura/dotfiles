@@ -44,6 +44,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tsaleh/vim-align'
 Plug 'tyru/open-browser.vim'
 Plug 'sbdchd/neoformat'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'janko-m/vim-test'
 
