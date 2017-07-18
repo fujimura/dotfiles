@@ -29,6 +29,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'SQLUtilities'
 Plug 'reasonml/vim-reason-loader'
+Plug 'junegunn/fzf.vim'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -315,3 +316,4 @@ let g:neomake_jsx_enabled_makers = ['flow']
 
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.jsx Neoformat
+set rtp+=/usr/local/opt/fzf

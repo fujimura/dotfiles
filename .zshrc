@@ -169,3 +169,9 @@ fi
 #   source '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc'
 # fi
 export PATH="$HOME/.embulk/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'
