@@ -154,6 +154,17 @@ inoremap <C-d> <Del>
 inoremap <C-u> <C-o>d0
 inoremap <C-k> <C-o>D
 
+" Emacs keybindings in insert mode
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-e> <End>
+cnoremap <C-a> <Home>
+cnoremap <C-h> <Backspace>
+cnoremap <C-d> <Del>
+cnoremap <C-u> <C-U>
+
 " -----------------------------------------------------------------------------
 " More settings
 " -----------------------------------------------------------------------------
