@@ -186,6 +186,14 @@ if has('gui_running')
 " set background=light
   set visualbell
   set mouse-=a
+  noremap : ;
+  noremap ; :
+  inoremap : ;
+  inoremap ; :
+  cnoremap : ;
+  cnoremap ; :
+  vnoremap : ;
+  vnoremap ; :
 endif
 
 " Colors
@@ -313,14 +321,6 @@ highlight EndOfBuffer ctermbg=NONE
 autocmd InsertLeave * set nopaste
 
 language C
-noremap : ;
-noremap ; :
-inoremap : ;
-inoremap ; :
-cnoremap : ;
-cnoremap ; :
-vnoremap : ;
-vnoremap ; :
 
 let g:javascript_plugin_flow = 1
 let g:neomake_javascript_enabled_makers = ['flow']
