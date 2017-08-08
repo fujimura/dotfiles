@@ -30,6 +30,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'SQLUtilities'
 Plug 'reasonml/vim-reason-loader'
 Plug 'junegunn/fzf.vim'
+Plug 'flowtype/vim-flow'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -45,6 +46,9 @@ Plug 'tsaleh/vim-align'
 Plug 'tyru/open-browser.vim'
 Plug 'sbdchd/neoformat'
 Plug 'editorconfig/editorconfig-vim'
+if has('gui_running')
+  Plug 'Valloric/YouCompleteMe'
+endif
 
 Plug 'janko-m/vim-test'
 
@@ -173,7 +177,6 @@ cnoremap <C-u> <C-U>
 let g:netrw_list_hide='.*\.o$\|.*\.hi$\|^\.DS_Store$'
 set wildignore=*.o,*.hi
 
-" GUI settings
 if has('gui_running')
   set guioptions-=T
   set guioptions+=a
@@ -260,7 +263,7 @@ endif
 " -----------------------------------------------------------------------------
 
 " supertab
-let g:SuperTabContextDefaultCompletionType = '<c-n>'
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " expand-regions
 map <C-k> <Plug>(expand_region_expand)
@@ -325,7 +328,11 @@ language C
 let g:javascript_plugin_flow = 1
 let g:neomake_javascript_enabled_makers = ['flow']
 let g:neomake_jsx_enabled_makers = ['flow']
+let g:flow#autoclose = 1
+
+
 
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.jsx Neoformat
 set rtp+=/usr/local/opt/fzf
+set omnifunc=syntaxcomplete#Complete
