@@ -87,9 +87,6 @@ set incsearch
 set showmatch
 set matchtime=1
 
-" Folding
-set nofoldenable
-
 " Status line
 set showcmd
 set cmdheight=1
