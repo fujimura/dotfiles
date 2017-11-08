@@ -122,13 +122,6 @@ function _repo {
 compdef _repo repo
 autoload -Uz add-zsh-hook
 
-eval "$(rbenv init -)"
-# Add GHC 7.10.2 to the PATH, via https://ghcformacosx.github.io/
-export GHC_DOT_APP="/Users/fujimura/Downloads/ghc-7.10.2.app"
-if [ -d "$GHC_DOT_APP" ]; then
-  export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-fi
-
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt inc_append_history
