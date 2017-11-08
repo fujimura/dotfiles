@@ -328,6 +328,7 @@ let g:neomake_jsx_enabled_makers = ['flow']
 let g:flow#autoclose = 1
 
 
+let g:neoformat_enabled_css = ['prettier']
 
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.jsx Neoformat
