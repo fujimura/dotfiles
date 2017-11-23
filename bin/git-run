@@ -1,0 +1,7 @@
+#! /bin/sh
+
+set -xe
+
+eval $@
+git add .
+git commit -e -v -m "$(echo $@)"

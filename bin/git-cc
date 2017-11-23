@@ -1,0 +1,3 @@
+#! /bin/sh
+
+git cherry-pick $1 && git commit --amend --reset-author -C HEAD
