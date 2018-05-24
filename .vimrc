@@ -23,6 +23,8 @@ Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-haml'
 Plug 'vim-pandoc/vim-markdownfootnotes'
 Plug 'vim-pandoc/vim-pandoc'
+" "Plug 'vim-pandoc/vim-pandoc-syntax'
+" "Plug 'tpope/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/bnf.vim'
 Plug 'ekalinin/Dockerfile.vim'
@@ -31,6 +33,7 @@ Plug 'SQLUtilities'
 Plug 'reasonml/vim-reason-loader'
 Plug 'junegunn/fzf.vim'
 Plug 'flowtype/vim-flow'
+Plug 'reasonml-editor/vim-reason-plus'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -49,11 +52,18 @@ Plug 'editorconfig/editorconfig-vim'
 if has('gui_running')
   Plug 'Valloric/YouCompleteMe'
 endif
+Plug 'mattn/vim-sqlfmt'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 Plug 'janko-m/vim-test'
+Plug 'tpope/vim-surround'
 
 " NeoVim
-Plug 'benekastah/neomake'
+" "Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -110,9 +120,10 @@ set number
 set whichwrap+=h,l
 set scrolloff=3
 set display=lastline
+set hidden
 
 set background=light
-colorscheme cobalt2
+colorscheme Cobalt2
 
 
 " -----------------------------------------------------------------------------
@@ -225,7 +236,8 @@ call s:highlight_general_checkstyles()
 " Reload .vimrc immediately
 autocmd bufwritepost .vimrc source %
 
-autocmd! BufWritePost * Neomake
+" "autocmd! BufWritePost * Neomake
+autocmd! BufWritePost * CtrlPClearAllCaches
 " -----------------------------------------------------------------------------
 " Language specific settings
 " -----------------------------------------------------------------------------
@@ -242,6 +254,8 @@ let g:syntastic_haskell_checkers = ['hlint']
 " HTML
 autocmd BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
 
+" Markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 au BufNewFile,BufRead *.es6 setf javascript
 autocmd BufRead,BufNewFile *.jsx set filetype=javascript.jsx
@@ -323,14 +337,31 @@ autocmd InsertLeave * set nopaste
 language C
 
 let g:javascript_plugin_flow = 1
-let g:neomake_javascript_enabled_makers = ['flow']
-let g:neomake_jsx_enabled_makers = ['flow']
+" let g:neomake_javascript_enabled_makers = ['flow']
+" let g:neomake_jsx_enabled_makers = ['flow']
 let g:flow#autoclose = 1
 
 
 let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_scss = ['prettier']
+let g:neoformat_enabled_haskell = ['hindent']
 
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.jsx Neoformat
+autocmd BufWritePre *.css Neoformat
+autocmd BufWritePre *.scss Neoformat
+autocmd BufWritePre *.hs Neoformat
 set rtp+=/usr/local/opt/fzf
 set omnifunc=syntaxcomplete#Complete
+set conceallevel=0
+set nospell
+
+let g:ale_linters = {
+\   'ruby': ['ruby'],
+\}
+set clipboard=unnamed
+
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['ocaml-language-server', '--stdio'],
+    \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ }

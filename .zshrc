@@ -140,11 +140,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$PWD/node_modules/.bin:$PATH"
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc'
-fi
-
 # # The next line enables shell command completion for gcloud.
 # if [ -f /Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
 #   source '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc'
@@ -156,3 +151,11 @@ export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
       sed s/^..//) 2> /dev/null'
+
+eval "$(rbenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

@@ -27,7 +27,7 @@
   bk              = git-bk
   lom             = "!sh -c 'git log --decorate --stat --patch --reverse $(git merge-base --fork-point origin/master)..HEAD'"
 [user]
-  name            = Fujimura Daisuke
+  name            = Daisuke Fujimura
   email           = me@fujimuradaisuke.com
 [github]
   user            = fujimura
