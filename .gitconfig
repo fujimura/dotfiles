@@ -1,6 +1,6 @@
 [core]
   pager        = less
-  editor       = nvim
+  editor       = vim
   excludesfile = ~/.gitignore
   quotepath = false
 [color]
