@@ -27,6 +27,7 @@ Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-haml'
 Plug 'vim-pandoc/vim-markdownfootnotes'
 Plug 'vim-pandoc/vim-pandoc'
+Plug 'leafgarland/typescript-vim'
 " "Plug 'vim-pandoc/vim-pandoc-syntax'
 " "Plug 'tpope/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
@@ -352,6 +353,8 @@ let g:neoformat_enabled_haskell = ['hindent']
 
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.jsx Neoformat
+autocmd BufWritePre *.ts Neoformat
+autocmd BufWritePre *.tsx Neoformat
 autocmd BufWritePre *.css Neoformat
 autocmd BufWritePre *.scss Neoformat
 autocmd BufWritePre *.hs Neoformat
