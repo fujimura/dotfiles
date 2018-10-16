@@ -154,8 +154,15 @@ export FZF_DEFAULT_COMMAND='
 
 eval "$(rbenv init -)"
 
+source $HOME/.venv/bin/activate
+export PATH="$PWD/.venv/bin:$PATH"
+export PIPENV_VENV_IN_PROJECT=1
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8

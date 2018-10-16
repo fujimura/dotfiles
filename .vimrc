@@ -1,6 +1,10 @@
 " Clear all autocommands
 autocmd!
 
+if has('python3')
+  silent! python3 1
+endif
+
 " -----------------------------------------------------------------------------
 " Plugins
 " -----------------------------------------------------------------------------
@@ -351,6 +355,7 @@ autocmd BufWritePre *.jsx Neoformat
 autocmd BufWritePre *.css Neoformat
 autocmd BufWritePre *.scss Neoformat
 autocmd BufWritePre *.hs Neoformat
+autocmd BufWritePre *.py Neoformat
 set rtp+=/usr/local/opt/fzf
 set omnifunc=syntaxcomplete#Complete
 set conceallevel=0
