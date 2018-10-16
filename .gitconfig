@@ -16,7 +16,7 @@
   l               = log --decorate
   lp              = log --decorate --stat --patch
   ls              = ls-files
-  br              = branch --verbose --verbose --color
+  br              = branch --verbose --verbose --color --sort='-authordate'
   f               = fetch
   g               = grep --line-number --show-function --color --heading --break
   sha             = log --pretty="%H"
