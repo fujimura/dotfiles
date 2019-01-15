@@ -25,11 +25,11 @@ Plug 'othree/html5.vim'
 Plug 'raichoo/purescript-vim'
 Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-haml'
-Plug 'vim-pandoc/vim-markdownfootnotes'
-Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-markdownfootnotes'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'leafgarland/typescript-vim'
-" "Plug 'vim-pandoc/vim-pandoc-syntax'
-" "Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/bnf.vim'
 Plug 'ekalinin/Dockerfile.vim'
@@ -54,9 +54,9 @@ Plug 'tsaleh/vim-align'
 Plug 'tyru/open-browser.vim'
 Plug 'sbdchd/neoformat'
 Plug 'editorconfig/editorconfig-vim'
-if has('gui_running')
-  Plug 'Valloric/YouCompleteMe'
-endif
+Plug 'mbbill/undotree'
+Plug 'Valloric/YouCompleteMe'
+
 Plug 'mattn/vim-sqlfmt'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -261,6 +261,7 @@ autocmd BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setloca
 
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.md set nospell
 
 au BufNewFile,BufRead *.es6 setf javascript
 autocmd BufRead,BufNewFile *.jsx set filetype=javascript.jsx
@@ -348,6 +349,7 @@ let g:flow#autoclose = 1
 
 
 let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_markdown = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_haskell = ['hindent']
 
@@ -373,3 +375,4 @@ let g:LanguageClient_serverCommands = {
     \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ }
+set spelllang+=cjk
