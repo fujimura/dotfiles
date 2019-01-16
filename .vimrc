@@ -186,10 +186,11 @@ cnoremap <C-u> <C-U>
 " More settings
 " -----------------------------------------------------------------------------
 
-" Files to ignore
+" Netrw
 let g:netrw_list_hide='.*\.o$\|.*\.hi$\|^\.DS_Store$'
 set wildignore=*.o,*.hi
 
+" MacVim
 if has('gui_running')
   set guioptions-=T
   set guioptions+=a
@@ -243,6 +244,24 @@ autocmd bufwritepost .vimrc source %
 
 " "autocmd! BufWritePost * Neomake
 autocmd! BufWritePost * CtrlPClearAllCaches
+
+language C
+
+highlight Normal ctermbg=NONE
+highlight SignColumn ctermbg=NONE
+highlight LineNr ctermfg=235
+highlight EndOfBuffer ctermbg=NONE
+
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste
+set omnifunc=syntaxcomplete#Complete
+set conceallevel=0
+set nospell
+
+
+set clipboard=unnamed
+set spelllang+=cjk
+
 " -----------------------------------------------------------------------------
 " Language specific settings
 " -----------------------------------------------------------------------------
@@ -255,6 +274,7 @@ function! s:haskell()
 endf
 autocmd BufRead,BufNewFile *.hs call s:haskell()
 let g:syntastic_haskell_checkers = ['hlint']
+autocmd BufWritePost package.yaml silent !hpack --silent
 
 " HTML
 autocmd BufRead,BufNewFile *.css,*.sass,*.scss,*.html,*.hbs,*.handlebars setlocal iskeyword+=-
@@ -309,45 +329,19 @@ let g:ctrlp_user_command = {
     \ 'fallback': 'find %s -type f'
 \ }
 
-
-" -----------------------------------------------------------------------------
-" NeoVim settings
-" -----------------------------------------------------------------------------
-
-set timeout
-set timeoutlen=750
-set ttimeoutlen=250
-set mouse = ""
-
-" NeoVim handles ESC keys as alt+key, set this to solve the problem
-if has('nvim')
-  set ttimeout
-  set ttimeoutlen=0
-endif
-
-autocmd BufWritePost package.yaml silent !hpack --silent
-let test#strategy = "neovim"
-
-""command T TestNearest
+" vim-test
+let test#strategy = "vimterminal"
+command T TestNearest
 let g:test#preserve_screen = 1
 
-""au VimEnter * colorscheme cobalt2
-highlight Normal ctermbg=NONE
-highlight SignColumn ctermbg=NONE
-highlight LineNr ctermfg=235
-highlight EndOfBuffer ctermbg=NONE
-
-" Turn off paste mode when leaving insert
-autocmd InsertLeave * set nopaste
-
-language C
-
-let g:javascript_plugin_flow = 1
 " let g:neomake_javascript_enabled_makers = ['flow']
 " let g:neomake_jsx_enabled_makers = ['flow']
+
+" vim-flow
+let g:javascript_plugin_flow = 1
 let g:flow#autoclose = 1
 
-
+" Neoformat
 let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_markdown = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
@@ -361,18 +355,17 @@ autocmd BufWritePre *.css Neoformat
 autocmd BufWritePre *.scss Neoformat
 autocmd BufWritePre *.hs Neoformat
 autocmd BufWritePre *.py Neoformat
-set rtp+=/usr/local/opt/fzf
-set omnifunc=syntaxcomplete#Complete
-set conceallevel=0
-set nospell
 
+" ale
 let g:ale_linters = {
 \   'ruby': ['ruby'],
 \}
-set clipboard=unnamed
 
+" lsp
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ }
-set spelllang+=cjk
+
+" fzf
+set rtp+=/usr/local/opt/fzf
