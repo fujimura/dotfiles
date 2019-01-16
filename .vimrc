@@ -64,9 +64,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-surround'
-
-" NeoVim
-" "Plug 'benekastah/neomake'
 Plug 'w0rp/ale'
 
 " Git
@@ -241,7 +238,6 @@ call s:highlight_general_checkstyles()
 " Reload .vimrc immediately
 autocmd bufwritepost .vimrc source %
 
-" "autocmd! BufWritePost * Neomake
 autocmd! BufWritePost * CtrlPClearAllCaches
 
 language C
@@ -332,9 +328,6 @@ let g:ctrlp_user_command = {
 let test#strategy = "vimterminal"
 command T TestNearest
 let g:test#preserve_screen = 1
-
-" let g:neomake_javascript_enabled_makers = ['flow']
-" let g:neomake_jsx_enabled_makers = ['flow']
 
 " vim-flow
 let g:javascript_plugin_flow = 1
