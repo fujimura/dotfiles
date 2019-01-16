@@ -36,7 +36,6 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'SQLUtilities'
 Plug 'reasonml/vim-reason-loader'
-Plug 'junegunn/fzf.vim'
 Plug 'flowtype/vim-flow'
 Plug 'reasonml-editor/vim-reason-plus'
 
@@ -366,6 +365,3 @@ let g:LanguageClient_serverCommands = {
     \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ }
-
-" fzf
-set rtp+=/usr/local/opt/fzf
