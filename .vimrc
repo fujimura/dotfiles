@@ -55,13 +55,11 @@ Plug 'sbdchd/neoformat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mbbill/undotree'
 Plug 'Valloric/YouCompleteMe'
-
 Plug 'mattn/vim-sqlfmt'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
