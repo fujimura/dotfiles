@@ -197,6 +197,7 @@ if has('gui_running')
 " set background=light
   set visualbell
   set mouse-=a
+  set cursorline
   noremap : ;
   noremap ; :
   inoremap : ;
