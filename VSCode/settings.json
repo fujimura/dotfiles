@@ -1,0 +1,13 @@
+{
+  "keyboard.dispatch": "keyCode",
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "Quiet Light",
+  "vim.whichwrap": "h,l,<,>,[,]",
+  "vim.useCtrlKeys": true,
+  "editor.tabSize": 2,
+  "json.format.enable": false,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "workbench.statusBar.visible": true,
+  "workbench.activityBar.visible": false
+}
