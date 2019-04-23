@@ -6,3 +6,5 @@
 codex.tags
 .cabal-sandbox/
 cabal.sandbox.config
+VSCode/globalStorage
+VSCode/workspaceStorage
