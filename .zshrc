@@ -20,8 +20,9 @@ bindkey -e # Vi keybind on terminal
 
 # Editor
 export EDITOR="mvim --remote-silent"
-alias vi="$EDITOR"
-alias v='vi'
+alias editor="$EDITOR"
+alias vi='editor'
+# alias v='vi'
 alias e='v'
 alias vimrc="$EDITOR ~/.vimrc"
 alias zshrc="$EDITOR ~/.zshrc"
@@ -85,6 +86,20 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Show as many options as possible in the screen
 export LISTMAX=0
+
+function v(){
+  if [ -z $1 ]; then
+    local choice=$(fzf)
+    if [ -z $choice ]; then
+    else
+      local cmd="v $choice"
+      print -S $cmd
+      eval $cmd
+    fi
+  else
+    vi $@
+  fi
+}
 
 function repo(){
   local result=""
