@@ -80,8 +80,6 @@ export PATH=$(yarn global bin):$PATH
 # Prompt
 source ~/.prompt.zshrc
 source ~/.zshrc.local
-source ./v.zsh
-source ./repo.zsh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -89,6 +87,54 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Show as many options as possible in the screen
 export LISTMAX=0
 
+function v(){
+  if [ -z $1 ]; then
+    local choice=$(fzf)
+    if [ -z $choice ]; then
+    else
+      local cmd="v $choice"
+      print -S $cmd
+      eval $cmd
+    fi
+  else
+    vi $@
+  fi
+}
+
+function repo(){
+  local result=""
+  local choice=""
+  local dest=""
+  if [ -z $1 ]; then
+    choice=$(ghq list --unique | fzf)
+    if [ -z $choice ]; then
+      echo "No repo was chosen"
+    else
+      result=$choice
+    fi
+  else
+    result=$1
+  fi
+
+  dest=`ghq list --exact --full-path $result`
+
+  if [ "$dest" == "" ] ; then
+    if [ "$1" =~ "^(git|http)" ] ; then
+      ghq get $1
+      return
+    else
+      echo "Not found"
+    fi
+  else
+    cd $dest
+  fi
+}
+
+function _repo {
+  _values $(ghq list --unique)
+}
+
+compdef _repo repo
 autoload -Uz add-zsh-hook
 
 setopt hist_ignore_dups
