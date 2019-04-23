@@ -42,7 +42,8 @@ Plug 'reasonml-editor/vim-reason-plus'
 " Vim
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-bufferline'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'ervandew/supertab'
 Plug 'goldfeld/vim-seek'
 Plug 'terryma/vim-expand-region'
@@ -176,6 +177,7 @@ cnoremap <C-h> <Backspace>
 cnoremap <C-d> <Del>
 cnoremap <C-u> <C-U>
 
+nnoremap <C-p> :FZF<cr>
 " -----------------------------------------------------------------------------
 " More settings
 " -----------------------------------------------------------------------------
@@ -236,8 +238,6 @@ call s:highlight_general_checkstyles()
 
 " Reload .vimrc immediately
 autocmd bufwritepost .vimrc source %
-
-autocmd! BufWritePost * CtrlPClearAllCaches
 
 language C
 
@@ -307,22 +307,6 @@ let g:quickrun_config['pandoc'] = {
     \ 'outputter': 'browser',
     \ 'cmdopt': '-s' }
 
-" ctrlp
-let g:ctrlp_working_path_mode = 2
-nnoremap <silent> <D-t> :CtrlP<CR>
-nnoremap <silent> <D-r> :CtrlPMRU<CR>
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$' }
-
-let g:ctrlp_user_command = {
-    \ 'types': {
-        \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-    \ },
-    \ 'fallback': 'find %s -type f'
-\ }
-
 " vim-test
 let test#strategy = "vimterminal"
 command T TestNearest
@@ -357,3 +341,20 @@ let g:LanguageClient_serverCommands = {
     \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ }
+set rtp+=/usr/local/opt/fzf
+
+" fzf
+ let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
