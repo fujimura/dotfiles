@@ -34,10 +34,11 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/bnf.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elixir-lang/vim-elixir'
-Plug 'SQLUtilities'
 Plug 'reasonml/vim-reason-loader'
 Plug 'flowtype/vim-flow'
 Plug 'reasonml-editor/vim-reason-plus'
+Plug 'posva/vim-vue/'
+Plug 'chr4/nginx.vim'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -69,7 +70,6 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 
 " Color
-Plug 'pyte'
 Plug 'herrbischoff/cobalt2.vim'
 Plug 'marciomazza/vim-brogrammer-theme'
 Plug 'nanotech/jellybeans.vim'
@@ -193,7 +193,7 @@ if has('gui_running')
   set guioptions-=m
   set guioptions-=m
   set guioptions+=R
-  set guifont=Source\ code\ Pro:h16
+  set guifont=SourceCodeVariable-Roman:h18
   set linespace=5
   set autoread
 " set background=light
@@ -321,6 +321,7 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_markdown = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_haskell = ['hindent']
+" let g:neoformat_enabled_python = ['yapf']
 
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.jsx Neoformat
