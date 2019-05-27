@@ -23,10 +23,11 @@
   fu              = fetch upstream
   rum             = rebase upstream/master
   rom             = rebase origin/master
+  rod             = rebase origin/develop
   tb              = git-tb
   bk              = git-bk
   lom             = "!sh -c 'git log --decorate --stat --patch --reverse $(git merge-base --fork-point origin/master)..HEAD'"
-  cb              = "!sh -c \"git fetch && git remote prune origin && git gc && git branch --format='%(refname:short)' --merged master | grep -v master | xargs git branch -d\""
+  cb              = "!sh -c \"git fetch && git remote prune origin && git gc && git branch --format='%(refname:short)' --merged develop | grep -v master | xargs git branch -d\""
 [user]
   name            = Daisuke Fujimura
   email           = me@fujimuradaisuke.com
