@@ -169,7 +169,7 @@ export FZF_DEFAULT_COMMAND='
 
 eval "$(rbenv init -)"
 
-source $HOME/.venv/bin/activate
+# source $HOME/.venv/bin/activate
 export PATH="$PWD/.venv/bin:$PATH"
 export PIPENV_VENV_IN_PROJECT=1
 
@@ -181,3 +181,5 @@ if [ -f '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then 
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+export PATH="$HOME/google-cloud-sdk/bin:$PATH"
