@@ -1,8 +1,20 @@
-#! /usr/bin/env ruby
+#! /usr/bin/env python
 
-branch_name = `git log --pretty="%s" -1`.
-  strip.
-  gsub(/[^a-zA-Z0-9]/, '-').
-  gsub(/--*/, '-').gsub(/^-|-$/, '').downcase
+import subprocess
+import re
 
-`git checkout -b #{branch_name}`
+r = subprocess.run(['git', 'log', '--pretty=%s', '-1'],
+                     capture_output=True,
+                     encoding='utf-8').stdout.strip()
+
+r = re.sub(r'[^a-zA-Z0-9]', '-', r)
+r = re.sub(r'/--*/', '-', r)
+r = re.sub(r'/^-|-$/', '', r)
+
+print(r)
+
+# branch_name = `git log --pretty="%s" -1`.
+#   strip.
+#   gsub(/--*/, '-').gsub(/^-|-$/, '').downcase
+
+# `git checkout -b #{branch_name}`
