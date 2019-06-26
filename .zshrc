@@ -183,3 +183,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
+eval "$(nodenv init -)"
+eval "$(pyenv init -)"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
