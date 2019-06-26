@@ -335,6 +335,7 @@ autocmd BufWritePre *.py Neoformat
 " ale
 let g:ale_linters = {
 \   'ruby': ['ruby'],
+\   'python': ['flake8']
 \}
 
 " lsp
