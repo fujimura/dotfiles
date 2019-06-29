@@ -3,18 +3,12 @@
 import subprocess
 import re
 
-r = subprocess.run(['git', 'log', '--pretty=%s', '-1'],
-                     capture_output=True,
-                     encoding='utf-8').stdout.strip()
+branch_name = subprocess.run(['git', 'log', '--pretty=%s', '-1'],
+                             capture_output=True,
+                             encoding='utf-8').stdout.strip().lower()
 
-r = re.sub(r'[^a-zA-Z0-9]', '-', r)
-r = re.sub(r'/--*/', '-', r)
-r = re.sub(r'/^-|-$/', '', r)
+branch_name = re.sub(r'[^a-zA-Z0-9]', '-', branch_name)
+branch_name = re.sub(r'-+', '-', branch_name)
+branch_name = re.sub(r'^-|-$', '', branch_name)
 
-print(r)
-
-# branch_name = `git log --pretty="%s" -1`.
-#   strip.
-#   gsub(/--*/, '-').gsub(/^-|-$/, '').downcase
-
-# `git checkout -b #{branch_name}`
+subprocess.call(f'git checkout -b {branch_name}', shell=True)
