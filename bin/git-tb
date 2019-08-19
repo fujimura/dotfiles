@@ -2,6 +2,7 @@
 
 import argparse
 import subprocess
+from subprocess import PIPE
 import re
 
 parser = argparse.ArgumentParser(
@@ -9,27 +10,38 @@ parser = argparse.ArgumentParser(
     formatter_class=argparse.RawDescriptionHelpFormatter,
 )
 
-parser.add_argument("-p", "--prefix", required=False, help="Attach given prefix to branch name")
-parser.add_argument("--fix", required=False, help="Attach 'fix/' to branch name")
+parser.add_argument(
+    "-p", "--prefix", required=False, help="Attach given prefix to branch name"
+)
+parser.add_argument(
+    "--fix", required=False, action="store_true", help="Attach 'fix/' to branch name"
+)
 
 args = parser.parse_args()
 
-branch_name = subprocess.run(['git', 'log', '--pretty=%s', '-1'],
-                             capture_output=True,
-                             encoding='utf-8').stdout.strip().lower()
+branch_name = (
+    subprocess.run(
+        ["git", "log", "--pretty=%s", "-1"], stdout=PIPE, stderr=PIPE, encoding="utf-8"
+    )
+    .stdout.strip()
+    .lower()
+)
 
-branch_name = re.sub(r'[^a-zA-Z0-9]', '-', branch_name)
-branch_name = re.sub(r'-+', '-', branch_name)
-branch_name = re.sub(r'^-|-$', '', branch_name)
+branch_name = re.sub(r"[^a-zA-Z0-9]", "-", branch_name)
+branch_name = re.sub(r"-+", "-", branch_name)
+branch_name = re.sub(r"^-|-$", "", branch_name)
 
 prefix = None
 
-if args.prefix is not None and args.fix is not None:
+if args.prefix is not None and args.fix:
     raise NotImplementedError
 
-prefix = args.prefix or args.fix
+if args.fix:
+    prefix = "fix"
+elif args.prefix:
+    prefix = args.prefix
 
 if prefix:
     branch_name = prefix + "/" + branch_name
 
-subprocess.call(f'git checkout -b {branch_name}', shell=True)
+subprocess.call(f"git checkout -b {branch_name}", shell=True)
