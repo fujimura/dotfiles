@@ -321,7 +321,15 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_markdown = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_haskell = ['hindent']
-" let g:neoformat_enabled_python = ['yapf']
+
+let g:neoformat_python_black = {
+            \ 'exe': 'black',
+            \ 'stdin': 1,
+            \ 'args': ['-q', '-', '--config ~/.config/black']
+            \ }
+
+
+let g:neoformat_enabled_python = ['isort', 'black']
 
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.jsx Neoformat
