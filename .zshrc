@@ -55,8 +55,13 @@ alias ghc='stack ghc'
 alias runhaskell='stack runhaskell'
 alias runghc='stack runghc'
 
+
+# Python
+alias py='python3'
+
 # Misc
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
+alias k='kubectl'
 
 # Path
 export PATH="$HOME/.cabal/bin:$PATH"
@@ -168,6 +173,7 @@ export FZF_DEFAULT_COMMAND='
       sed s/^..//) 2> /dev/null'
 
 eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 
 # source $HOME/.venv/bin/activate
 export PATH="$PWD/.venv/bin:$PATH"
@@ -185,5 +191,6 @@ export LANG=en_US.UTF-8
 export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
 eval "$(nodenv init -)"
-eval "$(pyenv init -)"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+. $HOME/.ghcup/env

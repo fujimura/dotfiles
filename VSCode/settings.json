@@ -6,8 +6,11 @@
   "vim.useCtrlKeys": true,
   "editor.tabSize": 2,
   "json.format.enable": false,
-  "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "workbench.statusBar.visible": true,
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": false,
+  "vetur.trace.server": "verbose",
+  "tslint.typeCheck": true,
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true
 }

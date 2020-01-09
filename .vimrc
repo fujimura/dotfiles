@@ -39,6 +39,8 @@ Plug 'flowtype/vim-flow'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'posva/vim-vue/'
 Plug 'chr4/nginx.vim'
+Plug 'keith/swift.vim'
+Plug 'digitaltoad/vim-pug'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -122,7 +124,7 @@ set scrolloff=3
 set display=lastline
 set hidden
 
-set background=light
+set background=dark
 colorscheme Cobalt2
 
 
@@ -231,7 +233,7 @@ function! s:highlight_general_checkstyles()
   let w:m3=matchadd('WideEisuu', '[Ａ-Ｚａ-ｚ０-９]', -1)
   " let w:m4=matchadd('SpaceAndComma', ' ,', -1)
   " let w:m5=matchadd('CommaAndNonSpace', ',[^(\\n| )]', -1)
-  let w:m6=matchadd('Tab', '\t', -1)
+  " let w:m6=matchadd('Tab', '\t', -1)
 endf
 
 call s:highlight_general_checkstyles()
@@ -331,20 +333,25 @@ let g:neoformat_python_black = {
 
 let g:neoformat_enabled_python = ['isort', 'black']
 
-autocmd BufWritePre *.js Neoformat
-autocmd BufWritePre *.jsx Neoformat
-autocmd BufWritePre *.ts Neoformat
+""autocmd BufWritePre *.js Neoformat
+""autocmd BufWritePre *.jsx Neoformat
+""autocmd BufWritePre *.ts Neoformat
 autocmd BufWritePre *.tsx Neoformat
 autocmd BufWritePre *.css Neoformat
 autocmd BufWritePre *.scss Neoformat
 autocmd BufWritePre *.hs Neoformat
 autocmd BufWritePre *.py Neoformat
+""autocmd BufWritePre *.vue Neoformat
 
 " ale
+""let g:ale_linter_aliases = {'vue': 'typescript'}"
 let g:ale_linters = {
 \   'ruby': ['ruby'],
-\   'python': ['flake8']
+\   'python': []
 \}
+
+let b:ale_linter_aliases = ['javascript', 'vue']
+let b:ale_linters = ['eslint', 'vls']
 
 " lsp
 let g:LanguageClient_serverCommands = {
@@ -368,3 +375,15 @@ set rtp+=/usr/local/opt/fzf
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+let _curfile=expand("%:r")
+if _curfile == 'Makefile'
+  set noexpandtab
+endif
+let g:vue_pre_processors = ["typescript"]
+
+autocmd FileType vuejs set filetype=vue
+autocmd FileType vuejs syntax enable
+""autocmd FileType vue syntax sync fromstart
+
+set maxmempattern=5000

@@ -1,0 +1,10 @@
+#! /bin/sh
+
+set -xe
+
+eval $@
+git add .
+git commit -e -v -m "$(echo $@)"
+git log -1 --format="%n# %s%n%H"  >> .git-blame-ignore-revs
+git add .git-blame-ignore-revs
+git commit -m "Update .git-blame-ignore-revs"
