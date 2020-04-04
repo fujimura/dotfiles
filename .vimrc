@@ -344,10 +344,11 @@ autocmd BufWritePre *.py Neoformat
 ""autocmd BufWritePre *.vue Neoformat
 
 " ale
-""let g:ale_linter_aliases = {'vue': 'typescript'}"
+let g:ale_linter_aliases = {'vue': 'typescript'}"
 let g:ale_linters = {
 \   'ruby': ['ruby'],
-\   'python': []
+\   'python': [],
+\   'go': []
 \}
 
 let b:ale_linter_aliases = ['javascript', 'vue']
@@ -387,3 +388,9 @@ autocmd FileType vuejs syntax enable
 ""autocmd FileType vue syntax sync fromstart
 
 set maxmempattern=5000
+
+au FileType go setlocal sw=4 ts=4 sts=4 noet
+au FileType make setlocal sw=4 ts=4 sts=4 noet
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
