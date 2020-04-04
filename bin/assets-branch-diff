@@ -1,0 +1,19 @@
+#! /bin/bash
+
+get_md5 () {
+  git checkout $1 --quiet
+  git clean -df --quiet
+  bundle install --quiet
+  rm -rf public/assets
+  # TODO Stop suppessing stderr
+  bundle exec rake assets:precompile > /dev/null 2>&1
+  local hash=$(cat `find -L -E public/assets -regex  '.*\.(css|js)$'` | md5)
+  echo -e "$1\t$hash"
+}
+
+CURRENT=`git symbolic-ref --short HEAD`
+for branch in "$@"
+do
+  get_md5 $branch
+done
+git checkout $CURRENT --quiet
