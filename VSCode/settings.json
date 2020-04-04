@@ -12,5 +12,8 @@
   "vetur.trace.server": "verbose",
   "tslint.typeCheck": true,
   "editor.formatOnSave": true,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
