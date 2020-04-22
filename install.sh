@@ -3,9 +3,10 @@
 set -x
 
 mkdir -p ~/.bin
-ln -s "$PWD"/bin/git-bk ~/.bin/
-ln -s "$PWD"/bin/git-run ~/.bin/
-ln -s "$PWD"/bin/git-tb ~/.bin/
+for f in $(git ls-files bin)
+do
+  ln -s "$PWD"/$f ~/.bin/
+done
 ln -s "$PWD"/.gemrc ~/
 ln -s "$PWD"/.gitconfig ~/
 ln -s "$PWD"/.gitignore ~/
