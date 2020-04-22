@@ -1,0 +1,8 @@
+#! /bin/sh
+
+FILE=$1
+
+NAME="${FILE%%.*}"
+EXT="${FILE##*.}"
+
+cp $FILE $NAME.`git rev-parse --abbrev-ref HEAD`_`git log --pretty="%H" -1`.$EXT
