@@ -32,7 +32,10 @@ alias initel="$EDITOR ~/.emacs.d/init.el"
 alias lv='lv -c'
 alias t='tmux'
 alias grep='grep --color=auto'
-alias browse='hub browse'
+alias browse='gh pr view -w || gh repo view -w'
+function co(){
+  git switch $(git for-each-ref --format='%(refname:short)' | fzf)
+}
 
 # Git
 alias g='git'
