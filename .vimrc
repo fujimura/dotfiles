@@ -41,6 +41,7 @@ Plug 'posva/vim-vue/'
 Plug 'chr4/nginx.vim'
 Plug 'keith/swift.vim'
 Plug 'digitaltoad/vim-pug'
+Plug 'pocke/rbs.vim'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -58,7 +59,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'sbdchd/neoformat'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mbbill/undotree'
-Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/vim-sqlfmt'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -82,6 +83,9 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'atelierbram/vim-colors_atelier-schemes'
 Plug 'reedes/vim-colors-pencil'
+
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
 
 call plug#end()
 
@@ -216,7 +220,7 @@ endif
 highlight Cursor guifg=black guibg=yellow
 highlight Search guifg=black guibg=gray
 
-" Alerts
+" ulerts
 highlight CommaAndNonSpace      ctermbg=red guifg=white guibg=red
 highlight EOLSpace              ctermbg=red guifg=white guibg=red
 highlight HashRocketAndNonSpace ctermbg=red guifg=white guibg=red
@@ -269,7 +273,6 @@ function! s:haskell()
   command! Stylish %!stylish-haskell
 endf
 autocmd BufRead,BufNewFile *.hs call s:haskell()
-let g:syntastic_haskell_checkers = ['hlint']
 autocmd BufWritePost package.yaml silent !hpack --silent
 
 " HTML
@@ -320,8 +323,12 @@ let g:flow#autoclose = 1
 
 " Neoformat
 let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_typescriptreact = ['prettier']
 let g:neoformat_enabled_markdown = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
+let g:neoformat_enabled_vue = ['prettier']
 let g:neoformat_enabled_haskell = ['hindent']
 
 let g:neoformat_python_black = {
@@ -333,26 +340,28 @@ let g:neoformat_python_black = {
 
 let g:neoformat_enabled_python = ['isort', 'black']
 
-""autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.js Neoformat
 ""autocmd BufWritePre *.jsx Neoformat
-""autocmd BufWritePre *.ts Neoformat
+autocmd BufWritePre *.ts Neoformat
 autocmd BufWritePre *.tsx Neoformat
 autocmd BufWritePre *.css Neoformat
 autocmd BufWritePre *.scss Neoformat
 autocmd BufWritePre *.hs Neoformat
+autocmd BufWritePre *.cabal Neoformat
 autocmd BufWritePre *.py Neoformat
-""autocmd BufWritePre *.vue Neoformat
+autocmd BufWritePre *.vue Neoformat
 
 " ale
-let g:ale_linter_aliases = {'vue': 'typescript'}"
 let g:ale_linters = {
-\   'ruby': ['ruby'],
+\   'ruby': ['ruby', 'rubocop'],
 \   'python': [],
+\   'typescript': ['prettier'],
+\   'typescriptreact': ['prettier', 'typecheck', 'tsserver'],
+\   'jsx': ['prettier'],
+\   'tsx': ['prettier'],
 \   'go': []
 \}
 
-let b:ale_linter_aliases = ['javascript', 'vue']
-let b:ale_linters = ['eslint', 'vls']
 
 " lsp
 let g:LanguageClient_serverCommands = {
@@ -394,3 +403,5 @@ au FileType make setlocal sw=4 ts=4 sts=4 noet
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+
+" set foldmethod=syntax
