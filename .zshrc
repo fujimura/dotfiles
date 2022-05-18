@@ -32,7 +32,19 @@ alias initel="$EDITOR ~/.emacs.d/init.el"
 alias lv='lv -c'
 alias t='tmux'
 alias grep='grep --color=auto'
-alias browse='gh pr view -w || gh repo view -w'
+function _browse(){
+  if [ -z $1 ]; then
+    gh pr view -w || gh repo view -w
+  else
+    local url=$(gh repo view -q ".url" --json name,url)
+    if [ -z $url ]; then
+      echo "No repo found here"
+    else
+      open "$url/commit/$1"
+    fi
+  fi
+}
+alias browse='_browse'
 function co(){
   git switch $(git for-each-ref --format='%(refname:short)' | fzf)
 }
@@ -40,7 +52,8 @@ function co(){
 # Git
 alias g='git'
 alias s='git s'
-alias m='git checkout master'
+alias m='git checkout master || git checkout main'
+alias dev='git checkout develop'
 alias d='git d'
 function g(){hub "$@"}
 
@@ -54,9 +67,6 @@ alias irb='pry'
 
 # Haskell
 alias ghci='stack ghci'
-alias ghc='stack ghc'
-alias runhaskell='stack runhaskell'
-alias runghc='stack runghc'
 
 
 # Python
@@ -65,6 +75,7 @@ alias py='python3'
 # Misc
 alias color='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
 alias k='kubectl'
+#'alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
 
 # Path
 export PATH="$HOME/.cabal/bin:$PATH"
@@ -77,13 +88,13 @@ export PATH=~/.bin:$PATH
 export PATH=~/.local/bin:$PATH
 export PATH=~/Library/Haskell/bin:$PATH
 export NODE_PATH=/usr/local/share/npm/lib/node_modules/
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 export PATH=.cabal-sandbox/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=$(yarn global bin):$PATH
-
+export PATH="$HOME/Library/Python/3.8/bin":$PATH
+export PERL_CPANM_OPT="--local-lib=~/local/lib/perl5"
+export PERL5LIB=$HOME/local/lib/perl5/lib/perl5:$PERL5LIB;
 
 # Prompt
 source ~/.prompt.zshrc
@@ -143,6 +154,8 @@ function _repo {
 }
 
 compdef _repo repo
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 autoload -Uz add-zsh-hook
 
 setopt hist_ignore_dups
@@ -163,6 +176,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$PWD/node_modules/.bin:$PATH"
 
 
+export PATH="$HOME/go/bin:$PATH"
 # # The next line enables shell command completion for gcloud.
 # if [ -f /Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
 #   source '/Users/fujimura/Downloads/google-cloud-sdk/completion.zsh.inc'
@@ -179,8 +193,8 @@ eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
 # source $HOME/.venv/bin/activate
-export PATH="$PWD/.venv/bin:$PATH"
-export PIPENV_VENV_IN_PROJECT=1
+# export PATH="$PWD/.venv/bin:$PATH"
+# export PIPENV_VENV_IN_PROJECT=1
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/fujimura/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -197,3 +211,8 @@ eval "$(nodenv init -)"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 . $HOME/.ghcup/env
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
+source $HOME/.cargo/env
+# eval "$(direnv hook zsh)"
+export GOPATH=$HOME/go
