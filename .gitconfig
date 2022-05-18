@@ -40,3 +40,9 @@
   tool = vimdiff
 [diff]
 	algorithm = patience
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
