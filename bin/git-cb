@@ -4,5 +4,5 @@ set -xe
 
 git fetch
 git remote prune origin
-git gc
 git branch --format='%(refname:short)' --merged $(git rev-parse --abbrev-ref HEAD) | grep -v "^\(master\|develop\)$" | xargs git branch -d
+git gc
