@@ -14,7 +14,7 @@
   co              = checkout
   ad              = add
   l               = log --decorate
-  lp              = log --decorate --stat --patch
+  lp              = log --decorate --stat --patch --ignore-all-space
   ls              = ls-files
   br              = branch --verbose --verbose --color --sort='-authordate'
   f               = fetch

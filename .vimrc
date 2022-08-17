@@ -42,6 +42,7 @@ Plug 'chr4/nginx.vim'
 Plug 'keith/swift.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'pocke/rbs.vim'
+Plug 'jparise/vim-graphql'
 
 " Vim
 Plug 'airblade/vim-gitgutter'
@@ -299,7 +300,7 @@ endif
 " -----------------------------------------------------------------------------
 
 " supertab
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "<C-X><C-N>"
 
 " expand-regions
 map <C-k> <Plug>(expand_region_expand)

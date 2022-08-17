@@ -4,7 +4,8 @@ zstyle ':vcs_info:*' formats '%b'
 zstyle ':vcs_info:*' actionformats '%b|%a'
 
 # Set initial color
-ZSHFG=`expr $RANDOM / 128`
+# ZSHFG=`expr $RANDOM / 128`
+ZSHFG=$((196 + ($RANDOM % 20)))
 precmd () {
 
   # Set git info into 1v
@@ -13,9 +14,9 @@ precmd () {
   [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 
   # Reset at max
-  if [ $ZSHFG -ge 231 ]
+  if [ $ZSHFG -ge 216 ]
   then
-    ZSHFG=220
+    ZSHFG=196
   fi
 
   # Increment it
