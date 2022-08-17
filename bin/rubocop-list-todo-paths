@@ -1,0 +1,18 @@
+#! /usr/bin/env ruby
+
+require 'yaml'
+
+all_todos = YAML.load_file('.rubocop_todo.yml')
+
+todos = case ARGV.first
+        when nil
+          all_todos
+        when '0'..'100'
+          all_todos.to_a.values_at(*ARGV.map { _1.to_i }).to_h
+        when String
+          all_todos.slice(*ARGV)
+        else
+          raise NotImplementederror
+        end
+
+puts todos.values.map { _1.dig('Exclude') }.flatten.compact.join(' ')
