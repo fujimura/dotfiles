@@ -22,7 +22,7 @@
   sha             = log --pretty="%H"
   fu              = fetch upstream
   rum             = rebase upstream/master
-  rom             = rebase origin/master
+  rom             = "!sh -c \"git rebase $(git symbolic-ref refs/remotes/origin/HEAD)\""
   rod             = rebase origin/develop
   tb              = git-tb
   bk              = git-bk
