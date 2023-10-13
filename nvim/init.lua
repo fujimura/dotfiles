@@ -36,6 +36,10 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
+	{
+		"github/copilot.vim",
+		lazy = false,
+	},
 })
 
 require("colorbuddy").colorscheme("cobalt2")
