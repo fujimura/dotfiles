@@ -19,14 +19,15 @@ bindkey "^R" fzf-file-widget
 bindkey -e # Vi keybind on terminal
 
 # Editor
-export EDITOR="mvim --remote-silent"
+export EDITOR="vimr --nvim"
 alias editor="$EDITOR"
 alias vi='editor'
 # alias v='vi'
 alias e='v'
-alias vimrc="$EDITOR ~/.vimrc"
+alias vimrc="$EDITOR ~/.config/nvim/init.lua"
 alias zshrc="$EDITOR ~/.zshrc"
 alias initel="$EDITOR ~/.emacs.d/init.el"
+alias up='docker-compose up'
 
 # Unix commands
 alias lv='lv -c'
@@ -49,10 +50,17 @@ function co(){
   git switch $(git for-each-ref --format='%(refname:short)' | fzf)
 }
 
+function ch(){
+  history -n -r -100 | fzf | perl -pe 'chomp' | git commit -F -
+}
+
 # Git
 alias g='git'
 alias s='git s'
-alias m='git checkout master || git checkout main'
+function m() {
+  local main_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+  git checkout $main_branch
+}
 alias dev='git checkout develop'
 alias d='git d'
 function g(){hub "$@"}
@@ -63,7 +71,6 @@ alias r='repo'
 alias be='bundle exec'
 alias bes='bundle exec spring'
 alias b='bundle'
-alias irb='pry'
 
 # Haskell
 alias ghci='stack ghci'
@@ -116,7 +123,7 @@ function v(){
       eval $cmd
     fi
   else
-    vi $@
+    vimr --nvim $@
   fi
 }
 
@@ -184,11 +191,12 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.embulk/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='
-  (git ls-tree -r --name-only HEAD ||
-   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-      sed s/^..//) 2> /dev/null'
+# export FZF_DEFAULT_COMMAND='
+#   (git ls-tree -r --name-only HEAD ||
+#    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+#       sed s/^..//) 2> /dev/null'
 
+export FZF_DEFAULT_COMMAND='git ls-files'
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
@@ -214,5 +222,5 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
 source $HOME/.cargo/env
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 export GOPATH=$HOME/go
