@@ -40,6 +40,13 @@ require("lazy").setup({
 		"github/copilot.vim",
 		lazy = false,
 	},
+	{
+		"neovim/nvim-lspconfig",
+	},
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+	{ "mfussenegger/nvim-dap" },
+	{ "leoluz/nvim-dap-go" },
 })
 
 require("colorbuddy").colorscheme("cobalt2")
@@ -53,6 +60,41 @@ require("conform").setup({
 		lsp_fallback = true,
 	},
 })
+
+local dap = require("dap")
+dap.adapters.delve = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = "dlv",
+		args = { "dap", "-l", "127.0.0.1:${port}" },
+	},
+}
+
+-- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
+dap.configurations.go = {
+	{
+		type = "delve",
+		name = "Debug",
+		request = "launch",
+		program = "${file}",
+	},
+	{
+		type = "delve",
+		name = "Debug test", -- configuration for debugging test files
+		request = "launch",
+		mode = "test",
+		program = "${file}",
+	},
+	-- works with go.mod packages and sub packages
+	{
+		type = "delve",
+		name = "Debug test (go.mod)",
+		request = "launch",
+		mode = "test",
+		program = "./${relativeFileDirname}",
+	},
+}
 
 local function setup_config()
 	-- Auto close pairs
@@ -110,6 +152,28 @@ local function setup_config()
 	-- FZF binding
 	vim.api.nvim_set_keymap("n", "<C-p>", ":FZF<cr>", { noremap = true, silent = true })
 
+	local set_keymap = vim.api.nvim_set_keymap
+
+	local opts = { noremap = true, silent = true }
+
+	-- Terminal mode mappings
+	set_keymap("t", "<A-h>", "<C-\\><C-N><C-w>h", opts)
+	set_keymap("t", "<A-j>", "<C-\\><C-N><C-w>j", opts)
+	set_keymap("t", "<A-k>", "<C-\\><C-N><C-w>k", opts)
+	set_keymap("t", "<A-l>", "<C-\\><C-N><C-w>l", opts)
+
+	-- Insert mode mappings
+	set_keymap("i", "<A-h>", "<C-\\><C-N><C-w>h", opts)
+	set_keymap("i", "<A-j>", "<C-\\><C-N><C-w>j", opts)
+	set_keymap("i", "<A-k>", "<C-\\><C-N><C-w>k", opts)
+	set_keymap("i", "<A-l>", "<C-\\><C-N><C-w>l", opts)
+
+	-- Normal mode mappings
+	set_keymap("n", "<A-h>", "<C-w>h", opts)
+	set_keymap("n", "<A-j>", "<C-w>j", opts)
+	set_keymap("n", "<A-k>", "<C-w>k", opts)
+	set_keymap("n", "<A-l>", "<C-w>l", opts)
+
 	-- Search Settings
 	vim.opt.hlsearch = true
 	vim.opt.ignorecase = true
@@ -137,7 +201,7 @@ local function setup_config()
 
 	-- Miscellaneous Settings
 	vim.opt.backup = false
-	--vim.opt.swap = false
+	vim.opt.swapfile = false
 	vim.opt.title = true
 	vim.opt.number = true
 	vim.opt.whichwrap:append("h,l")
@@ -190,3 +254,42 @@ local function setup_config()
 end
 
 setup_config()
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+vim.cmd("source ~/.config/nvim/characterspacing.vim")
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		-- Enable completion triggered by <c-x><c-o>
+		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local opts = { buffer = ev.buf }
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+		vim.keymap.set("n", "<space>wl", function()
+			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		end, opts)
+		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+		vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "<space>f", function()
+			vim.lsp.buf.format({ async = true })
+		end, opts)
+	end,
+})
+
+local lspconfig = require("lspconfig")
+lspconfig.gopls.setup({})
+lspconfig.lua_ls.setup({})
+
+vim.cmd([[ command! NeotestRun :lua require('neotest').run.run() ]])
