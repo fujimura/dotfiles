@@ -19,7 +19,7 @@ bindkey "^R" fzf-file-widget
 bindkey -e # Vi keybind on terminal
 
 # Editor
-export EDITOR="vimr --nvim"
+export EDITOR="nvim"
 alias editor="$EDITOR"
 alias vi='editor'
 # alias v='vi'
@@ -123,7 +123,7 @@ function v(){
       eval $cmd
     fi
   else
-    vimr --nvim $@
+    nvim $@
   fi
 }
 

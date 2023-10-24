@@ -16,5 +16,4 @@ ln -s "$PWD"/.tigrc ~/
 ln -s "$PWD"/.tmux.conf ~/
 ln -s "$PWD"/.zshenv ~/
 ln -s "$PWD"/.prompt.zshrc ~/
-ln -s "$PWD"/VSCode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s "$PWD"/VSCode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+ln -s "$PWD"/neovim/init.lua ~/.config/nvim/init.lua
