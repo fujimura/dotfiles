@@ -42,11 +42,24 @@ require("lazy").setup({
 	},
 	{
 		"neovim/nvim-lspconfig",
+		config = function()
+			vim.diagnostic.config({
+				virtual_text = false,
+				signs = true,
+				underline = true,
+				update_in_insert = true,
+			})
+		end,
 	},
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "mfussenegger/nvim-dap" },
 	{ "leoluz/nvim-dap-go" },
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = { position = "right", mode = "document_diagnostics", auto_open = true },
+	},
 })
 
 require("colorbuddy").colorscheme("cobalt2")
@@ -126,6 +139,7 @@ local function setup_config()
 
 	-- Search with /
 	vim.api.nvim_set_keymap("n", "<space>", "/", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("n", "-", ":Explore<cr>", { noremap = true, silent = true })
 
 	-- Emacs keybindings in insert mode and command mode
 	local emacs_keys = {
@@ -148,6 +162,8 @@ local function setup_config()
 	vim.api.nvim_set_keymap("i", "<C-u>", "<C-o>d0", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap("i", "<C-k>", "<C-o>D", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap("c", "<C-u>", "<C-U>", { noremap = true, silent = true })
+
+	vim.api.nvim_set_keymap("i", "<Tab>", "<C-x><C-o>", { noremap = true, silent = true })
 
 	-- FZF binding
 	vim.api.nvim_set_keymap("n", "<C-p>", ":FZF<cr>", { noremap = true, silent = true })
@@ -193,7 +209,7 @@ local function setup_config()
 
 	-- Tab and Indentation Settings
 	vim.opt.softtabstop = 2
-	-- vim.opt.tabstop = 2  -- Commented out in the original, so it's commented here too.
+	-- vim.opt.tabstop = 2 -- Commented out in the original, so it's commented here too.
 	vim.opt.shiftwidth = 2
 	vim.opt.smartindent = true
 	vim.opt.autoindent = true
@@ -289,7 +305,40 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local lspconfig = require("lspconfig")
-lspconfig.gopls.setup({})
+local gopls_on_attach = function(client, bufnr)
+	-- Enable completion triggered by <c-x><c-o>
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+end
+lspconfig.gopls.setup({
+	on_attach = gopls_on_attach,
+})
 lspconfig.lua_ls.setup({})
-
+lspconfig.tsserver.setup({})
 vim.cmd([[ command! NeotestRun :lua require('neotest').run.run() ]])
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.go",
+	callback = function()
+		local params = vim.lsp.util.make_range_params()
+		params.context = { only = { "source.organizeImports" } }
+		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+		for cid, res in pairs(result or {}) do
+			for _, r in pairs(res.result or {}) do
+				if r.edit then
+					local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+					vim.lsp.util.apply_workspace_edit(r.edit, enc)
+				end
+			end
+		end
+		vim.lsp.buf.format({ async = false })
+	end,
+})
+local function on_cursor_hold()
+	if vim.lsp.buf.server_ready() then
+		vim.diagnostic.open_float()
+	end
+end
+
+local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
+vim.api.nvim_set_option("updatetime", 500)
+vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
