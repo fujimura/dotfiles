@@ -58,8 +58,9 @@ require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = { position = "right", mode = "document_diagnostics", auto_open = true },
+		config = { position = "top", mode = "document_diagnostics", auto_open = true, auto_close = true },
 	},
+	{ "lewis6991/gitsigns.nvim" },
 })
 
 require("colorbuddy").colorscheme("cobalt2")
@@ -342,3 +343,4 @@ local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
 vim.api.nvim_set_option("updatetime", 500)
 vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
 vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
+require("gitsigns").setup()
