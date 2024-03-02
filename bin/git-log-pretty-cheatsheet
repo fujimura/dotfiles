@@ -26,7 +26,7 @@ pretty_format += DATA.each_line
   .map { _1.map &:strip }
   .reject { _1.first =~ /^%G./ } # Some may not configure GPG
   .map { "#{magenta "%" +_1}\t#{cyan _1}\t#{_2}\n" }
-  .map { _1 }.join
+  .join
 
 system('git', 'log', '--pretty=format:' + pretty_format)
 
