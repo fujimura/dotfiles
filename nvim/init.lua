@@ -61,6 +61,11 @@ require("lazy").setup({
 		config = { position = "top", mode = "document_diagnostics", auto_open = true, auto_close = true },
 	},
 	{ "lewis6991/gitsigns.nvim" },
+	{
+		"mrcjkb/haskell-tools.nvim",
+		version = "^3", -- Recommended
+		ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+	},
 })
 
 require("colorbuddy").colorscheme("cobalt2")
