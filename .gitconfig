@@ -27,7 +27,7 @@
   tb              = git-tb
   bk              = git-bk
   lom             = "!sh -c 'git log --decorate --stat --patch --reverse $(git merge-base --fork-point origin/master)..HEAD'"
-  log-pretty-cheatsheet = "!sh -c 'git-log-pretty-cheatsheet'"
+  log-pretty-cheatsheet = git-log-pretty-cheatsheet
 [user]
   name            = Daisuke Fujimura
   email           = me@fujimuradaisuke.com
