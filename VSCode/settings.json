@@ -1,19 +1,43 @@
 {
-  "keyboard.dispatch": "keyCode",
-  "window.zoomLevel": 1,
-  "workbench.colorTheme": "Quiet Light",
-  "vim.whichwrap": "h,l,<,>,[,]",
-  "vim.useCtrlKeys": true,
-  "editor.tabSize": 2,
-  "json.format.enable": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "SourceCodePro-Regular",
+  "editor.fontSize": 14,
+  "editor.guides.indentation": false,
   "editor.minimap.enabled": false,
-  "workbench.statusBar.visible": true,
-  "workbench.activityBar.visible": false,
-  "vetur.trace.server": "verbose",
-  "tslint.typeCheck": true,
-  "editor.formatOnSave": true,
+  "editor.quickSuggestions": {
+    "comments": "on",
+    "strings": "on",
+    "other": "on"
+  },
+  "editor.wordWrap": "on",
   "eslint.autoFixOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+  "haskell.manageHLS": "GHCup",
+  "javascript.suggest.completeFunctionCalls": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "typescript.suggest.completeFunctionCalls": true,
+  "vim.useCtrlKeys": true,
+  "vim.whichwrap": "h,l,<,>,[,]",
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Cobalt2",
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "workbench.statusBar.visible": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "go.toolsManagement.autoUpdate": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "editor.tabSize": 2,
+  "ocaml.useOcamlEnv": false,
+  "files.hotExit": "off",
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "git.openRepositoryInParentFolders": "always",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "vim.foldfix": true,
+  "dotfiles.repository": "https://github.com/fujimura/dotfiles.git",
+  "dotfiles.targetPath": "~/dotfiles",
+  "dotfiles.installCommand": "install.sh"
 }
