@@ -28,6 +28,7 @@
   bk              = git-bk
   lom             = "!sh -c 'git log --decorate --stat --patch --reverse $(git merge-base --fork-point origin/master)..HEAD'"
   log-pretty-cheatsheet = git-log-pretty-cheatsheet
+  commit-list     = "!sh -c \"git log --oneline --reverse $(git symbolic-ref refs/remotes/origin/HEAD)..HEAD --pretty='- %h %s'\""
 [user]
   name            = Daisuke Fujimura
   email           = me@fujimuradaisuke.com
