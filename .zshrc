@@ -51,7 +51,7 @@ function co(){
 }
 
 function ch(){
-  history -n -r -100 | fzf | perl -pe 'chomp' | git commit -F -
+  history -n -r -100 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]|\n]*$//' | fzf | git commit -F -
 }
 
 # Git
